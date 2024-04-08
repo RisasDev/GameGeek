@@ -28,9 +28,13 @@
 # Contacto
 - Te lleva al footer
 
+# Registro
+- Te lleva a la página de registro
+
 # Referencias
 - Navbar (https://geekz.cl/)
 - Carrusel (https://geekz.cl/)
 - Categorias (https://www.frikiados.cl/)
 - Lo más vendido (https://www.frikiados.cl/)
 - Footer (https://geekz.cl/, https://kiwiiregalos.cl/)
+- Registro (https://www.pcfactory.cl/registro)
