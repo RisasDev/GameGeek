@@ -1,0 +1,16 @@
+.bg-yellow {
+    background-color: #FFB600;
+}
+
+.border-circle {
+    border-radius: 50px;
+}
+
+footer {
+    background-color: #FFB600;
+    color: black;
+    padding: 20px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
