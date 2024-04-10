@@ -6,6 +6,7 @@
 
 .icon-size {
     font-size: 35px;
+    color: black;
 }
 
 .bg-yellow {
@@ -82,12 +83,14 @@ main {
 }
 
 .footer-section {
-    display: inline-block;
-    margin: 0 20px;
+    display: inline-table;
+    margin: 0 40px;
+    text-align: left;
 }
 
 .footer-section h4 {
     margin-bottom: 10px;
+    justify-content: center;
 }
 
 .footer-section ul {
