@@ -18,6 +18,17 @@ section {
     padding: 30px 0;
 }
 
+.navbar-icons {
+    display: inline-flex;
+    margin-left: 30px;
+    justify-content: center;
+    flex: 0;
+}
+
+.navbar-search-icon{
+    margin-left: 500px;
+}
+
 .icon-size {
     font-size: 35px;
     color: black;
