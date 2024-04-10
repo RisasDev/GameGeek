@@ -12,8 +12,10 @@
     <header>
         <!-- Inicio Navbar -->
         <nav class="navbar navbar-expand-lg bg-yellow">
+          <!-- Div para el responsive -->
+
             <div class="container-fluid">
-              <img src="../images/gamegeek/gg-n-normal.svg"width="200px" height="45px" alt="GameGeek">
+              <a href="index.html"><img src="../images/gamegeek/gg-n-normal.svg"width="200px" height="45px" alt="GameGeek"></a>
               <button
                 class="navbar-toggler"
                 type="button"
@@ -25,11 +27,16 @@
                 <span class="navbar-toggler-icon"></span>
               </button>
 
+              <!-- Div de los items del navbar -->
               <div class="collapse justify-content-between navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mb-2 mb-lg-0">
+
+                  <!-- Inicio Item -->
                   <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="#">Inicio</a>
                   </li>
+
+                  <!-- Productos Item-->
                   <li class="nav-item dropdown">
                     <a
                       class="nav-link dropdown-toggle"
@@ -39,49 +46,45 @@
                       aria-expanded="false">Productos
                     </a>
                     <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="Pines.html">Pines</a></li>
-                      <li><a class="dropdown-item" href="Peluches.html">Peluches</a></li>
-                      <li><a class="dropdown-item" href="Figuras.html">Figuras</a></li>
+                      <li><a class="dropdown-item" href="pines.html">Pines</a></li>
+                      <li><a class="dropdown-item" href="peluches.html">Peluches</a></li>
+                      <li><a class="dropdown-item" href="figuras.html">Figuras</a></li>
                     </ul>
                   </li>
+
+                  <!-- Despacho Item-->
                   <li class="nav-item">
                     <a class="nav-link" href="despacho.html">Despacho</a>
                   </li>
+
+                  <!-- Contacto Item-->
                   <li class="nav-item">
-                    <a class="nav-link" href="#">Contacto</a>
+                    <a class="nav-link" href="#footer-section">Contacto</a>
                   </li>
                 </ul>
+
+                <!-- Buscar Item-->
                 <div class="navbar-search-icon">
                   <form class="form-inline my-2 my-lg-0">
                     <input class="form-control mr-sm-2" type="Buscar" placeholder="Buscar" aria-label="Buscar">
-                  </form>  
+                  </form>
                 </div>
-                <div class="navbar-icons">
-                  <a href="https://www.instagram.com/" target="_blank">
-                    <i class="bi bi-cart icon-size"></i>
-                  </a>
-              </div>
-              <div class="navbar-icons">
-                <a href="https://www.tiktok.com/es/" target="_blank">
-                  <i class="bi bi-person icon-size"></i>
-                </a>
-              </div>
-              <ul style="list-style: none;" class="mb-0">
-                <li class="nav-item dropdown">
-                  <a
-                    class="nav-link dropdown-toggle"
-                    href="#"
-                    role="button"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"><i class="bi bi-sun icon-size"></i>
-                  </a>
-                  <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#"><i class="bi bi-sun icon-size"></i>Light</a></li>
-                    <li><a class="dropdown-item" href="#"><i class="bi bi-moon-stars icon-size "></i>Dark</a></li>
-                    <li><a class="dropdown-item" href="#"><i class="bi bi-circle-half icon-size"></i>Auto</a></li>
-                  </ul>
-                </li>
-              </ul>
+                
+                <!-- Iconos -->
+                <ul class="navbar-nav mb-2 mb-lg-0">
+                  <!-- Carro -->
+                  <li class="nav-item">
+                    <a href="#">
+                      <i class="bi bi-cart icon-size"></i>
+                    </a>
+                  </li>
+                  <!-- Usuario -->
+                  <li class="nav-item">
+                    <a href="registro.html">
+                      <i class="bi bi-person icon-size"></i>
+                    </a>
+                  </li>
+                </ul>
               </div>
             </div>
           </nav>
@@ -113,9 +116,8 @@
           </div>
         </section>
         <!-- Fin Carousel -->
-        <br>
-        <!-- Categorias -->
-        <section>
+        <!-- Inicio Categorias -->
+        <section class="section-space">
             <div class="container-fluid">
                 <div class="row justify-content-center align-items-center text-center text-md-left">
                     <div class="col-12 col-md-auto col-lg-8 bg-yellow border-circle">
@@ -123,16 +125,36 @@
                     </div>
                 </div>
             </div>
+
+            <div class="items mt-3">
+              <div>
+                <div class="gallery">
+                  <a target="_blank" href="img_5terre.jpg">
+                    <img src="img_5terre.jpg" alt="productos" width="600" height="400">
+                  </a>
+                  <div class="desc">Add a description of the image here</div>
+                </div>
+                
+                <div class="gallery">
+                  <a target="_blank" href="img_forest.jpg">
+                    <img src="img_forest.jpg" alt="productos" width="600" height="400">
+                  </a>
+                  <div class="desc">Add a description of the image here</div>
+                </div>
+                
+                <div class="gallery">
+                  <a target="_blank" href="img_lights.jpg">
+                    <img src="img_lights.jpg" alt="productos" width="600" height="400">
+                  </a>
+                  <div class="desc">Add a description of the image here</div>
+                </div>
+              </div>
+            </div>
         </section>
+        <!-- Fin Categorias -->
 
-        
-        <i class="fa fa-heart"></i>
-        <i class="fa fa-bars"></i>
-
-        <br>
-
-        <!-- Lo más vendido -->
-        <section>
+        <!-- Inicio Lo más vendido -->
+        <section class="section-space">
             <div class="container-fluid">
                 <div class="row justify-content-center align-items-center text-center text-md-left">
                     <div class="col-12 col-md-auto col-lg-8 bg-yellow border-circle">
@@ -140,92 +162,51 @@
                     </div>
                 </div>
             </div>
-        </section>
-        <br>
-        <div class="items">
-          <div>
-            <div class="gallery">
-              <a target="_blank" href="img_5terre.jpg">
-                <img src="img_5terre.jpg" alt="productos" width="600" height="400">
-              </a>
-              <div class="desc">Add a description of the image here</div>
-            </div>
-            
-            <div class="gallery">
-              <a target="_blank" href="img_forest.jpg">
-                <img src="img_forest.jpg" alt="productos" width="600" height="400">
-              </a>
-              <div class="desc">Add a description of the image here</div>
-            </div>
-            
-            <div class="gallery">
-              <a target="_blank" href="img_lights.jpg">
-                <img src="img_lights.jpg" alt="productos" width="600" height="400">
-              </a>
-              <div class="desc">Add a description of the image here</div>
-            </div>
-            
-            <div class="gallery">
-              <a target="_blank" href="img_mountains.jpg">
-                <img src="img_mountains.jpg" alt="productos" width="600" height="400">
-              </a>
-              <div class="desc">Add a description of the image here</div>
-            </div>
-          </div>
-        </div>
-    </main>
-    <!-- <footer>
-        <div class="container-fluid">
-            <div class="row justify-content-center align-items-center text-center text-md-left">
-                <div class="col-3 col-md-auto me-auto">
-                    <img src="../images/gamegeek/gg-n-normal.svg" alt="GameGeek" width="100" height="100">
-                    <br><br>
-                    <div class="follow_us">
-                      Siguenos en: 
-                    </div>
-                    <br>
-                    <div class="social_footer">
-                      <a href="https://www.instagram.com/" target="_blank"><img src="../images/gamegeek/icons8-instagram.svg" alt="Instagram"></a>
-                      <a href="https://www.tiktok.com/es/" target="_blank"><img src="../images/gamegeek/icons8-tiktok.svg" alt="Tik Tok"></a>
-                    </div>
-                    </div>
-                <div class="col-3 col-md-auto me-auto">
-                    <h3>Servicio al cliente</h3>
-                    <br>
-                    <b>Nuestro Correo:</b>
-                    <br>
-                    <a href="mailto:contacto@gamegeek.cl" target="_blank">contacto@gamegeek.cl</a>
-                    <br>
-                    <b>Necesitas Ayuda:</b>
-                    <br>
-                    <a href="mailto:ayuda@gamegeek.cl">ayuda@gamegeek.cl</a>
-                </div>
-                <div class="col-3 col-md-auto me-auto">
-                    <h3>Informaciones</h3>
-                    <ul class="info">
-                      <li><a href="">Terminos y Condiciones</a></li>
-                      <li><a href="">Quienes somos</a></li>
-                      <li><a href="">Politica de privacidad</a></li>
-                    </ul>
-                </div>
-                <div class="col-3 col-md-auto me-auto">
-                    <h3>Medios de pago</h3>
-                    <br>
-                </div>
-            </div>
-        </div>
-    </footer> -->
 
-    <footer>
+            <div class="items mt-3">
+              <div>
+                <div class="gallery">
+                  <a target="_blank" href="img_5terre.jpg">
+                    <img src="img_5terre.jpg" alt="productos" width="600" height="400">
+                  </a>
+                  <div class="desc">Add a description of the image here</div>
+                </div>
+                
+                <div class="gallery">
+                  <a target="_blank" href="img_forest.jpg">
+                    <img src="img_forest.jpg" alt="productos" width="600" height="400">
+                  </a>
+                  <div class="desc">Add a description of the image here</div>
+                </div>
+                
+                <div class="gallery">
+                  <a target="_blank" href="img_lights.jpg">
+                    <img src="img_lights.jpg" alt="productos" width="600" height="400">
+                  </a>
+                  <div class="desc">Add a description of the image here</div>
+                </div>
+                
+                <div class="gallery">
+                  <a target="_blank" href="img_mountains.jpg">
+                    <img src="img_mountains.jpg" alt="productos" width="600" height="400">
+                  </a>
+                  <div class="desc">Add a description of the image here</div>
+                </div>
+              </div>
+            </div>
+        </section>
+        <!-- Fin Lo más vendido -->
+    </main>
+    <footer id="footer-section">
       <div class="footer-section footer-right">
         <img src="../images/gamegeek/gg-n-junto.svg" alt="GameGeek" width="200px" height="200px">
           <p class="text-left">Siguenos en: </p>
           <ul class="ul-left">
               <li>
-                <a href="https://www.instagram.com/" target="_blank">
+                <a href="https://www.instagram.com/gamegeekcl" target="_blank">
                   <i class="bi bi-instagram icon-size"></i>
                 </a>
-                <a href="https://www.tiktok.com/es/" target="_blank">
+                <a href="https://www.tiktok.com/@gamegeekcl" target="_blank">
                   <i class="bi bi-tiktok icon-size"></i>
                 </a>
               </li>
@@ -244,14 +225,13 @@
           <h4>Informaciones</h4>
           <ul class="ul-left">
               <li><a href="#">Términos y Condiciones</a></li>
-              <li><a href="#">Quienes Somos</a></li>
               <li><a href="#">Política de Privacidad</a></li>
           </ul>
       </div>
       <div class="footer-section">
           <h4>Medios de Pago</h4>
           <ul class="ul-left">
-              <li><a href="#"><img src="../images/gamegeek/wflow.png" alt="Medio de Pago" width="400px" height="200px"></a></li>
+            <li><img src="../images/gamegeek/wflow.png" alt="Medio de Pago" width="400px" height="200px"></li>
           </ul>
       </div>
     </footer>

@@ -12,9 +12,10 @@
     <header>
         <!-- Inicio Navbar -->
         <nav class="navbar navbar-expand-lg bg-yellow">
-            <!-- Div para el responsive -->
+          <!-- Div para el responsive -->
+
             <div class="container-fluid">
-              <img src="../images/gamegeek/gg-n-normal.svg"width="200px" height="45px" alt="GameGeek">
+              <a href="index.html"><img src="../images/gamegeek/gg-n-normal.svg"width="200px" height="45px" alt="GameGeek"></a>
               <button
                 class="navbar-toggler"
                 type="button"
@@ -29,11 +30,13 @@
               <!-- Div de los items del navbar -->
               <div class="collapse justify-content-between navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mb-2 mb-lg-0">
+
                   <!-- Inicio Item -->
                   <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="index.html">Inicio</a>
                   </li>
-                  <!-- Productos -->
+
+                  <!-- Productos Item-->
                   <li class="nav-item dropdown">
                     <a
                       class="nav-link dropdown-toggle"
@@ -48,27 +51,48 @@
                       <li><a class="dropdown-item" href="figuras.html">Figuras</a></li>
                     </ul>
                   </li>
-                  <!-- Despacho -->
+
+                  <!-- Despacho Item-->
                   <li class="nav-item">
-                    <a class="nav-link" href="despacho.html">Despacho</a>
+                    <a class="nav-link" href="#">Despacho</a>
                   </li>
-                  <!-- Contacto -->
+
+                  <!-- Contacto Item-->
                   <li class="nav-item">
                     <a class="nav-link" href="#footer-section">Contacto</a>
                   </li>
                 </ul>
 
-                <form class="form-inline my-2 my-lg-0">
-                  <input class="form-control mr-sm-2" type="Buscar" placeholder="Buscar" aria-label="Buscar">
-                </form>
+                <!-- Buscar Item-->
+                <div class="navbar-search-icon">
+                  <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="Buscar" placeholder="Buscar" aria-label="Buscar">
+                  </form>
+                </div>
+                
+                <!-- Iconos -->
+                <ul class="navbar-nav mb-2 mb-lg-0">
+                  <!-- Carro -->
+                  <li class="nav-item">
+                    <a href="#">
+                      <i class="bi bi-cart icon-size"></i>
+                    </a>
+                  </li>
+                  <!-- Usuario -->
+                  <li class="nav-item">
+                    <a href="registro.html">
+                      <i class="bi bi-person icon-size"></i>
+                    </a>
+                  </li>
+                </ul>
               </div>
             </div>
           </nav>
         <!-- Fin Navbar -->
     </header>
     <main>
-        <!-- Información despachos -->
-        <section>
+        <!-- Inicio sección despachos -->
+        <section class="section-space">
             <div class="container-fluid">
                 <div class="row justify-content-center align-items-center text-center text-md-left">
                     <div class="col-12 col-md-auto col-lg-8 bg-yellow border-circle">
@@ -77,11 +101,9 @@
                 </div>
             </div>
         </section>
-
-        <!-- Table de despacho -->
         <section>
-            <div class="despacho-div">
-                <p class="despacho-background">
+            <div class="better-div">
+                <p class="better-background">
                     El despacho de encomiendas se realiza mediante tres empresas de 
                     distribución (Starken principalmente, Chilexpress y Bluexpress), 
                     cuyas coberturas y valores dependen de la zona del país a dónde se dirige la 
@@ -93,7 +115,7 @@
                     respecto a su paquete.
                 </p>
             </div>
-            <div class="despacho-div">
+            <div class="better-div">
                 <table class="table table-light table-striped table-borderless">
                     <tr>
                         <th class="text-center">Empresa</th>
@@ -145,8 +167,8 @@
                     </tr>
                 </table>
             </div>
-            <div class="despacho-div">
-                <p class="despacho-background">
+            <div class="better-div">
+                <p class="better-background">
                     Los tiempos de despacho son estimados y pueden variar dependiendo de la 
                     empresa de distribución y la zona de destino. En caso de que el producto 
                     no llegue en el tiempo estimado, por favor, contactar a nuestro servicio 
@@ -162,6 +184,7 @@
                 >
             </div>
         </section>
+        <!-- Fin sección despachos -->
     </main>
     <footer id="footer-section">
       <div class="footer-section footer-right">
@@ -169,10 +192,10 @@
           <p class="text-left">Siguenos en: </p>
           <ul class="ul-left">
               <li>
-                <a href="https://www.instagram.com/" target="_blank">
+                <a href="https://www.instagram.com/gamegeekcl" target="_blank">
                   <i class="bi bi-instagram icon-size"></i>
                 </a>
-                <a href="https://www.tiktok.com/es/" target="_blank">
+                <a href="https://www.tiktok.com/@gamegeekcl" target="_blank">
                   <i class="bi bi-tiktok icon-size"></i>
                 </a>
               </li>
@@ -181,25 +204,23 @@
       <div class="footer-section">
           <h4>Servicio al Cliente</h4>
           <ul class="ul-left">
-              <li><a href="#">Contacto</a></li>
-              <li><a href="#">Preguntas Frecuentes</a></li>
-              <li><a href="#">Soporte</a></li>
+            <li>Nuestro Correo:</li>
+            <li><a href="mailto:contacto@gamegeek.cl" target="_blank">contacto@gamegeek.cl</a></li>
+            <li>Necesitas Ayuda:</li>
+            <li><a href="mailto:ayuda@gamegeek.cl">ayuda@gamegeek.cl</a></li>
           </ul>
       </div>
       <div class="footer-section">
           <h4>Informaciones</h4>
           <ul class="ul-left">
-              <li><a href="#">Acerca de Nosotros</a></li>
-              <li><a href="#">Política de Privacidad</a></li>
               <li><a href="#">Términos y Condiciones</a></li>
+              <li><a href="#">Política de Privacidad</a></li>
           </ul>
       </div>
       <div class="footer-section">
           <h4>Medios de Pago</h4>
           <ul class="ul-left">
-              <li><a href="#">Visa</a></li>
-              <li><a href="#">Mastercard</a></li>
-              <li><a href="#">PayPal</a></li>
+            <li><img src="../images/gamegeek/wflow.png" alt="Medio de Pago" width="400px" height="200px"></li>
           </ul>
       </div>
     </footer>
