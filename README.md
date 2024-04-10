@@ -4,6 +4,7 @@
 - Amarillo (FFB600)
 - Negro (1D1D1B)
 - Blanco (FFFFFF)
+- Gris (E9ECEF)
 
 # Inicio
 - Navbar (Logo , Inicio, Productos, Despacho, Contacto, Buscar, Carrito, Inicio Sesion)
