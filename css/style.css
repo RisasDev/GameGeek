@@ -65,9 +65,12 @@ footer {
     color: #1D1D1B;
     padding: 20px 0px;
     text-align: center;
-    position: fixed;
     bottom: 0;
     width: 100%;
+}
+
+main {
+    min-height: 100vh;
 }
 
 .ul-left {
