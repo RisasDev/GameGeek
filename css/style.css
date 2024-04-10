@@ -4,6 +4,10 @@
     object-fit: cover;
 }
 
+.icon-size {
+    font-size: 35px;
+}
+
 .bg-yellow {
     background-color: #FFB600;
 }
