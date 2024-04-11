@@ -191,6 +191,15 @@ div.desc {
   width: 300px;
 }
 
+.card-categoria {
+    border: 0px;
+    width: 256px;
+}
+
+.card-producto {
+    border: 0px;
+}
+
 .txt-color-primary {
   color: #ffb600;
 }
