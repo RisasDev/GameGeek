@@ -23,7 +23,7 @@
         <!-- Div para el responsive -->
 
         <div class="container-fluid">
-          <a href="index.html"
+          <a href="../index.html"
             ><img
               src="../images/gamegeek/gg-n-normal.svg"
               width="200px"
@@ -53,7 +53,7 @@
                 <a
                   class="nav-link text-transition"
                   aria-current="page"
-                  href="index.html"
+                  href="../index.html"
                   >Inicio</a
                 >
               </li>
@@ -72,21 +72,21 @@
                   <li>
                     <a
                       class="dropdown-item navbar-dropdown-transition"
-                      href="pines.html"
+                      href="/pages/pines.html"
                       >Pines</a
                     >
                   </li>
                   <li>
                     <a
                       class="dropdown-item navbar-dropdown-transition"
-                      href="peluches.html"
+                      href="/pages/peluches.html"
                       >Peluches</a
                     >
                   </li>
                   <li>
                     <a
                       class="dropdown-item navbar-dropdown-transition"
-                      href="figuras.html"
+                      href="/pages/figuras.html"
                       >Figuras</a
                     >
                   </li>
@@ -95,7 +95,7 @@
 
               <!-- Despacho Item-->
               <li class="nav-item">
-                <a class="nav-link text-transition" href="despacho.html"
+                <a class="nav-link text-transition" href="/pages/despacho.html"
                   >Despacho</a
                 >
               </li>
@@ -130,7 +130,7 @@
                   <a
                     class="cursor-pointer"
                     data-bs-toggle="modal"
-                    data-bs-target="#modal-login"
+                    data-bs-target="#modal-carro"
                   >
                     <i class="bi bi-basket icon-size text-transition"></i>
                   </a>
@@ -329,16 +329,16 @@
             <h1>Categorias</h1>
             <ul>
               <li>
-                <a href="pines.html" class="txt-orange-transition">Pines</a>
+                <a href="/pages/pines.html" class="txt-orange-transition">Pines</a>
               </li>
               <li>
-                <a href="peluches.html" class="txt-orange-transition"
+                <a href="/pages/peluches.html" class="txt-orange-transition"
                   >Peluches</a
                 >
               </li>
               <li>
                 <a
-                  href="figuras.html"
+                  href="/pages/figuras.html"
                   class="txt-orange-transition txt-color-primary"
                   >Figuras</a
                 >
@@ -683,7 +683,7 @@
 
             <!-- Boton de registrarse -->
             <div class="mt-3 text-center d-grid gap-2">
-              <a href="registro.html" class="btn btn-primary btn-orange"
+              <a href="/pages/registro.html" class="btn btn-primary btn-orange"
                 >¿No tienes cuenta? Registrate</a
               >
             </div>
@@ -693,8 +693,14 @@
     </div>
 
     <!-- Modal Carrito -->
-    <div class="modal fade" id="modal-carro">
-      <div class="modal-dialog">
+    <div
+      class="modal fade"
+      id="modal-carro"
+      tabindex="-1"
+      aria-labelledby="modal-carro"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-right modal-carro">
         <div class="modal-content">
           <div class="modal-header">
             <h3>Tu carrito</h3>
@@ -707,7 +713,8 @@
                 width="300px"
               />
             </div>
-            <h3>¡Tu carrito está vacío!</h3>
+
+            <h6 class="text-center">¡Tu carrito está vacío!</h6>
 
             <div class="mt-3 text-center d-grid gap-2">
               <a href="#" class="btn btn-primary btn-orange">Comprar ahora</a>
