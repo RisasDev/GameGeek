@@ -1,20 +1,21 @@
-th,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+a {
+  color: #1d1d1b;
+}
+
+th, h1, h2, h3, h4, h5, h6 {
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif !important;
 }
 
-td,
-li,
-p,
-button {
+td, li, p, button, span {
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif !important;
+}
+
+del {
+  font-size: 13px;
+  color: #777;
+  padding: 10px;
 }
 
 main {
@@ -32,6 +33,31 @@ footer {
 
 a {
   text-decoration: none;
+}
+
+.container {
+  display: flex;
+}
+
+.card-col-2 {
+  /* Ancho deseado para la columna de categorías */
+  width: 20%; /* Por ejemplo, el 20% del ancho total */
+  margin: 20px;
+}
+
+.card-col-10 {
+  /* Ancho deseado para las cards */
+  width: 80%; /* Por ejemplo, el 80% del ancho total */
+  margin: 20px;
+}
+
+.fix-col-margin {
+  margin: 20px;
+}
+
+.items {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .cursor-pointer {
@@ -113,6 +139,14 @@ div.desc {
   padding: 10px;
 }
 
+.discount-badge {
+  background-color: #ffb600;
+  font-size: 13px;
+  color: #1d1d1b;
+  padding: 3px 3px;
+  border-radius: 5px;
+}
+
 .navbar-icons {
   display: inline-flex;
   margin-left: 30px;
@@ -126,6 +160,16 @@ div.desc {
   right: 20px;
 }
 
+.modal-carro {
+  top: 0px;
+  margin: 0px;
+}
+
+.modal-carro > .modal-content {
+  height: 100vh;
+  padding: 0 40px 0 40px;
+}
+
 .navbar-search-icon {
   margin-left: 500px;
 }
@@ -136,6 +180,10 @@ div.desc {
     text-decoration-color, fill, stroke;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 200ms;
+}
+
+.category-list {
+  padding-left: 20px;
 }
 
 .icon-size {
@@ -188,6 +236,7 @@ div.desc {
 .card {
   background-color: #e9ecef;
   padding: 15px;
+  margin: 10px;
   width: 300px;
 }
 

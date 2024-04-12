@@ -16,6 +16,7 @@
     />
     <link rel="stylesheet" href="../css/style.css" />
   </head>
+
   <body>
     <header>
       <!-- Inicio Navbar -->
@@ -70,13 +71,25 @@
                 </a>
                 <ul class="dropdown-menu">
                   <li>
-                    <a class="dropdown-item navbar-dropdown-transition" href="pines.html">Pines</a>
+                    <a
+                      class="dropdown-item navbar-dropdown-transition"
+                      href="pines.html"
+                      >Pines</a
+                    >
                   </li>
                   <li>
-                    <a class="dropdown-item navbar-dropdown-transition" href="peluches.html">Peluches</a>
+                    <a
+                      class="dropdown-item navbar-dropdown-transition"
+                      href="peluches.html"
+                      >Peluches</a
+                    >
                   </li>
                   <li>
-                    <a class="dropdown-item navbar-dropdown-transition" href="figuras.html">Figuras</a>
+                    <a
+                      class="dropdown-item navbar-dropdown-transition"
+                      href="figuras.html"
+                      >Figuras</a
+                    >
                   </li>
                 </ul>
               </li>
@@ -111,25 +124,29 @@
 
               <!-- Iconos -->
               <ul
-                class="navbar-nav mb-2 mb-lg-0 d-flex align-items-center gap-2"
+                class="navbar-nav mb-2 mb-lg-0 d-flex align-items-center gap-3"
               >
                 <!-- Carro -->
                 <li class="nav-item">
                   <a
-                  class="cursor-pointer"
-                  data-bs-toggle="modal"
-                  data-bs-target="#modal-login">
-                    <i class="bi bi-cart icon-size text-transition"></i>
+                    class="cursor-pointer"
+                    data-bs-toggle="modal"
+                    data-bs-target="#modal-carro"
+                  >
+                    <i class="bi bi-basket icon-size text-transition"></i>
                   </a>
                 </li>
 
                 <!-- Usuario -->
                 <li class="nav-item">
-                  <a 
-                  class="cursor-pointer"
-                  data-bs-toggle="modal"
-                  data-bs-target="#modal-login">
-                    <i class="bi bi-person icon-size text-transition"></i>
+                  <a
+                    class="cursor-pointer"
+                    data-bs-toggle="modal"
+                    data-bs-target="#modal-login"
+                  >
+                    <i
+                      class="bi bi-person-circle icon-size text-transition"
+                    ></i>
                   </a>
                 </li>
               </ul>
@@ -142,193 +159,483 @@
     <main>
       <!-- Inicio Carousel -->
       <section>
-        <div id="carouselExampleRide" class="carousel slide" data-bs-ride="true">
+        <div
+          id="carouselExampleRide"
+          class="carousel slide"
+          data-bs-ride="true"
+        >
           <div class="carousel-inner">
             <div class="carousel-item active">
-              <img src="../images/carousel/banner_1.jpg" alt="..." class="d-block w-100 carousel-img">
+              <img
+                src="../images/carousel/banner_1.jpg"
+                alt="..."
+                class="d-block w-100 carousel-img"
+              />
             </div>
             <div class="carousel-item">
-              <img src="../images/carousel/banner_2.jpg" alt="..." class="d-block w-100 carousel-img">
+              <img
+                src="../images/carousel/banner_2.jpg"
+                alt="..."
+                class="d-block w-100 carousel-img"
+              />
             </div>
             <div class="carousel-item">
-              <img src="../images/carousel/banner_3.jpg" alt="..." class="d-block w-100 carousel-img">
+              <img
+                src="../images/carousel/banner_3.jpg"
+                alt="..."
+                class="d-block w-100 carousel-img"
+              />
             </div>
           </div>
-          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleRide" data-bs-slide="prev">
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#carouselExampleRide"
+            data-bs-slide="prev"
+          >
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden"></span>
           </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleRide" data-bs-slide="next">
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#carouselExampleRide"
+            data-bs-slide="next"
+          >
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden"></span>
           </button>
         </div>
       </section>
       <!-- Fin Carousel -->
+
       <!-- Inicio Categorias -->
       <section class="section-space">
-          <div class="container-fluid">
-              <div class="row justify-content-center align-items-center text-center text-md-left">
-                  <div class="col-12 col-md-auto col-lg-8 bg-yellow border-circle">
-                      <h3>Categorias</h3>
-                  </div>
-              </div>
-          </div>
-          <div class="container-category mt-4">
-            <div class="row g-4">
-              <div class="col-4">
-                  <div class="card shadow-sm">
-                    <a href="pines.html">
-                      <img src="../images/otros/pines.png" alt="pines" class="card-categoria">
-                    </a>
-                  </div>
-              </div>
-              <div class="col-4">
-                <div class="card shadow-sm">
-                  <a href="peluches.html">
-                    <img src="../images/otros/peluches.png" alt="peluches" class="card-categoria">
-                  </a>
-                </div>
-            </div>
-            <div class="col-4">
-              <div class="card shadow-sm">
-                <a href="figuras.html">
-                  <img src="../images/otros/figuras.png" alt="figuras" class="card-categoria">
-                </a>
-              </div>
-          </div>
+        <div class="container-fluid">
+          <div
+            class="row justify-content-center align-items-center text-center text-md-left"
+          >
+            <div class="col-12 col-md-auto col-lg-8 bg-yellow border-circle">
+              <h3>Categorias</h3>
             </div>
           </div>
+        </div>
+      </section>
+      <section class="section-space">
+        <div class="items justify-content-center">
+          <div class="card shadow-sm">
+            <a href="pines.html">
+              <img
+                src="../images/otros/pines-categoria.png"
+                alt="pines"
+                class="card-categoria"
+              />
+            </a>
+          </div>
+          <div class="card shadow-sm">
+            <a href="peluches.html">
+              <img
+                src="../images/otros/peluches-categoria.png"
+                alt="peluches"
+                class="card-categoria"
+              />
+            </a>
+          </div>
+          <div class="card shadow-sm">
+            <a href="figuras.html">
+              <img
+                src="../images/otros/figuras-categoria.png"
+                alt="pines"
+                class="card-categoria"
+              />
+            </a>
+          </div>
+        </div>
       </section>
       <!-- Fin Categorias -->
+
       <!-- Inicio Lo más vendido -->
       <section class="section-space">
-          <div class="container-fluid">
-              <div class="row justify-content-center align-items-center text-center text-md-left">
-                  <div class="col-12 col-md-auto col-lg-8 bg-yellow border-circle">
-                      <h3>Lo más vendido</h3>
-                  </div>
-              </div>
+        <div class="container-fluid">
+          <div
+            class="row justify-content-center align-items-center text-center text-md-left"
+          >
+            <div class="col-12 col-md-auto col-lg-8 bg-yellow border-circle">
+              <h3>Lo más vendido</h3>
+            </div>
           </div>
-        <div class="container mt-4">
-          <div class="row g-4">
-              <div class="col-3">
-                  <div class="card shadow-sm">
-                    <img src="../images/otros/producto.jpeg" alt="producto" class="card-producto">
-                    <div class="card-body">                                                   
-                      <h6 class="card-title"> Figura de Guko vs Freezer </h6>
-                        <h6>$80.990</h6>
-                        <div class="d-flex justify-content-between align-items-center">
-                          <div class="btn-group">
-                            <button type="button" class="button">Comprar</button>
-                          </div>
-                          <a href="#" class="button-add"><i class="bi bi-cart-plus icon-add-size"></i></a>
-                        </div>
-                    </div>
+        </div>
+        <div class="container">
+          <div class="items justify-content-center">
+            <div class="card shadow-sm test">
+              <img
+                src="../images/productos/pines-oferta.jpg"
+                alt="producto"
+                class="card-producto"
+              />
+              <div class="card-body">
+                <h6 class="card-title">Pack x6 Pines Demon Slayer</h6>
+                <div>
+                  <span class="discount-badge"> -15% DCTO </span>
+                  <span>
+                    <del>$95.990</del>
+                  </span>
+                </div>
+                <div>
+                  <h6 class="mt-2">Ahora $80.990</h6>
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button type="button" class="button text-transition">
+                      Comprar
+                    </button>
                   </div>
+                  <a href="#" class="button-add"
+                    ><i
+                      class="bi bi-cart-plus icon-add-size text-transition"
+                    ></i
+                  ></a>
+                </div>
               </div>
-              <div class="col-3">
-                <div class="card shadow-sm">
-                  <img src="../images/otros/producto.jpeg" alt="producto" class="card-producto">
-                  <div class="card-body">                                                   
-                    <h6 class="card-title"> Figura de Guko vs Freezer </h6>
-                      <h6>$80.990</h6>
-                      <div class="d-flex justify-content-between align-items-center">
-                        <div class="btn-group">
-                          <button type="button" class="button">Comprar</button>
-                        </div>
-                        <a href="#" class="button-add"><i class="bi bi-cart-plus icon-add-size"></i></a>
-                      </div>
+            </div>
+            <div class="card shadow-sm test">
+              <img
+                src="../images/productos/pines-oferta.jpg"
+                alt="producto"
+                class="card-producto"
+              />
+              <div class="card-body">
+                <h6 class="card-title">Pack x6 Pines Demon Slayer</h6>
+                <div>
+                  <span class="discount-badge"> -15% DCTO </span>
+                  <span>
+                    <del>$95.990</del>
+                  </span>
+                </div>
+                <div>
+                  <h6 class="mt-2">Ahora $80.990</h6>
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button type="button" class="button text-transition">
+                      Comprar
+                    </button>
                   </div>
-                </div>
-              </div>
-            <div class="col-3">
-              <div class="card shadow-sm">
-                <img src="../images/otros/producto.jpeg" alt="producto" class="card-producto">
-                <div class="card-body">                                                   
-                  <h6 class="card-title"> Figura de Guko vs Freezer </h6>
-                    <h6>$80.990</h6>
-                    <div class="d-flex justify-content-between align-items-center">
-                      <div class="btn-group">
-                        <button type="button" class="button">Comprar</button>
-                      </div>
-                      <a href="#" class="button-add"><i class="bi bi-cart-plus icon-add-size"></i></a>
-                    </div>
+                  <a href="#" class="button-add"
+                    ><i
+                      class="bi bi-cart-plus icon-add-size text-transition"
+                    ></i
+                  ></a>
                 </div>
               </div>
             </div>
-            <div class="col-3">
-              <div class="card shadow-sm">
-                <img src="../images/otros/producto.jpeg" alt="producto" class="card-producto">
-                <div class="card-body">                                                   
-                  <h6 class="card-title"> Figura de Guko vs Freezer </h6>
-                    <h6>$80.990</h6>
-                    <div class="d-flex justify-content-between align-items-center">
-                      <div class="btn-group">
-                        <button type="button" class="button">Comprar</button>
-                      </div>
-                      <a href="#" class="button-add"><i class="bi bi-cart-plus icon-add-size"></i></a>
-                    </div>
+            <div class="card shadow-sm test">
+              <img
+                src="../images/productos/pines-oferta.jpg"
+                alt="producto"
+                class="card-producto"
+              />
+              <div class="card-body">
+                <h6 class="card-title">Pack x6 Pines Demon Slayer</h6>
+                <div>
+                  <span class="discount-badge"> -15% DCTO </span>
+                  <span>
+                    <del>$95.990</del>
+                  </span>
+                </div>
+                <div>
+                  <h6 class="mt-2">Ahora $80.990</h6>
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button type="button" class="button text-transition">
+                      Comprar
+                    </button>
+                  </div>
+                  <a href="#" class="button-add"
+                    ><i
+                      class="bi bi-cart-plus icon-add-size text-transition"
+                    ></i
+                  ></a>
                 </div>
               </div>
             </div>
-            <div class="col-3">
-              <div class="card shadow-sm">
-                <img src="../images/otros/producto.jpeg" alt="producto" class="card-producto">
-                <div class="card-body">                                                   
-                  <h6 class="card-title"> Figura de Guko vs Freezer </h6>
-                    <h6>$80.990</h6>
-                    <div class="d-flex justify-content-between align-items-center">
-                      <div class="btn-group">
-                        <button type="button" class="button">Comprar</button>
-                      </div>
-                      <a href="#" class="button-add"><i class="bi bi-cart-plus icon-add-size"></i></a>
-                    </div>
+            <div class="card shadow-sm test">
+              <img
+                src="../images/productos/pines-oferta.jpg"
+                alt="producto"
+                class="card-producto"
+              />
+              <div class="card-body">
+                <h6 class="card-title">Pack x6 Pines Demon Slayer</h6>
+                <div>
+                  <span class="discount-badge"> -15% DCTO </span>
+                  <span>
+                    <del>$95.990</del>
+                  </span>
+                </div>
+                <div>
+                  <h6 class="mt-2">Ahora $80.990</h6>
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button type="button" class="button text-transition">
+                      Comprar
+                    </button>
+                  </div>
+                  <a href="#" class="button-add"
+                    ><i
+                      class="bi bi-cart-plus icon-add-size text-transition"
+                    ></i
+                  ></a>
                 </div>
               </div>
             </div>
-            <div class="col-3">
-              <div class="card shadow-sm">
-                <img src="../images/otros/producto.jpeg" alt="producto" class="card-producto">
-                <div class="card-body">                                                   
-                  <h6 class="card-title"> Figura de Guko vs Freezer </h6>
-                    <h6>$80.990</h6>
-                    <div class="d-flex justify-content-between align-items-center">
-                      <div class="btn-group">
-                        <button type="button" class="button">Comprar</button>
-                      </div>
-                      <a href="#" class="button-add"><i class="bi bi-cart-plus icon-add-size"></i></a>
-                    </div>
+            <div class="card shadow-sm test">
+              <img
+                src="../images/productos/peluche-oferta.jpeg"
+                alt="producto"
+                class="card-producto"
+              />
+              <div class="card-body">
+                <h6 class="card-title">Peluche Chopper</h6>
+                <div>
+                  <span class="discount-badge"> -15% DCTO </span>
+                  <span>
+                    <del>$95.990</del>
+                  </span>
+                </div>
+                <div>
+                  <h6 class="mt-2">Ahora $80.990</h6>
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button type="button" class="button text-transition">
+                      Comprar
+                    </button>
+                  </div>
+                  <a href="#" class="button-add"
+                    ><i
+                      class="bi bi-cart-plus icon-add-size text-transition"
+                    ></i
+                  ></a>
                 </div>
               </div>
             </div>
-            <div class="col-3">
-              <div class="card shadow-sm">
-                <img src="../images/otros/producto.jpeg" alt="producto" class="card-producto">
-                <div class="card-body">                                                   
-                  <h6 class="card-title"> Figura de Guko vs Freezer </h6>
-                    <h6>$80.990</h6>
-                    <div class="d-flex justify-content-between align-items-center">
-                      <div class="btn-group">
-                        <button type="button" class="button">Comprar</button>
-                      </div>
-                      <a href="#" class="button-add"><i class="bi bi-cart-plus icon-add-size"></i></a>
-                    </div>
+            <div class="card shadow-sm test">
+              <img
+                src="../images/productos/peluche-oferta.jpeg"
+                alt="producto"
+                class="card-producto"
+              />
+              <div class="card-body">
+                <h6 class="card-title">Peluche Chopper</h6>
+                <div>
+                  <span class="discount-badge"> -15% DCTO </span>
+                  <span>
+                    <del>$95.990</del>
+                  </span>
+                </div>
+                <div>
+                  <h6 class="mt-2">Ahora $80.990</h6>
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button type="button" class="button text-transition">
+                      Comprar
+                    </button>
+                  </div>
+                  <a href="#" class="button-add"
+                    ><i
+                      class="bi bi-cart-plus icon-add-size text-transition"
+                    ></i
+                  ></a>
                 </div>
               </div>
             </div>
-            <div class="col-3">
-              <div class="card shadow-sm">
-                <img src="../images/otros/producto.jpeg" alt="producto" class="card-producto">
-                <div class="card-body">                                                   
-                  <h6 class="card-title"> Figura de Guko vs Freezer </h6>
-                    <h6>$80.990</h6>
-                    <div class="d-flex justify-content-between align-items-center">
-                      <div class="btn-group">
-                        <button type="button" class="button">Comprar</button>
-                      </div>
-                      <a href="#" class="button-add"><i class="bi bi-cart-plus icon-add-size"></i></a>
-                    </div>
+            <div class="card shadow-sm test">
+              <img
+                src="../images/productos/peluche-oferta.jpeg"
+                alt="producto"
+                class="card-producto"
+              />
+              <div class="card-body">
+                <h6 class="card-title">Peluche Chopper</h6>
+                <div>
+                  <span class="discount-badge"> -15% DCTO </span>
+                  <span>
+                    <del>$95.990</del>
+                  </span>
+                </div>
+                <div>
+                  <h6 class="mt-2">Ahora $80.990</h6>
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button type="button" class="button text-transition">
+                      Comprar
+                    </button>
+                  </div>
+                  <a href="#" class="button-add"
+                    ><i
+                      class="bi bi-cart-plus icon-add-size text-transition"
+                    ></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+            <div class="card shadow-sm test">
+              <img
+                src="../images/productos/peluche-oferta.jpeg"
+                alt="producto"
+                class="card-producto"
+              />
+              <div class="card-body">
+                <h6 class="card-title">Peluche Chopper</h6>
+                <div>
+                  <span class="discount-badge"> -15% DCTO </span>
+                  <span>
+                    <del>$95.990</del>
+                  </span>
+                </div>
+                <div>
+                  <h6 class="mt-2">Ahora $80.990</h6>
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button type="button" class="button text-transition">
+                      Comprar
+                    </button>
+                  </div>
+                  <a href="#" class="button-add"
+                    ><i
+                      class="bi bi-cart-plus icon-add-size text-transition"
+                    ></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+            <div class="card shadow-sm test">
+              <img
+                src="../images/productos/figura-oferta.jpeg"
+                alt="producto"
+                class="card-producto"
+              />
+              <div class="card-body">
+                <h6 class="card-title">Three pack figuras de Demon Slayer</h6>
+                <div>
+                  <span class="discount-badge"> -15% DCTO </span>
+                  <span>
+                    <del>$95.990</del>
+                  </span>
+                </div>
+                <div>
+                  <h6 class="mt-2">Ahora $80.990</h6>
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button type="button" class="button text-transition">
+                      Comprar
+                    </button>
+                  </div>
+                  <a href="#" class="button-add"
+                    ><i
+                      class="bi bi-cart-plus icon-add-size text-transition"
+                    ></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+            <div class="card shadow-sm test">
+              <img
+                src="../images/productos/figura-oferta.jpeg"
+                alt="producto"
+                class="card-producto"
+              />
+              <div class="card-body">
+                <h6 class="card-title">Three pack figuras de Demon Slayer</h6>
+                <div>
+                  <span class="discount-badge"> -15% DCTO </span>
+                  <span>
+                    <del>$95.990</del>
+                  </span>
+                </div>
+                <div>
+                  <h6 class="mt-2">Ahora $80.990</h6>
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button type="button" class="button text-transition">
+                      Comprar
+                    </button>
+                  </div>
+                  <a href="#" class="button-add"
+                    ><i
+                      class="bi bi-cart-plus icon-add-size text-transition"
+                    ></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+            <div class="card shadow-sm test">
+              <img
+                src="../images/productos/figura-oferta.jpeg"
+                alt="producto"
+                class="card-producto"
+              />
+              <div class="card-body">
+                <h6 class="card-title">Three pack figuras de Demon Slayer</h6>
+                <div>
+                  <span class="discount-badge"> -15% DCTO </span>
+                  <span>
+                    <del>$95.990</del>
+                  </span>
+                </div>
+                <div>
+                  <h6 class="mt-2">Ahora $80.990</h6>
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button type="button" class="button text-transition">
+                      Comprar
+                    </button>
+                  </div>
+                  <a href="#" class="button-add"
+                    ><i
+                      class="bi bi-cart-plus icon-add-size text-transition"
+                    ></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+            <div class="card shadow-sm test">
+              <img
+                src="../images/productos/figura-oferta.jpeg"
+                alt="producto"
+                class="card-producto"
+              />
+              <div class="card-body">
+                <h6 class="card-title">Three pack figuras de Demon Slayer</h6>
+                <div>
+                  <span class="discount-badge"> -15% DCTO </span>
+                  <span>
+                    <del>$95.990</del>
+                  </span>
+                </div>
+                <div>
+                  <h6 class="mt-2">Ahora $80.990</h6>
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button type="button" class="button text-transition">
+                      Comprar
+                    </button>
+                  </div>
+                  <a href="#" class="button-add"
+                    ><i
+                      class="bi bi-cart-plus icon-add-size text-transition"
+                    ></i
+                  ></a>
                 </div>
               </div>
             </div>
@@ -336,6 +643,77 @@
         </div>
       </section>
       <!-- Fin Lo más vendido -->
+
+      <!-- Modal Login -->
+      <div
+        class="modal fade"
+        id="modal-login"
+        tabindex="-1"
+        aria-labelledby="modal-logi"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-right">
+          <div class="modal-content">
+            <div class="modal-body">
+              <div class="text-center mb-3">
+                <img
+                  src="../images/gamegeek/gg-na-junto.png"
+                  alt="GameGeek"
+                  width="300px"
+                />
+              </div>
+              <form action="">
+                <div>
+                  <div>
+                    <label for="rut">
+                      RUT
+                      <span class="fw-lighter">Sin puntos ni guión</span>
+                    </label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="rut"
+                      placeholder="Ej: 12345678K"
+                    />
+                  </div>
+                </div>
+                <div>
+                  <div class="mt-2">
+                    <label for="password">Contraseña</label>
+                    <input
+                      type="password"
+                      class="form-control"
+                      id="password"
+                      placeholder="********"
+                    />
+                  </div>
+                </div>
+              </form>
+              <a href="">
+                <p
+                  class="mt-3 mb-3 txt-orange-transition text-center txt-color-secondary"
+                >
+                  ¿Olvidaste tu contraseña?
+                </p>
+              </a>
+
+              <!-- Boton de iniciar sesion -->
+              <div class="mt-3 text-center d-grid gap-2">
+                <button type="submit" class="btn btn-primary btn-orange">
+                  Iniciar sesión
+                </button>
+              </div>
+
+              <!-- Boton de registrarse -->
+              <div class="mt-3 text-center d-grid gap-2">
+                <a href="registro.html" class="btn btn-primary btn-orange"
+                  >¿No tienes cuenta? Registrate</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
     <footer id="footer-section">
       <div class="footer-section footer-right">
@@ -406,74 +784,29 @@
       </div>
     </footer>
 
-    <!-- Modal Login -->
-    <div
-      class="modal fade"
-      id="modal-login"
-    >
-      <div class="modal-dialog modal-right">
-        <div class="modal-content">
-          <div class="modal-body">
-            <div class="text-center mb-3">
-              <img src="../images/gamegeek/gg-na-junto.png" alt="GameGeek" width="300px">
-            </div>
-            <form action="">
-              <div>
-                <div>
-                  <label for="rut">
-                    RUT
-                    <span class="fw-lighter">Sin puntos ni guión</span>
-                  </label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="rut"
-                    placeholder="Ej: 12345678K"
-                  />
-                </div>
-              </div>
-              <div>
-                <div class="mt-2">
-                  <label for="password">Contraseña</label>
-                  <input
-                    type="password"
-                    class="form-control"
-                    id="password"
-                    placeholder="********"
-                  />
-                </div>
-            </form>
-            <a href=""><p class="mt-3 mb-3 txt-orange-transition text-center txt-color-secondary">¿Olvidaste tu contraseña?</p></a>
-            
-            <!-- Boton de iniciar sesion -->
-            <div class="mt-3 text-center d-grid gap-2">
-              <button type="submit" class="btn btn-primary btn-orange">Iniciar sesión</button>
-            </div>
-
-            <!-- Boton de registrarse -->
-            <div class="mt-3 text-center d-grid gap-2">
-              <a href="registro.html" class="btn btn-primary btn-orange">¿No tienes cuenta? Registrate</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <!-- Modal Carrito -->
     <div
       class="modal fade"
       id="modal-carro"
+      tabindex="-1"
+      aria-labelledby="modal-carro"
+      aria-hidden="true"
     >
-      <div class="modal-dialog">
+      <div class="modal-dialog modal-right modal-carro">
         <div class="modal-content">
           <div class="modal-header">
             <h3>Tu carrito</h3>
           </div>
           <div class="modal-body">
             <div class="text-center mb-3">
-              <img src="../images/otros/compra.png" alt="GameGeek" width="300px">
+              <img
+                src="../images/otros/compra.png"
+                alt="GameGeek"
+                width="300px"
+              />
             </div>
-            <h3>¡Tu carrito está vacío!</h3>
+
+            <h6 class="text-center">¡Tu carrito está vacío!</h6>
 
             <div class="mt-3 text-center d-grid gap-2">
               <a href="#" class="btn btn-primary btn-orange">Comprar ahora</a>
