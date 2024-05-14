@@ -35,6 +35,18 @@ a {
   text-decoration: none;
 }
 
+.form-alert {
+  color: rgb(245, 44, 44);
+}
+
+.terms {
+  color: #ecac0a;
+}
+
+.terms:hover {
+  color: #ffb600;
+}
+
 .container {
   display: flex;
 }
