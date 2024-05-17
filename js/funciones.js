@@ -92,7 +92,7 @@ $(document).ready(function(){
           passwordFeedback.html("Contraseña válida").addClass("d-block text-success");
         } else {
           password.removeClass("is-valid text-success").addClass("is-invalid text-danger");
-          passwordFeedback.html("La contraseña no cumple los requisitos mínimos").addClass("d-block text-danger");
+          passwordFeedback.html("La contraseña debe tener minimo 12 caracteres").addClass("d-block text-danger");
         }
     });
 
