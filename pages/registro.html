@@ -156,148 +156,182 @@
       <!-- Fin Navbar -->
     </header>
     <main>
-      <!-- Formulario -->
-      <section class="section-space">
-        <div class="formulario shadow-lg">
-          <div class="better-background">
-            <h1 class="text-center">Información de Registro</h1>
-            <hr />
-            <h2>Ingresa tus datos</h2>
-            <p>
-              Registro nos permitirá conocerte y no tener que solicitarte los
-              datos nuevamente cuando quieras comprar en GameGeek. Los campos
-              marcados (*) deben ser llenados obligatoriamente.
-            </p>
-            <form action="">
-              <div>
-                <label for="rut">RUT <span class="form-alert">*</span></label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="rut"
-                  placeholder="Ej: 20646998-6"
-                />
+      <div class="space-form">
+        <div>
+          <!-- Formulario de Cuenta -->
+          <section class="section-space">
+            <h5 class="mt-3">| Registro</h5>
+            <h6>Titular de la Cuenta</h6>
+            <div class="formulario shadow-lg">
+              <div class="better-background">
+                <form action="">
+                  <div>
+                    <label for="rut">RUT <span class="form-alert">*</span></label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="rut"
+                      placeholder="Ej: 12345678-K"
+                    />
+                  </div>
+                  <div id="rut-feedback"></div>
+                  <div class="form-group mt-2">
+                    <label for="nombre">Nombre<span class="form-alert">*</span></label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="nombre"
+                      placeholder="Ingrese su nombre"
+                    />
+                  </div>
+                  <div id="nombre-feedback"></div>
+                  <div class="form-group mt-2">
+                    <label for="apellido">Apellido<span class="form-alert">*</span></label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="apellido"
+                      placeholder="Ingrese su apellido"
+                    />
+                  </div>
+                  <div id="apellido-feedback"></div>
+                  <div class="form-group mt-2">
+                    <label for="telefono">Télefono <span class="form-alert">*</span></label>
+                    <input
+                      type="number"
+                      class="form-control"
+                      id="telefono"
+                      placeholder="Ej: 12345678"
+                    />
+                  </div>
+                  <div id="telefono-feedback"></div>
+                  <div class="form-group mt-2">
+                    <label for="email">E-mail <span class="form-alert">*</span></label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="email"
+                      placeholder="Ej: example@gmail.com"
+                    />
+                  </div>
+                  <div id="email-feedback"></div>
+                </form>
               </div>
-              <div class="form-group mt-2">
-                <label for="nombre">Nombre Completo<span class="form-alert">*</span></label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="nombre"
-                  placeholder="Ingresa tu nombre completo"
-                />
-              </div>
-              <div class="form-group mt-2">
-                <label for="telefono">Télefono <span class="form-alert">*</span></label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="telefono"
-                  placeholder="Ingresa tu télefono"
-                />
-              </div>
-              <div class="form-group mt-2">
-                <label for="email">E-mail <span class="form-alert">*</span></label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="email"
-                  placeholder="Ingresa tu email: example@gmail.com"
-                />
-              </div>
-              <div class="form-group mt-2">
-                <label for="password">Contraseña <span class="form-alert">*</span></label>
-                <input
-                  type="password"
-                  class="form-control"
-                  id="password"
-                  placeholder="Crea tu contraseña"
-                />
-              </div>
-            </form>
-            <h2 class="mt-3 mb-3">Crea tu nueva dirección</h2>
-            <form action="">
-              <div class="form-group">
-                <label for="alias-direccion">Alias de tu dirección <span class="form-alert">*</span></label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="alias-direccion"
-                  placeholder="Ejemplo: Mi casa"
-                />
-              </div>
-              <div class="form-group mt-2">
-                <label for="direccion">Dirección <span class="form-alert">*</span></label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="direccion"
-                  placeholder="Ingresa tu dirección"
-                />
-              </div>
-              <div class="form-group mt-2">
-                <label for="numero">Número <span class="form-alert">*</span></label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="numero"
-                  placeholder="Ingresa el número de tu dirección"
-                />
-              </div>
-              <div class="form-group mt-2">
-                <label for="desc-direccion"
-                  >Casa / Piso / Oficina / Depto</label
-                >
-                <input
-                  type="text"
-                  class="form-control"
-                  id="desc-direccion"
-                  placeholder="Descripción de la dirección"
-                />
-              </div>
-              <div class="form-group mt-2">
-                <label for="comuna">Comuna</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="comuna"
-                  placeholder="Ingresa tu comuna"
-                />
-              </div>
-              <div class="form-group mt-2">
-                <label for="ciudad">Ciudad</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="ciudad"
-                  placeholder="Ingresa tu ciudad"
-                />
-              </div>
-              <div class="form-group mt-2">
-                <label for="region">Región</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="region"
-                  placeholder="Ingresa tu región"
-                />
-              </div>
-            </form>
-            <div class="mt-2">
-              <p class="fw-lighter">
-                Al registrarme, acepto los
-                <a class="terms"  href="#">Términos y Condiciones</a> y la
-                <a class="terms" href="#">Política de Privacidad</a> de GameGeek.
-              </p>
             </div>
-            <div class="mt-3 text-center d-grid gap-2">
-              <button type="submit" class="btn btn-primary btn-orange">
-                Registrarme
-              </button>
+          </section>
+          <section class="section-space mt-4 mb-4">
+            <div class="formulario shadow-lg">
+              <div class="better-background">
+                <form action="">
+                  <div class="form-group mt-2">
+                    <label for="password">Contraseña <span class="form-alert">*</span></label>
+                    <input
+                      type="password"
+                      class="form-control"
+                      id="password"
+                      placeholder="Cree su contraseña"
+                    />
+                  </div>
+                  <div id="pass-feedback"></div>
+                  <div class="form-group mt-2">
+                    <label for="password">Confirmar Contraseña <span class="form-alert">*</span></label>
+                    <input
+                      type="password"
+                      class="form-control"
+                      id="password-confirm"
+                      placeholder="Repita su contraseña"
+                    />
+                  </div>
+                </form>
+              </div>
             </div>
-          </div>
+          </section>
         </div>
-      </section>
+        <div>
+          <!-- Formulario de Compra -->
+          <section class="section-space">
+            <br>
+            <h5 class="mt-6">Dirección de envío</h5>
+            <div class="formulario shadow-lg">
+              <div class="better-background">
+                <form action="">
+                  <div class="form-group">
+                    <label for="alias-direccion">Nombre de quien recibe <span class="form-alert">*</span></label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="alias-direccion"
+                      placeholder="Ejemplo: Marco"
+                    />
+                  </div>
+                  <div class="form-group mt-2">
+                    <label for="ciudad">Ciudad</label><span class="form-alert">*</span></label>
+                    <select class="form-control" id="ciudad">
+                      <option value="Santiago">Santiago</option>
+                      <option value="Conchalí">Conchalí</option>
+                      <option value="El Bosque">El Bosque</option>
+                      <option value="Cerrillos">Cerrillos</option>
+                      <option value="Pomaire">Pomaire</option>
+                    </select>
+                  </div>
+                  <div class="form-group mt-2">
+                    <label for="comuna">Comuna</label><span class="form-alert">*</span></label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="comuna"
+                      placeholder="Ingresa tu comuna"
+                    />
+                  </div>
+                  <div class="form-group mt-2">
+                    <label for="direccion">Calle <span class="form-alert">*</span></label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="direccion"
+                      placeholder="Ingresa tu dirección"
+                    />
+                  </div>
+                  <div class="form-group mt-2">
+                    <label for="numero">Número <span class="form-alert">*</span></label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="numero"
+                      placeholder="Ingresa el número de tu dirección"
+                    />
+                  </div>
+                  <div class="form-group mt-2">
+                    <label for="desc-direccion"
+                      >N°Depto / Oficina / Otro (si aplica)</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="desc-direccion"
+                      placeholder="Descripción de la dirección"
+                    />
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div class="term">
+              <div class="mt-4">
+                <p class="fw-lighter section-space">
+                  <input type="checkbox" name="check" id="check">
+                  Acepto los
+                  <a class="terms"  href="#">Términos y Condiciones</a>
+                </p>
+              </div>
+              <div class="mt-4 gap-2">
+                <button type="submit" id="btn-log" class="btn btn-primary btn-orange">
+                  Registrarme
+                </button>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
     </main>
     <footer id="footer-section">
       <div class="footer-section footer-right">
