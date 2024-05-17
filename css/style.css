@@ -12,6 +12,14 @@ td, li, p, button, span {
   "Lucida Sans Unicode", Geneva, Verdana, sans-serif !important;
 }
 
+button:disabled,
+button[disabled]{
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+}
+
+
 del {
   font-size: 13px;
   color: #777;

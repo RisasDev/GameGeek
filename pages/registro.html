@@ -251,40 +251,32 @@
           <!-- Formulario de Compra -->
           <section class="section-space">
             <br>
-            <h5 class="mt-6">Dirección de envío</h5>
+            <h5 class="mt-1">Dirección de envío (Opcional) </h5>
             <div class="formulario shadow-lg">
               <div class="better-background">
                 <form action="">
                   <div class="form-group">
-                    <label for="alias-direccion">Nombre de quien recibe <span class="form-alert">*</span></label>
+                    <label for="dest">Nombre de quien recibe</label>
                     <input
                       type="text"
                       class="form-control"
-                      id="alias-direccion"
+                      id="dest"
                       placeholder="Ejemplo: Marco"
                     />
                   </div>
+                  <div id="dest-feedback"></div>
                   <div class="form-group mt-2">
-                    <label for="ciudad">Ciudad</label><span class="form-alert">*</span></label>
-                    <select class="form-control" id="ciudad">
-                      <option value="Santiago">Santiago</option>
-                      <option value="Conchalí">Conchalí</option>
-                      <option value="El Bosque">El Bosque</option>
-                      <option value="Cerrillos">Cerrillos</option>
-                      <option value="Pomaire">Pomaire</option>
+                    <label for="region">Region</label></label>
+                    <select name="region" id="region" class="form-control mx-auto">
                     </select>
                   </div>
                   <div class="form-group mt-2">
-                    <label for="comuna">Comuna</label><span class="form-alert">*</span></label>
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="comuna"
-                      placeholder="Ingresa tu comuna"
-                    />
+                    <label for="comuna">Comuna</label></label>
+                    <select name="comuna" id="comuna" class="form-control mx-auto">
+                    </select>
                   </div>
                   <div class="form-group mt-2">
-                    <label for="direccion">Calle <span class="form-alert">*</span></label>
+                    <label for="direccion">Dirección</label>
                     <input
                       type="text"
                       class="form-control"
@@ -292,26 +284,28 @@
                       placeholder="Ingresa tu dirección"
                     />
                   </div>
+                  <div id="direccion-feedback"></div>
                   <div class="form-group mt-2">
-                    <label for="numero">Número <span class="form-alert">*</span></label>
+                    <label for="nro">Número</label>
                     <input
-                      type="text"
+                      type="number"
                       class="form-control"
-                      id="numero"
+                      id="nro"
                       placeholder="Ingresa el número de tu dirección"
                     />
                   </div>
                   <div class="form-group mt-2">
-                    <label for="desc-direccion"
+                    <label for="depto"
                       >N°Depto / Oficina / Otro (si aplica)</label
                     >
                     <input
                       type="text"
                       class="form-control"
-                      id="desc-direccion"
+                      id="depto"
                       placeholder="Descripción de la dirección"
                     />
                   </div>
+                  <div id="depto-feedback"></div>
                 </form>
               </div>
             </div>
@@ -324,7 +318,7 @@
                 </p>
               </div>
               <div class="mt-4 gap-2">
-                <button type="submit" id="btn-log" class="btn btn-primary btn-orange">
+                <button type="submit" id="btn-log" class="btn btn-dark btn-orange" disabled>
                   Registrarme
                 </button>
               </div>

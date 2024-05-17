@@ -12,7 +12,16 @@ $(document).ready(function(){
     let emailFeedback = $("#email-feedback");
     let password = $("#password");
     let passwordFeedback = $("#password-feedback");
+    let calle = $("#direccion");
+    let calleFeedback = $("#direccion-feedback");
+    let dest = $("#dest");
+    let destFeedback = $("#dest-feedback");
+    let nro = $("#nro");
+    let nroFeedback = $("#nro-feedback");
+    let depto = $("#depto");
+    let deptoFeedback = $("#depto-feedback");
 
+    // Validar Rut //
     rut.on("keyup", function() {
         let rutval = $(this).val();
         let valido = validarRut(rutval);
@@ -26,6 +35,7 @@ $(document).ready(function(){
         }
     });
 
+    // Validar Nombre //
     nombre.on("keyup", function() {
         let nombreVal = $(this).val();
         let valido = validarNombre(nombreVal); 
@@ -38,8 +48,9 @@ $(document).ready(function(){
           nombre.removeClass("is-valid text-success").addClass("is-invalid text-danger");
           nombreFeedback.html("El nombre no cumple los requisitos").addClass("d-block text-danger");
         }
-      });
+    });
 
+    // Validar Apellido //
     apellido.on("keyup", function() {
         let apellidoVal = $(this).val();
         let valid = validarApellido(apellidoVal); 
@@ -54,6 +65,7 @@ $(document).ready(function(){
         }
     });
       
+    // Validar Telefono //
     telefono.on("keyup", function() {
         let telefonoVal = $(this).val();
         let valido = validarTelefono(telefonoVal);
@@ -68,6 +80,7 @@ $(document).ready(function(){
         }
     });
 
+    // Validar Correo //
     email.on("keyup", function() {
         let emailVal = $(this).val();
         let valido = validarEmail(emailVal);
@@ -82,6 +95,7 @@ $(document).ready(function(){
         }
     });
 
+    // Validar Contraseña //
     password.on("keyup", function() {
         let passwordVal = $(this).val();
         let valido = validarPassword(passwordVal);
@@ -96,8 +110,67 @@ $(document).ready(function(){
         }
     });
 
-});
+    // Validar Destinatario //
+    dest.on("keyup", function() {
+      let destVal = $(this).val();
+      let valido = validardest(destVal); 
+    
+      if (valido) {
+        dest.removeClass("is-invalid text-danger").addClass("is-valid text-success");
+        destFeedback.removeClass("d-block text-danger");
+        destFeedback.html("Nombre válido").addClass("d-block text-success");
+      } else {
+        dest.removeClass("is-valid text-success").addClass("is-invalid text-danger");
+        destFeedback.html("El destinatario no debe estar vacio").addClass("d-block text-danger");
+      }
+    });
 
+    // Validar Direccion //
+    calle.on("keyup", function() {
+      let calleValor = $(this).val();
+      let valido = validarCalle(calleValor); 
+    
+      if (valido) {
+        calle.removeClass("is-invalid text-danger").addClass("is-valid text-success");
+        calleFeedback.removeClass("d-block text-danger");
+        calleFeedback.html("Nombre de calle válido").addClass("d-block text-success");
+      } else {
+        calle.removeClass("is-valid text-success").addClass("is-invalid text-danger");
+        calleFeedback.html("El nombre de calle no puede estar vacio").addClass("d-block text-danger");
+      }
+    });
+
+    // Validar N° de Casa //
+    nro.on("keyup", function() {
+      let nroVal = $(this).val();
+      let valido = validarnro(nroVal); 
+    
+      if (valido) {
+        nro.removeClass("is-invalid text-danger").addClass("is-valid text-success");
+        nroFeedback.removeClass("d-block text-danger");
+        nroFeedback.html("Número válido").addClass("d-block text-success");
+      } else {
+        nro.removeClass("is-valid text-success").addClass("is-invalid text-danger");
+        nroFeedback.html("El número no debe estar vacio").addClass("d-block text-danger");
+      }
+    });
+
+    // Validar N° de Casa //
+    depto.on("keyup", function() {
+      let deptoVal = $(this).val();
+      let valido = validardepto(deptoVal); 
+    
+      if (valido) {
+        depto.removeClass("is-invalid text-danger").addClass("is-valid text-success");
+        deptoFeedback.removeClass("d-block text-danger");
+        deptoFeedback.html("Número válido").addClass("d-block text-success");
+      } else {
+        depto.removeClass("is-valid text-success").addClass("is-invalid text-danger");
+        deptoFeedback.html("El número de departamento no debe estar vacio").addClass("d-block text-danger");
+      }
+    });
+
+});
 
 $("btl-log").click(function(){
     let rut = $("#rut").val();
@@ -188,6 +261,67 @@ function validarRut(rutCompleto) {
 
 }
 
+$.ajax({
+  type: "GET",
+  url: "https://apis.digital.gob.cl/dpa/regiones",
+  data: "data",
+  dataType: "JSONP",
+  success: function (data) {
+      $.each(data, function (i, tmp) {
+          $("#region").append("" +
+              "<option value='" + tmp.codigo +
+              "'>" + tmp.nombre + "</option>"
+          )
+      })
+  }
+});
+$("#region").change(function () {
+  let comuna = $("#region").val();
+  $.ajax({
+      type: "GET",
+      url: "https://apis.digital.gob.cl/dpa/regiones/" + comuna + "/comunas",
+      data: "data",
+      dataType: "JSONP",
+      success: function (data) {
+          $("#comuna").html("");
+          $.each(data, function (i, tmp) {
+              $("#comuna").append("" +
+                  "<option>" + tmp.nombre + "</option>"
+              )
+          })
+      }
+  });
+});
+
+function validardest(dest) {
+  return dest.length <= 40 && dest.length != "";
+}
+
+function validarnro(nro) {
+  return nro.length <= 4 && dest.length != "";
+}
+
+function validardepto(depto) {
+  return depto.length <= 40 && depto.length != "";
+}
+
+function validarCalle(calleValor) {
+  if (calleValor.length > 40) {
+    return false;
+  }
+
+  if (calleValor === "") {
+    return false;
+  }
+
+  const regex = /[^A-Za-z0-9-\s]/g;
+  if (regex.test(calleValor)) {
+    return false;
+  }
+
+  return true;
+}
+
 function validarPassword(password) {
     let MIN_LENGTH = 12;
     let hasMayuscula = /[A-Z]/.test(password);
@@ -204,3 +338,4 @@ function validarPassword(password) {
       hasSimbolo
     );
 }
+
