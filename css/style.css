@@ -19,7 +19,6 @@ button[disabled]{
   color: #666666;
 }
 
-
 del {
   font-size: 13px;
   color: #777;
@@ -60,14 +59,11 @@ a {
 }
 
 .card-col-2 {
-  /* Ancho deseado para la columna de categorías */
-  width: 20%; /* Por ejemplo, el 20% del ancho total */
+  width: 20%;
   margin: 20px;
 }
 
 .card-col-10 {
-  /* Ancho deseado para las cards */
-  width: 80%; /* Por ejemplo, el 80% del ancho total */
   margin: 20px;
 }
 
@@ -75,13 +71,13 @@ a {
   margin: 20px;
 }
 
-.items {
-  display: flex;
-  flex-wrap: wrap;
-}
-
 .cursor-pointer {
   cursor: pointer;
+}
+
+.card-animation:hover {
+  transition: transform 0.5s;
+  transform: scale(1.05);
 }
 
 .btn-orange {
@@ -142,7 +138,7 @@ div.desc {
   justify-content: center;
 }
 
-.term{
+.term {
   display: flex;
   justify-content: center;
 }
@@ -265,23 +261,19 @@ div.desc {
   background-color: #ffb600;
   border: none;
   border-radius: 7%;
-  padding: 5px 15px;
+  padding: 0px 5px;
 }
 
 .card {
   background-color: #e9ecef;
-  padding: 15px;
-  margin: 10px;
-  width: 300px;
+  margin: 5px;
+  width: 210px;
+  border: none;
+  padding: 10px;
 }
 
 .card-categoria {
-    border: 0px;
-    width: 256px;
-}
-
-.card-producto {
-    border: 0px;
+  width: 180px;
 }
 
 .txt-color-primary {
@@ -319,7 +311,6 @@ div.desc {
 .items {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
 }
 
 .info {

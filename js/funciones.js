@@ -1,74 +1,144 @@
-$(document).ready(function(){
-
-    let rut = $("#rut");
-    let rutfeedback = $("#rut-feedback");
-    let nombre = $("#nombre");
-    let nombreFeedback = $("#nombre-feedback");
-    let apellido = $("#apellido");
-    let apellidoFeedback = $("#apellido-feedback");
-    let telefono = $("#telefono");
-    let telefonoFeedback = $("#telefono-feedback");
-    let email = $("#email");
-    let emailFeedback = $("#email-feedback");
-    let password = $("#password");
-    let passwordFeedback = $("#password-feedback");
-    let calle = $("#direccion");
-    let calleFeedback = $("#direccion-feedback");
-    let dest = $("#dest");
-    let destFeedback = $("#dest-feedback");
-    let nro = $("#nro");
-    let nroFeedback = $("#nro-feedback");
-    let depto = $("#depto");
-    let deptoFeedback = $("#depto-feedback");
+$(document).ready(function() {
+    const validaciones = {
+      rut: false,
+      nombre: false,
+      apellido: false,
+      telefono: false,
+      email: false,
+      password: false,
+      confirmPassword: false,
+      check: false
+    }
+    
+    const rut = $("#rut");
+    const rutfeedback = $("#rut-feedback");
+    const nombre = $("#nombre");
+    const nombreFeedback = $("#nombre-feedback");
+    const apellido = $("#apellido");
+    const apellidoFeedback = $("#apellido-feedback");
+    const telefono = $("#telefono");
+    const telefonoFeedback = $("#telefono-feedback");
+    const email = $("#email");
+    const emailFeedback = $("#email-feedback");
+    const password = $("#password");
+    const confirmPassword = $("#confirm-password");
+    const confirmPasswordFeedback = $("#confirm-password-feedback");
+    const passwordFeedback1 = $("#password-feedback-1");
+    const passwordFeedback2 = $("#password-feedback-2");
+    const passwordFeedback3 = $("#password-feedback-3");
+    const passwordFeedback4 = $("#password-feedback-4");
+    const calle = $("#direccion");
+    const calleFeedback = $("#direccion-feedback");
+    const dest = $("#dest");
+    const destFeedback = $("#dest-feedback");
+    const nro = $("#nro");
+    const nroFeedback = $("#nro-feedback");
+    const depto = $("#depto");
+    const deptoFeedback = $("#depto-feedback");
+    const check = $("#check");
+    const boton = $("#btn-log");
 
     // Validar Rut //
+    rut.on("focusout", function() {
+      let rutval = $(this).val();
+
+      if (rutval === "") {
+        rut.removeClass("is-valid text-success").addClass("is-invalid text-danger");
+        rutfeedback.html("El rut debe ser: 12345678-K").addClass("d-block text-danger");
+      }
+    });
+
     rut.on("keyup", function() {
         let rutval = $(this).val();
         let valido = validarRut(rutval);
+
+        validaciones.rut = valido;
+        validarDatos(validaciones, boton);
+
         if (valido) {
           rut.removeClass("is-invalid text-danger").addClass("is-valid text-success");
           rutfeedback.removeClass("d-block text-danger");
           rutfeedback.html("Rut válido").addClass("d-block text-success");
-        } else {
+        } 
+        else {
           rut.removeClass("is-valid text-success").addClass("is-invalid text-danger");
-          rutfeedback.html("El rut debe ser: 12345678-k").addClass("d-block text-danger");
+          rutfeedback.html("El rut debe ser: 12345678-K").addClass("d-block text-danger");
         }
     });
+    
 
     // Validar Nombre //
+    nombre.on("focusout", function() {
+      let nombreVal = $(this).val();
+    
+      if (nombreVal === "") {
+        nombre.removeClass("is-valid text-success").addClass("is-invalid text-danger");
+        nombreFeedback.html("Ingrese un nombre válido").addClass("d-block text-danger");
+      }
+    });
+    
     nombre.on("keyup", function() {
         let nombreVal = $(this).val();
         let valido = validarNombre(nombreVal); 
+
+        validaciones.nombre = valido;
+        validarDatos(validaciones, boton);
       
         if (valido) {
           nombre.removeClass("is-invalid text-danger").addClass("is-valid text-success");
           nombreFeedback.removeClass("d-block text-danger");
           nombreFeedback.html("Nombre válido").addClass("d-block text-success");
-        } else {
+        } 
+        else {
           nombre.removeClass("is-valid text-success").addClass("is-invalid text-danger");
-          nombreFeedback.html("El nombre no cumple los requisitos").addClass("d-block text-danger");
+          nombreFeedback.html("Ingrese un nombre válido").addClass("d-block text-danger");
         }
     });
 
     // Validar Apellido //
+    apellido.on("focusout", function() {
+      let apellidoVal = $(this).val();
+      
+      if (apellidoVal === "") {
+        apellido.removeClass("is-valid text-success").addClass("is-invalid text-danger");
+        apellidoFeedback.html("Ingrese un apellido válido").addClass("d-block text-danger");
+      }
+    });
+
     apellido.on("keyup", function() {
         let apellidoVal = $(this).val();
-        let valid = validarApellido(apellidoVal); 
+        let valid = validarApellido(apellidoVal);
+
+        validaciones.apellido = valid;
+        validarDatos(validaciones, boton);
         
         if (valid) {
             apellido.removeClass("is-invalid text-danger").addClass("is-valid text-success");
             apellidoFeedback.removeClass("d-block text-danger");
             apellidoFeedback.html("Apellido válido").addClass("d-block text-success");
-        } else {
+        } 
+        else {
             apellido.removeClass("is-valid text-success").addClass("is-invalid text-danger");
-            apellidoFeedback.html("El apellido no cumple los requisitos").addClass("d-block text-danger");
+            apellidoFeedback.html("Ingrese un apellido válido").addClass("d-block text-danger");
         }
     });
       
     // Validar Telefono //
+    telefono.on("focusout", function() {
+      let telefonoVal = $(this).val();
+    
+      if (telefonoVal === "") {
+        telefono.removeClass("is-valid text-success").addClass("is-invalid text-danger");
+        telefonoFeedback.html("El número debe ser de 8 digitos").addClass("d-block text-danger");
+      }
+    });
+
     telefono.on("keyup", function() {
         let telefonoVal = $(this).val();
         let valido = validarTelefono(telefonoVal);
+
+        validaciones.telefono = valido;
+        validarDatos(validaciones, boton);
       
         if (valido) {
           telefono.removeClass("is-invalid text-danger").addClass("is-valid text-success");
@@ -81,9 +151,21 @@ $(document).ready(function(){
     });
 
     // Validar Correo //
+    email.on("focusout", function() {
+      let emailVal = $(this).val();
+    
+      if (emailVal === "") {
+        email.removeClass("is-valid text-success").addClass("is-invalid text-danger");
+        emailFeedback.html("El correo no cumple el formato correcto").addClass("d-block text-danger");
+      }
+    });
+
     email.on("keyup", function() {
         let emailVal = $(this).val();
         let valido = validarEmail(emailVal);
+
+        validaciones.email = valido;
+        validarDatos(validaciones, boton);
       
         if (valido) {
           email.removeClass("is-invalid text-danger").addClass("is-valid text-success");
@@ -96,19 +178,109 @@ $(document).ready(function(){
     });
 
     // Validar Contraseña //
+    password.on("focusout", function() {
+      let passwordVal = $(this).val();
+    
+      if (passwordVal === "") {
+          password.removeClass("is-valid text-success").addClass("is-invalid text-danger");
+          passwordFeedback1.html(PASSWORD_ERROR.CARACTER_MINIMO).addClass("d-block text-danger");
+          passwordFeedback2.html(PASSWORD_ERROR.MAYUSCULA).addClass("d-block text-danger");
+          passwordFeedback3.html(PASSWORD_ERROR.NUMERO).addClass("d-block text-danger");
+          passwordFeedback4.html(PASSWORD_ERROR.CARACTER_ESPECIAL).addClass("d-block text-danger");
+      }
+    });
+
     password.on("keyup", function() {
         let passwordVal = $(this).val();
-        let valido = validarPassword(passwordVal);
-      
-        if (valido) {
+        let lista = validarPassword(passwordVal);
+        let validoConfirmPassword = validarConfirmarPassword(passwordVal, confirmPassword.val());
+
+        validaciones.password = lista.length === 0;
+        validarDatos(validaciones, boton);
+
+        if (validoConfirmPassword) {
+          confirmPassword.removeClass("is-invalid text-danger").addClass("is-valid text-success");
+          confirmPasswordFeedback.removeClass("d-block text-danger");
+          confirmPasswordFeedback.html("Contraseña válida").addClass("d-block text-success");
+        }
+        else {
+          confirmPassword.removeClass("is-valid text-success").addClass("is-invalid text-danger");
+          confirmPasswordFeedback.html("La contraseña no coincide con la anterior").addClass("d-block text-danger");
+        }
+
+        if (lista.length === 0) {
           password.removeClass("is-invalid text-danger").addClass("is-valid text-success");
-          passwordFeedback.removeClass("d-block text-danger");
-          passwordFeedback.html("Contraseña válida").addClass("d-block text-success");
-        } else {
+          passwordFeedback1.html("Contraseña válida").addClass("d-block text-success");
+          passwordFeedback1.removeClass("d-block text-danger");
+          passwordFeedback2.removeClass("d-block text-danger");
+          passwordFeedback3.removeClass("d-block text-danger");
+          passwordFeedback4.removeClass("d-block text-danger");
+        }
+        else {
           password.removeClass("is-valid text-success").addClass("is-invalid text-danger");
-          passwordFeedback.html("La contraseña debe tener minimo 12 caracteres").addClass("d-block text-danger");
+
+          if (lista.includes(PASSWORD_ERROR.CARACTER_MINIMO)) {
+            passwordFeedback1.html(PASSWORD_ERROR.CARACTER_MINIMO).addClass("d-block text-danger");
+          }
+          else {
+            passwordFeedback1.removeClass("d-block text-danger");
+            passwordFeedback1.html("").addClass("d-block text-success");
+          }
+
+          if (lista.includes(PASSWORD_ERROR.MAYUSCULA)) {
+            passwordFeedback2.html(PASSWORD_ERROR.MAYUSCULA).addClass("d-block text-danger");
+          }
+          else {
+            passwordFeedback2.removeClass("d-block text-danger");
+            passwordFeedback2.html("").addClass("d-block text-success");
+          }
+
+          if (lista.includes(PASSWORD_ERROR.NUMERO)) {
+            passwordFeedback3.html(PASSWORD_ERROR.NUMERO).addClass("d-block text-danger");
+          }
+          else {
+            passwordFeedback3.removeClass("d-block text-danger");
+            passwordFeedback3.html("").addClass("d-block text-success");
+          }
+
+          if (lista.includes(PASSWORD_ERROR.CARACTER_ESPECIAL)) {
+            passwordFeedback4.html(PASSWORD_ERROR.CARACTER_ESPECIAL).addClass("d-block text-danger");
+          }
+          else {
+            passwordFeedback4.removeClass("d-block text-danger");
+            passwordFeedback4.html("").addClass("d-block text-success");
+          }
         }
     });
+
+    // Validar Confirmar Contraseña //
+    confirmPassword.on("focusout", function() {
+      let confirmPasswordVal = $(this).val();
+    
+      if (confirmPasswordVal === "") {
+        confirmPassword.removeClass("is-valid text-success").addClass("is-invalid text-danger");
+        confirmPasswordFeedback.html("La contraseña no coincide con la anterior").addClass("d-block text-danger");
+      }
+    });
+
+    confirmPassword.on("keyup", function() {
+      let confirmPasswordVal = $(this).val();
+      let valido = validarConfirmarPassword(password.val(), confirmPasswordVal);
+
+      validaciones.confirmPassword = valido;
+      validarDatos(validaciones, boton);
+    
+      if (valido) {
+        confirmPassword.removeClass("is-invalid text-danger").addClass("is-valid text-success");
+        confirmPasswordFeedback.removeClass("d-block text-danger");
+        confirmPasswordFeedback.html("Contraseña válida").addClass("d-block text-success");
+      } 
+      else {
+        confirmPassword.removeClass("is-valid text-success").addClass("is-invalid text-danger");
+        confirmPasswordFeedback.html("La contraseña no coincide con la anterior").addClass("d-block text-danger");
+      }
+  });
+
 
     // Validar Destinatario //
     dest.on("keyup", function() {
@@ -119,7 +291,8 @@ $(document).ready(function(){
         dest.removeClass("is-invalid text-danger").addClass("is-valid text-success");
         destFeedback.removeClass("d-block text-danger");
         destFeedback.html("Nombre válido").addClass("d-block text-success");
-      } else {
+      } 
+      else {
         dest.removeClass("is-valid text-success").addClass("is-invalid text-danger");
         destFeedback.html("El destinatario no debe estar vacio").addClass("d-block text-danger");
       }
@@ -134,7 +307,8 @@ $(document).ready(function(){
         calle.removeClass("is-invalid text-danger").addClass("is-valid text-success");
         calleFeedback.removeClass("d-block text-danger");
         calleFeedback.html("Nombre de calle válido").addClass("d-block text-success");
-      } else {
+      } 
+      else {
         calle.removeClass("is-valid text-success").addClass("is-invalid text-danger");
         calleFeedback.html("El nombre de calle no puede estar vacio").addClass("d-block text-danger");
       }
@@ -149,13 +323,14 @@ $(document).ready(function(){
         nro.removeClass("is-invalid text-danger").addClass("is-valid text-success");
         nroFeedback.removeClass("d-block text-danger");
         nroFeedback.html("Número válido").addClass("d-block text-success");
-      } else {
+      } 
+      else {
         nro.removeClass("is-valid text-success").addClass("is-invalid text-danger");
         nroFeedback.html("El número no debe estar vacio").addClass("d-block text-danger");
       }
     });
 
-    // Validar N° de Casa //
+    // Validar N° Depto //
     depto.on("keyup", function() {
       let deptoVal = $(this).val();
       let valido = validardepto(deptoVal); 
@@ -164,15 +339,22 @@ $(document).ready(function(){
         depto.removeClass("is-invalid text-danger").addClass("is-valid text-success");
         deptoFeedback.removeClass("d-block text-danger");
         deptoFeedback.html("Número válido").addClass("d-block text-success");
-      } else {
+      } 
+      else {
         depto.removeClass("is-valid text-success").addClass("is-invalid text-danger");
         deptoFeedback.html("El número de departamento no debe estar vacio").addClass("d-block text-danger");
       }
     });
 
+    // Validar CheckBox //
+    check.on("click", function() {
+        let checkbox = $(this);
+        validaciones.check = checkbox.is(":checked");
+        validarDatos(validaciones, boton);   
+    });
 });
 
-$("btl-log").click(function(){
+$("btn-log").click(function(){
     let rut = $("#rut").val();
     let pass = $("#password").val();
     let res = validarDatos(rut, pass);
@@ -189,25 +371,11 @@ $("btl-log").click(function(){
 });
 
 function validarNombre(nombre) {
-    if (nombre.length > 40) {
-      return false;
-    }
-    
-    if (nombre === "") {
-      return false;
-    }
-    return true;
+    return nombre.length <= 40 && nombre.length != "";
 }
 
 function validarApellido(apellido) {
-    if (apellido.length > 50) {
-        return false;
-    }
-
-    if (apellido === "") {
-        return false;
-    }
-    return true;
+    return apellido.length <= 40 && apellido.length != "";
 }
 
 function validarTelefono(telefono) {
@@ -216,22 +384,14 @@ function validarTelefono(telefono) {
 
 function validarEmail(email) {
     let partes = email.split("@");
-  
-    if (partes.length !== 2) {
-      return false;
-    }
+    if (partes.length !== 2) return false;
   
     let usuario = partes[0];
     const usuarioRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+/;
-    if (!usuarioRegex.test(usuario)) {
-      return false;
-    }
+    if (!usuarioRegex.test(usuario)) return false;
   
     let dominio = partes[1];
-    if (dominio !== "gmail.com") {
-      return false;
-    }
-    return true;
+    return dominio === "gmail.com";
 }
 
 function validarRut(rutCompleto) {
@@ -254,11 +414,11 @@ function validarRut(rutCompleto) {
 
     if (dvCalculado == 11) {
         dvCalculado = 0;
-    } else if (dvCalculado == 10) {
+    }
+    else if (dvCalculado == 10) {
         dvCalculado = 'K';
     }
     return dv == dvCalculado;
-
 }
 
 $.ajax({
@@ -298,7 +458,7 @@ function validardest(dest) {
 }
 
 function validarnro(nro) {
-  return nro.length <= 4 && dest.length != "";
+  return nro.length <= 4 && nro.length != "";
 }
 
 function validardepto(depto) {
@@ -306,36 +466,47 @@ function validardepto(depto) {
 }
 
 function validarCalle(calleValor) {
-  if (calleValor.length > 40) {
-    return false;
-  }
-
-  if (calleValor === "") {
-    return false;
-  }
+  if (calleValor === "") return false;
 
   const regex = /[^A-Za-z0-9-\s]/g;
-  if (regex.test(calleValor)) {
-    return false;
-  }
-
-  return true;
+  return !regex.test(calleValor);
 }
 
 function validarPassword(password) {
-    let MIN_LENGTH = 12;
     let hasMayuscula = /[A-Z]/.test(password);
     let hasMinuscula = /[a-z]/.test(password);
     let hasNumero = /[0-9]/.test(password);
-    let hasSimbolo = /[!"#$%&'()*+,-./:;<=>?@[]^_{|}~]/;
+    let hasSimbolo = /[!@#\$%\^&\*]/.test(password);
 
-  
-    return (
-      password.length >= MIN_LENGTH &&
-      hasMayuscula &&
-      hasMinuscula &&
-      hasNumero &&
-      hasSimbolo
-    );
+    const lista = [];
+
+    if (password.length < 12) lista.push(PASSWORD_ERROR.CARACTER_MINIMO);
+    if (!hasMayuscula) lista.push(PASSWORD_ERROR.MAYUSCULA);
+    if (!hasMinuscula) lista.push(PASSWORD_ERROR.MAYUSCULA);
+    if (!hasNumero) lista.push(PASSWORD_ERROR.NUMERO);
+    if (!hasSimbolo) lista.push(PASSWORD_ERROR.CARACTER_ESPECIAL);
+
+    return lista;
 }
 
+function validarConfirmarPassword(password, confirmPassword) {
+    return confirmPassword !== "" && password === confirmPassword;
+}
+
+function validarDatos(validaciones, boton) {
+    const validado = Object.values(validaciones).every((value) => value);
+
+    if (validado) {
+      boton.removeAttr("disabled");
+    }
+    else {
+      boton.attr("disabled", "disabled");
+    }
+}
+
+const PASSWORD_ERROR = {
+    CARACTER_MINIMO: "La contraseña debe tener minimo 12 caracteres",
+    CARACTER_ESPECIAL: "La contraseña debe tener al menos un caracter especial",
+    MAYUSCULA: "La contraseña debe tener al menos una mayúscula",
+    NUMERO: "La contraseña debe tener al menos un número"
+};
