@@ -352,22 +352,27 @@ $(document).ready(function() {
         validaciones.check = checkbox.is(":checked");
         validarDatos(validaciones, boton);   
     });
-});
+    
+    // Submit //
+    boton.on("click", function() {
+      let rutVal = rut.val();
+      let passVal = password.val();
+      let res = validarDatos(validaciones, boton);
 
-$("btn-log").click(function(){
-    let rut = $("#rut").val();
-    let pass = $("#password").val();
-    let res = validarDatos(rut, pass);
-    if (res) {
-        $("#exampleModal").modal("show");
-            $("#res").html("")
-            $("#res").append("<p>");
-            $("#res").append("Rut: " + rut + "<br>");
-            $("#res").append("Password: " + pass + "<br>");
-            $("#res").append("</p>");
-            console.log("Rut:", rut);
-            console.log("Password:", pass);
-    }
+      console.log("Rut:", rutVal);
+      console.log("Password:", passVal);
+
+      if (res) {
+          $("#exampleModal").modal("show");
+              $("#res").html("")
+              $("#res").append("<p>");
+              $("#res").append("Rut: " + rutVal + "<br>");
+              $("#res").append("Password: " + passVal + "<br>");
+              $("#res").append("</p>");
+              console.log("Rut:", rutVal);
+              console.log("Password:", passVal);
+      }
+  });
 });
 
 function validarNombre(nombre) {
