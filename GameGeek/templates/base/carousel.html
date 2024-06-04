@@ -1,26 +1,49 @@
-{%load static%}
+{% load static %}
+
 <!-- Inicio Carousel -->
 <section>
-    <div id="carouselExampleRide" class="carousel slide" data-bs-ride="true">
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="{% static 'img/carousel/banner_1.jpg' %}" alt="..." class="d-block w-100 carousel-img" />
-            </div>
-            <div class="carousel-item">
-                <img src="{% static 'img/carousel/banner_2.jpg' %}" alt="..." class="d-block w-100 carousel-img" />
-            </div>
-            <div class="carousel-item">
-                <img src="{% static 'img/carousel/banner_3.jpg' %}" alt="..." class="d-block w-100 carousel-img" />
-            </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleRide" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden"></span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleRide" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden"></span>
-        </button>
+  <div id="carouselExampleRide" class="carousel slide" data-bs-ride="true">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img
+          src="{% static 'img/carousel/banner_1.jpg' %}"
+          alt="..."
+          class="d-block w-100 carousel-img"
+        />
+      </div>
+      <div class="carousel-item">
+        <img
+          src="{% static 'img/carousel/banner_2.jpg' %}"
+          alt="..."
+          class="d-block w-100 carousel-img"
+        />
+      </div>
+      <div class="carousel-item">
+        <img
+          src="{% static 'img/carousel/banner_3.jpg' %}"
+          alt="..."
+          class="d-block w-100 carousel-img"
+        />
+      </div>
     </div>
+    <button
+      class="carousel-control-prev"
+      type="button"
+      data-bs-target="#carouselExampleRide"
+      data-bs-slide="prev"
+    >
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden"></span>
+    </button>
+    <button
+      class="carousel-control-next"
+      type="button"
+      data-bs-target="#carouselExampleRide"
+      data-bs-slide="next"
+    >
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden"></span>
+    </button>
+  </div>
 </section>
 <!-- Fin Carousel -->
