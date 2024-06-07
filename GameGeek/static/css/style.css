@@ -35,7 +35,6 @@ footer {
   padding: 20px 0px;
   text-align: center;
   bottom: 0;
-  width: 100%;
 }
 
 a {
@@ -201,10 +200,6 @@ div.desc {
   padding: 0 40px 0 40px;
 }
 
-.navbar-search-icon {
-  margin-left: 500px;
-}
-
 .navbar-dropdown-transition:hover {
   background-color: #ffb600;
   transition-property: color, background-color, border-color,
@@ -319,6 +314,10 @@ div.desc {
 
 .ul-left {
   text-align: left;
+}
+
+.list-footer {
+  list-style: none;
 }
 
 .footer-section {
