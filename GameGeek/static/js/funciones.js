@@ -212,8 +212,11 @@ $(document).ready(function() {
           password.removeClass("is-invalid text-danger").addClass("is-valid text-success");
           passwordFeedback1.html("Contraseña válida").addClass("d-block text-success");
           passwordFeedback1.removeClass("d-block text-danger");
+          passwordFeedback2.html("").addClass("d-block text-success");
           passwordFeedback2.removeClass("d-block text-danger");
+          passwordFeedback3.html("").addClass("d-block text-success");
           passwordFeedback3.removeClass("d-block text-danger");
+          passwordFeedback4.html("").addClass("d-block text-success");
           passwordFeedback4.removeClass("d-block text-danger");
         }
         else {
@@ -395,8 +398,12 @@ function validarEmail(email) {
     const usuarioRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+/;
     if (!usuarioRegex.test(usuario)) return false;
   
-    let dominio = partes[1];
-    return dominio === "gmail.com";
+    let dominioSplit = partes[1].split(".");
+
+    let dominio = dominioSplit[0];
+    let dominioEnd = dominioSplit[1];
+
+    return dominio !== null && dominio.length > 0 && dominioEnd !== null && dominioEnd.length > 0;
 }
 
 function validarRut(rutCompleto) {
@@ -479,7 +486,6 @@ function validarCalle(calleValor) {
 
 function validarPassword(password) {
     let hasMayuscula = /[A-Z]/.test(password);
-    let hasMinuscula = /[a-z]/.test(password);
     let hasNumero = /[0-9]/.test(password);
     let hasSimbolo = /[!@#\$%\^&\*]/.test(password);
 
@@ -487,7 +493,6 @@ function validarPassword(password) {
 
     if (password.length < 12) lista.push(PASSWORD_ERROR.CARACTER_MINIMO);
     if (!hasMayuscula) lista.push(PASSWORD_ERROR.MAYUSCULA);
-    if (!hasMinuscula) lista.push(PASSWORD_ERROR.MAYUSCULA);
     if (!hasNumero) lista.push(PASSWORD_ERROR.NUMERO);
     if (!hasSimbolo) lista.push(PASSWORD_ERROR.CARACTER_ESPECIAL);
 

@@ -4,7 +4,9 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>GameGeek | Despacho</title>
+
     {% load static %}
+
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -18,7 +20,9 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %} " />
   </head>
   <body>
+
     {% include 'base/navbar.html' %}
+
     <main>
       <!-- Inicio sección despachos -->
       <section class="section-space">
@@ -112,104 +116,8 @@
       </section>
       <!-- Fin sección despachos -->
     </main>
+    
     {% include 'base/footer.html' %}
-
-    <!-- Modal Login -->
-    <div class="modal fade" id="modal-login">
-      <div class="modal-dialog modal-right">
-        <div class="modal-content">
-          <div class="modal-body">
-            <div class="text-center mb-3">
-              <img
-                src="{% static 'img/gamegeek/gg-na-junto.png' %}"
-                alt="GameGeek"
-                width="300px"
-              />
-            </div>
-            <form action="">
-              <div>
-                <div>
-                  <label for="rut">
-                    RUT
-                    <span class="fw-lighter">Sin puntos ni guión</span>
-                  </label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="rut"
-                    placeholder="Ej: 12345678K"
-                  />
-                </div>
-              </div>
-              <div>
-                <div class="mt-2">
-                  <label for="password">Contraseña</label>
-                  <input
-                    type="password"
-                    class="form-control"
-                    id="password"
-                    placeholder="********"
-                  />
-                </div>
-              </div>
-            </form>
-            <a href=""
-              ><p
-                class="mt-3 mb-3 txt-orange-transition text-center txt-color-secondary"
-              >
-                ¿Olvidaste tu contraseña?
-              </p></a
-            >
-
-            <!-- Boton de iniciar sesion -->
-            <div class="mt-3 text-center d-grid gap-2">
-              <button type="submit" class="btn btn-primary btn-orange">
-                Iniciar sesión
-              </button>
-            </div>
-
-            <!-- Boton de registrarse -->
-            <div class="mt-3 text-center d-grid gap-2">
-              <a href="/pages/registro.html" class="btn btn-primary btn-orange"
-                >¿No tienes cuenta? Registrate</a
-              >
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Modal Carrito -->
-    <div
-      class="modal fade"
-      id="modal-carro"
-      tabindex="-1"
-      aria-labelledby="modal-carro"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog modal-right modal-carro">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h3>Tu carrito</h3>
-          </div>
-          <div class="modal-body">
-            <div class="text-center mb-3">
-              <img
-                src="{% static 'img/otros/compra.png' %}"
-                alt="GameGeek"
-                width="300px"
-              />
-            </div>
-
-            <h6 class="text-center">¡Tu carrito está vacío!</h6>
-
-            <div class="mt-3 text-center d-grid gap-2">
-              <a href="#" class="btn btn-primary btn-orange">Comprar ahora</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"

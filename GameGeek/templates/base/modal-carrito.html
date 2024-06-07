@@ -1,0 +1,33 @@
+{% load static %}
+
+<!-- Modal Carrito -->
+<div
+  class="modal fade"
+  id="modal-carro"
+  tabindex="-1"
+  aria-labelledby="modal-carro"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-right modal-carro">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Tu carrito</h3>
+      </div>
+      <div class="modal-body">
+        <div class="text-center mb-3">
+          <img
+            src="{% static 'img/otros/compra.png' %}"
+            alt="GameGeek"
+            width="300px"
+          />
+        </div>
+
+        <h6 class="text-center">¡Tu carrito está vacío!</h6>
+
+        <div class="mt-3 text-center d-grid gap-2">
+          <a href="{% url 'index' %}" class="btn btn-primary btn-orange">Comprar ahora</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

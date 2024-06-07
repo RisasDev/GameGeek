@@ -19,3 +19,12 @@ def pines(request):
 
 def figuras(request):
     return render(request, 'pages/figuras.html')
+
+def password_recovery(request):
+    return render(request, 'pages/password-recovery.html')
+
+def tos(request):
+    return render(request, 'pages/tos.html')
+
+def privacidad(request):
+    return render(request, 'pages/privacidad.html')
