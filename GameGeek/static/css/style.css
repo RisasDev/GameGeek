@@ -4,7 +4,7 @@ a {
 
 th, h1, h2, h3, h4, h5, h6 {
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-  "Lucida Sans Unicode", Geneva, Verdana, sans-serif !important;
+  "Lucida Sans Unicode", Verdana, sans-serif !important;
 }
 
 td, li, p, button, span {
@@ -137,6 +137,13 @@ div.desc {
   justify-content: center;
 }
 
+.space-priv {
+  display: flex;
+  grid-template-columns: 1fr minmax(100px , 1fr);
+  justify-content: center;
+  float: left !important;
+}
+
 .term {
   display: flex;
   justify-content: center;
@@ -155,8 +162,8 @@ div.desc {
 }
 
 .carousel-item img {
-  width: 350px; /* ajusta el ancho según lo necesites */
-  height: 250px; /* ajusta la altura según lo necesites */
+  width: 350px;
+  height: 250px;
   object-fit: cover;
 }
 
@@ -314,6 +321,8 @@ div.desc {
 
 .ul-left {
   text-align: left;
+  list-style: none;
+  margin-left: 15px;
 }
 
 .list-footer {
@@ -343,4 +352,8 @@ div.desc {
 .footer-section ul li a {
   color: #1d1d1b;
   text-decoration: none;
+}
+
+.icon-list{
+  margin-left: 6%;
 }

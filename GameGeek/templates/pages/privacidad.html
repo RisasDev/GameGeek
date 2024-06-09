@@ -1,19 +1,269 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>GameGeek | Privacidad</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>GameGeek | Terminos y condiciones</title>
+    {% load static %}
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
   </head>
   <body>
-    <div>
-      <h1>Privacidad</h1>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores
-        incidunt cum, in molestias doloribus facere reiciendis alias, maxime
-        officiis, distinctio quam ducimus maiores aut animi architecto quisquam
-        necessitatibus mollitia dolore?
-      </p>
-    </div>
+    {% include 'base/navbar.html' %}
+    <main>
+      {% include 'base/carousel.html' %}
+      <div class="space-form">
+        <div class="text-left">
+          <h5 class="mt-4">Politicas de Privacidad www.GameGeek.cl</h5>
+          <p>
+            Esta Aplicación recoge algunos Datos Personales de sus Usuarios.
+          </p>
+          <hr />
+          <h6>
+            Datos Personales tratados para las siguientes finalidades y
+            utilizando los siguientes servicios:
+          </h6>
+          <div class="space-form">
+            <div>
+              <section class="section-space">
+                <div class="space-form">
+                  <i class="bi bi-envelope-open icon-size icon-list"></i>
+                  <ul class="ul-left mt-3">
+                    <h5 class="mb-3">Contacto con el Usuario</h5>
+                    <li>
+                      <h6>Formulario de contacto</h6>
+                      <p>
+                        Datos Personales: apellido(s), dirección <br>
+                        de correo electrónico, nombre, número de teléfono
+                      </p>
+                    </li>
+                    <li>
+                      <h6>Lista de Correo o Newsletter</h6>
+                      <p>
+                        Datos Personales: apellido(s), ciudad, <br>
+                        dirección de correo electrónico, <br>
+                        fecha de nacimiento, nombre, <br>
+                        número de teléfono, país, sexo
+                      </p>
+                    </li>
+                  </ul>
+                </div>
+                <div class="space-form">
+                  <i class="bi bi-sticky icon-size icon-list"></i>
+                  <ul class="ul-left mt-3">
+                    <h5 class="mb-3">Gestión de contactos y envio <br> de mensajes</h5>
+                    <li>
+                      <h6>mailChimp</h6>
+                      <p>
+                        Datos Presonales: dirección de correo electrónico
+                      </p>
+                    </li>
+                  </ul>
+                </div>
+                <div class="space-form">
+                  <i class="bi bi-sticky icon-size icon-list"></i>
+                  <ul class="ul-left mt-3"> 
+                    <h5 class="mb-3">Gestión de solicitudes de asistencia <br> y contacto</h5>
+                    <li>
+                      <h6>Freshdesk</h6>
+                      <p>
+                        Datos Presonales: Datos informados durante <br>
+                        el uso del servicio, distintas clases de Datos, <br>
+                        según lo especificado en la política <br>
+                        de privacidad del servicio.
+                      </p>
+                    </li>
+                  </ul>
+                </div>
+                <div class="space-form">
+                  <i class="bi bi-sticky icon-size icon-list"></i>
+                  <ul class="ul-left mt-3">
+                    <h5 class="mb-3">Hosting e infrastructura de Backend</h5>
+                    <li>
+                      <h6>Amazon Web Servicce (AWS)</h6>
+                      <p>
+                        Datos Presonales: distintas clases de Datos, <br>
+                        según lo especificado en la política de <br>
+                        privacidad del servicio.
+                      </p>
+                    </li>
+                  </ul>
+                </div>
+                <div class="space-form">
+                  <i class="bi bi-sticky icon-size icon-list"></i>
+                  <ul class="ul-left mt-3">
+                    <h5 class="mb-3">Gestión de Etiquetas con Google Tag</h5>
+                    <li>
+                      <h6>Google Tag Manager</h6>
+                      <p>
+                        Datos Personales: Datos de uso.
+                      </p>
+                    </li>
+                  </ul>
+                </div>
+              </section>
+            </div>
+            <div class="section-space">
+              <section class="section-space">
+                <div class="space-form">
+                  <i class="bi bi-megaphone icon-size icon-list"></i>
+                  <ul class="ul-left mt-3">
+                    <h5 class="mb-3">Publicidad</h5>
+                    <li>
+                      <h6>
+                        Seguimiento de conversiones de Meta <br>
+                        y Google Ads
+                      </h6>
+                      <p>
+                        Datos Personales: Datos de uso, <br>
+                        Rastreador
+                      </p>
+                    </li>
+                  </ul>
+                </div>
+                <div class="space-form">
+                  <i class="bi bi-bar-chart-line icon-size icon-list"></i>
+                  <ul class="ul-left mt-3">
+                    <h5 class="mb-3">Estadisticas</h5>
+                    <li>
+                      <h6>
+                        Google Analytics y Google Analytics con <br>
+                        dirección IP anonimizada
+                      </h6>
+                      <p>
+                        Datos Personales: Cookies,
+                        Datos de Uso.
+                      </p>
+                    </li>
+                  </ul>
+                </div>
+                <div class="space-form">
+                  <i class="bi bi-sticky icon-size icon-list"></i>
+                  <ul class="ul-left mt-3">
+                    <h5 class="mb-3">Heat mapping y grabación de <br> sesiones</h5>
+                    <li>
+                      <h6>Hotjar Heat Maps & Recordings</h6>
+                      <p>
+                        Datos Personales: Datos de uso, distintas <br>
+                        clases de Datos, según lo especificado <br> 
+                        en la política de privacidad del servicio, <br>
+                        Rastreador.
+                      </p>
+                    </li>
+                  </ul>
+                </div>
+                <div class="space-form">
+                  <i class="bi bi-sticky icon-size icon-list"></i>
+                  <ul class="ul-left mt-3">
+                    <h5 class="mb-3">Optimización y distribución <br> del trafico</h5>
+                    <li>
+                      <h6>Cloudflare</h6>
+                      <p>
+                        Datos Presonales: distintas clases de Datos, <br>
+                        según lo especificado en la política de <br>
+                        privacidad del servicio.
+                      </p>
+                    </li>
+                  </ul>
+                </div>
+                <div class="space-form">
+                  <i class="bi bi-sticky icon-size icon-list"></i>
+                  <ul class="ul-left mt-3">
+                    <h5 class="mb-3">Remarketing y behavioral trageting</h5>
+                    <li>
+                      <h6>
+                        Remarketing con Google Analytics y <br> 
+                        Remarketing de Google Ads
+                      </h6>
+                      <p>
+                        Datos Presonales: Cookies, Datos de uso.
+                      </p>
+                    </li>
+                    <li>
+                      <h6>
+                        Criteo Dynamic Retargeting
+                      </h6>
+                      <p>
+                        Datos Presonales: Datos de uso, Rastreador.
+                      </p>
+                    </li>
+                  </ul>
+                </div>
+              </section>
+            </div>
+          </div>
+          <hr />
+          <h5>
+            Información sobre la inhabilitación de la publicidad basada en
+            intereses
+          </h5>
+          <p>
+            Los usuarios pueden encontrar información sobre cómo deshabilitar
+            publicidad basada en intereses <br />
+            en la Política de Cookies, además de las opciones de inhabilitación
+            que ofrecen los servicios.
+          </p>
+          <h5>Datos de Contacto</h5>
+          <div class="space-priv">
+            <div>
+              <section class="space-form">
+                <div class="space-form">
+                  <i class="bi bi-person icon-size icon-list"></i>
+                  <ul class="ul-left mt-3">
+                    <h5 class="mb-3">Contacto con el Usuario</h5>
+                    <li>
+                      <h6>
+                        Titular y Responsable del tratamiento de los Datos
+                      </h6>
+                      <p>Venta de productos GameGeek <br /></p>
+                    </li>
+                    <li>
+                      <h6 class="mb-3">
+                        Dirección de correo electrónico del Titular
+                      </h6>
+                      <ul class="ul-left">
+                        <li>
+                          <a
+                            href="mailto:ayuda@gamegeek.cl"
+                            target="_blank"
+                            class="text-transition terms"
+                          >
+                            ayuda@gamegeek.cl
+                          </a>
+                        </li>
+                        <li>
+                          <a
+                            href="mailto:contacto@gamegeek.cl"
+                            target="_blank"
+                            class="text-transition terms"
+                          >
+                            contacto@gamegeek.cl
+                          </a>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+              </section>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    {% include 'base/footer.html' %}
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
