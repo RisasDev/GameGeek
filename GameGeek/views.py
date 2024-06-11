@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .models import Genero, Usuario
 
 # Create your views here.
 
@@ -9,7 +10,31 @@ def despacho(request):
     return render(request, 'pages/despacho.html')
 
 def registro(request):
-    return render(request, 'pages/registro.html')
+    if request.method != "POST":
+        generos = Genero.objects.all()
+        context = {
+            "generos": generos,
+        }
+        return render(request, "pages/registro.html", context)
+    else:
+        objGenero = Genero.objects.get(id_genero=request.POST["genero"])
+        objUser = Usuario.objects.create(
+            rut=request.POST["rut"],
+            nombre=request.POST["nombre"],
+            apellido=request.POST["appPaterno"],
+            id_genero=objGenero,
+            telefono=request.POST["telefono"],
+            email=request.POST["email"],
+            password=request.POST["password"],
+            activo=True,
+        )
+
+        objUser.save()
+
+        context = {
+            "mensaje": "Registro Exitoso",
+        }
+    return render(request, 'pages/registro.html', context)
 
 def peluches(request):
     return render(request, 'pages/peluches.html')

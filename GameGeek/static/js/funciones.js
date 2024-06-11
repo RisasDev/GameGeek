@@ -129,7 +129,7 @@ $(document).ready(function() {
     
       if (telefonoVal === "") {
         telefono.removeClass("is-valid text-success").addClass("is-invalid text-danger");
-        telefonoFeedback.html("El número debe ser de 8 digitos").addClass("d-block text-danger");
+        telefonoFeedback.html("El número debe ser de 9 digitos").addClass("d-block text-danger");
       }
     });
 
@@ -146,7 +146,7 @@ $(document).ready(function() {
           telefonoFeedback.html("Teléfono válido").addClass("d-block text-success");
         } else {
           telefono.removeClass("is-valid text-success").addClass("is-invalid text-danger");
-          telefonoFeedback.html("El número debe ser de 8 digitos").addClass("d-block text-danger");
+          telefonoFeedback.html("El número debe ser de 9 digitos").addClass("d-block text-danger");
         }
     });
 
@@ -355,27 +355,6 @@ $(document).ready(function() {
         validaciones.check = checkbox.is(":checked");
         validarDatos(validaciones, boton);   
     });
-    
-    // Submit //
-    boton.on("click", function() {
-      let rutVal = rut.val();
-      let passVal = password.val();
-      let res = validarDatos(validaciones, boton);
-
-      console.log("Rut:", rutVal);
-      console.log("Password:", passVal);
-
-      if (res) {
-          $("#exampleModal").modal("show");
-              $("#res").html("")
-              $("#res").append("<p>");
-              $("#res").append("Rut: " + rutVal + "<br>");
-              $("#res").append("Password: " + passVal + "<br>");
-              $("#res").append("</p>");
-              console.log("Rut:", rutVal);
-              console.log("Password:", passVal);
-      }
-  });
 });
 
 function validarNombre(nombre) {
@@ -387,7 +366,7 @@ function validarApellido(apellido) {
 }
 
 function validarTelefono(telefono) {
-    return telefono.length === 8;
+    return telefono.length === 9;
 }
 
 function validarEmail(email) {
@@ -400,10 +379,10 @@ function validarEmail(email) {
   
     let dominioSplit = partes[1].split(".");
 
-    let dominio = dominioSplit[0];
-    let dominioEnd = dominioSplit[1];
+    let dominio = String(dominioSplit[0]);
+    let dominioEnd = String(dominioSplit[1]);
 
-    return dominio !== null && dominio.length > 0 && dominioEnd !== null && dominioEnd.length > 0;
+    return dominio !== "" && dominio.length > 0 && dominioEnd !== "" && dominioEnd.length > 0;
 }
 
 function validarRut(rutCompleto) {
