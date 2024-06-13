@@ -23,212 +23,208 @@
     {% include 'base/navbar.html' %}
 
     <main>
-      <div class="space-form">
-        <div>
-          <!-- Formulario de Cuenta -->
-          <section class="section-space">
-            <h5 class="mt-3">| Registro</h5>
-            <h6>Titular de la Cuenta</h6>
-            <div class="formulario shadow-lg">
-              <div class="better-background">
-                <form action="{% url 'registro' %}" method="POST">
-                  {% csrf_token %}
+      <div>
+        <form action="{% url 'registro' %}" method="POST">
+          {% csrf_token %}
 
-                  <div>
-                    <label for="rut"
-                      >RUT <span class="form-alert">*</span></label
-                    >
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="rut"
-                      placeholder="Ej: 12345678-K"
-                    />
+          <div class="space-form">
+            <div>
+              <!-- Formulario de Cuenta -->
+              <section class="section-space">
+                <h5 class="mt-3">| Registro</h5>
+                <h6>Titular de la Cuenta</h6>
+                <div class="formulario shadow-lg">
+                  <div class="better-background">
+                    <div>
+                      <label for="rut"
+                        >RUT <span class="form-alert">*</span></label
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="rut"
+                        placeholder="Ej: 12345678-K"
+                      />
+                    </div>
+                    <div id="rut-feedback"></div>
+                    <div class="form-group mt-2">
+                      <label for="nombre"
+                        >Nombre <span class="form-alert">*</span></label
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="nombre"
+                        placeholder="Ingrese su nombre"
+                      />
+                    </div>
+                    <div id="nombre-feedback"></div>
+                    <div class="form-group mt-2">
+                      <label for="apellido"
+                        >Apellido <span class="form-alert">*</span></label
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="apellido"
+                        placeholder="Ingrese su apellido"
+                      />
+                    </div>
+                    <div id="apellido-feedback"></div>
+                    <div class="form-group mt-2">
+                      <label for="telefono"
+                        >Télefono <span class="form-alert">*</span></label
+                      >
+                      <input
+                        type="number"
+                        class="form-control"
+                        id="telefono"
+                        placeholder="Ej: 912345678"
+                      />
+                    </div>
+                    <div id="telefono-feedback"></div>
+                    <div class="form-group mt-2">
+                      <label for="email"
+                        >E-mail <span class="form-alert">*</span></label
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="email"
+                        placeholder="Ej: example@gmail.com"
+                      />
+                    </div>
+                    <div id="email-feedback"></div>
                   </div>
-                  <div id="rut-feedback"></div>
-                  <div class="form-group mt-2">
-                    <label for="nombre"
-                      >Nombre <span class="form-alert">*</span></label
-                    >
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="nombre"
-                      placeholder="Ingrese su nombre"
-                    />
-                  </div>
-                  <div id="nombre-feedback"></div>
-                  <div class="form-group mt-2">
-                    <label for="apellido"
-                      >Apellido <span class="form-alert">*</span></label
-                    >
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="apellido"
-                      placeholder="Ingrese su apellido"
-                    />
-                  </div>
-                  <div id="apellido-feedback"></div>
-                  <div class="form-group mt-2">
-                    <label for="telefono"
-                      >Télefono <span class="form-alert">*</span></label
-                    >
-                    <input
-                      type="number"
-                      class="form-control"
-                      id="telefono"
-                      placeholder="Ej: 912345678"
-                    />
-                  </div>
-                  <div id="telefono-feedback"></div>
-                  <div class="form-group mt-2">
-                    <label for="email"
-                      >E-mail <span class="form-alert">*</span></label
-                    >
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="email"
-                      placeholder="Ej: example@gmail.com"
-                    />
-                  </div>
-                  <div id="email-feedback"></div>
-                </form>
-              </div>
-            </div>
-          </section>
-          <section class="section-space mt-4 mb-4">
-            <div class="formulario shadow-lg">
-              <div class="better-background">
-                <form action="">
-                  <div class="form-group mt-2">
-                    <label for="password"
-                      >Contraseña <span class="form-alert">*</span></label
-                    >
-                    <input
-                      type="password"
-                      class="form-control"
-                      id="password"
-                      placeholder="Cree su contraseña"
-                    />
-                  </div>
-                  <div id="password-feedback-1"></div>
-                  <div id="password-feedback-2"></div>
-                  <div id="password-feedback-3"></div>
-                  <div id="password-feedback-4"></div>
-                  <div class="form-group mt-2">
-                    <label for="confirm-password"
-                      >Confirmar Contraseña
-                      <span class="form-alert">*</span></label
-                    >
-                    <input
-                      type="password"
-                      class="form-control"
-                      id="confirm-password"
-                      placeholder="Repita su contraseña"
-                    />
-                  </div>
-                  <div id="confirm-password-feedback"></div>
-                </form>
-              </div>
-            </div>
-          </section>
-        </div>
-        <div>
-          <!-- Formulario de Compra -->
-          <section class="section-space">
-            <br />
-            <h5 class="mt-1">Dirección de envío (opcional)</h5>
-            <div class="formulario shadow-lg">
-              <div class="better-background">
-                <form action="">
-                  <div class="form-group">
-                    <label for="dest">Nombre de quien recibe</label>
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="dest"
-                      placeholder="Ejemplo: Marco"
-                    />
-                  </div>
-                  <div id="dest-feedback"></div>
-                  <div class="form-group mt-2">
-                    <label for="region">Region</label>
-                    <select
-                      name="region"
-                      id="region"
-                      class="form-control mx-auto"
-                    ></select>
-                  </div>
-                  <div class="form-group mt-2">
-                    <label for="comuna">Comuna</label>
-                    <select
-                      name="comuna"
-                      id="comuna"
-                      class="form-control mx-auto"
-                    ></select>
-                  </div>
-                  <div class="form-group mt-2">
-                    <label for="direccion">Dirección</label>
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="direccion"
-                      placeholder="Ingresa tu dirección"
-                    />
-                  </div>
-                  <div id="direccion-feedback"></div>
-                  <div class="form-group mt-2">
-                    <label for="nro">Número</label>
-                    <input
-                      type="number"
-                      class="form-control"
-                      id="nro"
-                      placeholder="Ingresa el número de tu dirección"
-                    />
-                  </div>
-                  <div id="nro-feedback"></div>
-                  <div class="form-group mt-2">
-                    <label for="depto"
-                      >N°Depto / Oficina / Otro (si aplica)</label
-                    >
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="depto"
-                      placeholder="Descripción de la dirección"
-                    />
-                  </div>
-                  <div id="depto-feedback"></div>
-                </form>
-              </div>
-            </div>
-            <div class="term">
-              <div class="mt-4">
-                <p class="fw-lighter section-space">
-                  <input type="checkbox" name="check" id="check" />
-                  Acepto los
-                  <a class="terms" href="tos.html">Términos y Condiciones</a>
-                </p>
-              </div>
-              {% if mensaje %}
-                <div class="alert alert-success w-50 mx-auto">
-                  {{mensaje}}
                 </div>
-              {% endif %}
-              <div class="mt-4 gap-2">
-                <button
-                  type="submit"
-                  class="btn btn-dark btn-orange"
-                  
-                >
-                  Registrarme
-                </button>
-              </div>
+              </section>
+              <section class="section-space mt-4 mb-4">
+                <div class="formulario shadow-lg">
+                  <div class="better-background">
+                    <div class="form-group mt-2">
+                      <label for="password"
+                        >Contraseña <span class="form-alert">*</span></label
+                      >
+                      <input
+                        type="password"
+                        class="form-control"
+                        id="password"
+                        placeholder="Cree su contraseña"
+                      />
+                    </div>
+                    <div id="password-feedback-1"></div>
+                    <div id="password-feedback-2"></div>
+                    <div id="password-feedback-3"></div>
+                    <div id="password-feedback-4"></div>
+                    <div class="form-group mt-2">
+                      <label for="confirm-password"
+                        >Confirmar Contraseña
+                        <span class="form-alert">*</span></label
+                      >
+                      <input
+                        type="password"
+                        class="form-control"
+                        id="confirm-password"
+                        placeholder="Repita su contraseña"
+                      />
+                    </div>
+                    <div id="confirm-password-feedback"></div>
+                  </div>
+                </div>
+              </section>
             </div>
-          </section>
-        </div>
+            <div>
+              <!-- Formulario de Direccion -->
+              <section class="section-space">
+                <br />
+                <h5 class="mt-1">Dirección de envío (opcional)</h5>
+                <div class="formulario shadow-lg">
+                  <div class="better-background">
+                    <div class="form-group">
+                      <label for="dest">Nombre de quien recibe</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="dest"
+                        placeholder="Ejemplo: Marco"
+                      />
+                    </div>
+                    <div id="dest-feedback"></div>
+                    <div class="form-group mt-2">
+                      <label for="region">Region</label>
+                      <select
+                        name="region"
+                        id="region"
+                        class="form-control mx-auto"
+                      ></select>
+                    </div>
+                    <div class="form-group mt-2">
+                      <label for="comuna">Comuna</label>
+                      <select
+                        name="comuna"
+                        id="comuna"
+                        class="form-control mx-auto"
+                      ></select>
+                    </div>
+                    <div class="form-group mt-2">
+                      <label for="direccion">Dirección</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="direccion"
+                        placeholder="Ingresa tu dirección"
+                      />
+                    </div>
+                    <div id="direccion-feedback"></div>
+                    <div class="form-group mt-2">
+                      <label for="nro">Número</label>
+                      <input
+                        type="number"
+                        class="form-control"
+                        id="nro"
+                        placeholder="Ingresa el número de tu dirección"
+                      />
+                    </div>
+                    <div id="nro-feedback"></div>
+                    <div class="form-group mt-2">
+                      <label for="depto"
+                        >N°Depto / Oficina / Otro (si aplica)</label
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="depto"
+                        placeholder="Descripción de la dirección"
+                      />
+                    </div>
+                    <div id="depto-feedback"></div>
+                  </div>
+                </div>
+                <div class="term">
+                  <div class="mt-4">
+                    <p class="fw-lighter section-space">
+                      <input type="checkbox" name="check" id="check" />
+                      Acepto los
+                      <a class="terms" href="tos.html"
+                        >Términos y Condiciones</a
+                      >
+                    </p>
+                  </div>
+                  {% if mensaje %}
+                  <div class="alert alert-success w-50 mx-auto">
+                    {{mensaje}}
+                  </div>
+                  {% endif %}
+                  <div class="mt-4 gap-2">
+                    <button id="btn-register" type="submit" class="btn btn-dark btn-orange" disabled>
+                      Registrarme
+                    </button>
+                  </div>
+                </div>
+              </section>
+            </div>
+          </div>
+        </form>
       </div>
     </main>
 

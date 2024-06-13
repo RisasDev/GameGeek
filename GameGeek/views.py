@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Genero, Usuario
+from .models import Usuario
 
 # Create your views here.
 
@@ -10,22 +10,16 @@ def despacho(request):
     return render(request, 'pages/despacho.html')
 
 def registro(request):
-    if request.method != "POST":
-        generos = Genero.objects.all()
-        context = {
-            "generos": generos,
-        }
-        return render(request, "pages/registro.html", context)
-    else:
-        objGenero = Genero.objects.get(id_genero=request.POST["genero"])
+    print(f"REQUEST: {request.method}")
+    
+    if request.method == "POST":
         objUser = Usuario.objects.create(
-            rut=request.POST["rut"],
-            nombre=request.POST["nombre"],
-            apellido=request.POST["appPaterno"],
-            id_genero=objGenero,
-            telefono=request.POST["telefono"],
-            email=request.POST["email"],
-            password=request.POST["password"],
+            rut=request.POST.get("rut", "default"),
+            nombre=request.POST.get("nombre", "default"),
+            apellido=request.POST.get("apellido", "default"),
+            telefono=request.POST.get("telefono", "default"),
+            email=request.POST.get("email", "default"),
+            password=request.POST.get("password", "default"),
             activo=True,
         )
 
@@ -34,6 +28,8 @@ def registro(request):
         context = {
             "mensaje": "Registro Exitoso",
         }
+    else:
+        context = {}
     return render(request, 'pages/registro.html', context)
 
 def peluches(request):
