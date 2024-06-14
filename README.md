@@ -39,3 +39,6 @@
 - Lo más vendido (https://www.frikiados.cl/)
 - Footer (https://geekz.cl/, https://kiwiiregalos.cl/)
 - Registro (https://www.pcfactory.cl/registro)
+
+- sending email
+- https://github.com/sobit-nep/Django-User-Registration-with-Email-Confirmation-Link-Verification/tree/main
