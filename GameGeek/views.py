@@ -10,27 +10,19 @@ def despacho(request):
     return render(request, 'pages/despacho.html')
 
 def registro(request):
-    print(f"REQUEST: {request.method}")
-    
     if request.method == "POST":
         objUser = Usuario.objects.create(
-            rut=request.POST.get("rut", "default"),
-            nombre=request.POST.get("nombre", "default"),
-            apellido=request.POST.get("apellido", "default"),
-            telefono=request.POST.get("telefono", "default"),
-            email=request.POST.get("email", "default"),
-            password=request.POST.get("password", "default"),
+            rut=request.POST["rut"],
+            nombre=request.POST["nombre"],
+            apellido=request.POST["apellido"],
+            telefono=request.POST["telefono"],
+            email=request.POST["email"],
+            password=request.POST["password"],
             activo=True,
         )
 
         objUser.save()
-
-        context = {
-            "mensaje": "Registro Exitoso",
-        }
-    else:
-        context = {}
-    return render(request, 'pages/registro.html', context)
+    return render(request, 'pages/registro.html')
 
 def peluches(request):
     return render(request, 'pages/peluches.html')

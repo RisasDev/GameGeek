@@ -37,6 +37,8 @@ $(document).ready(function () {
   const deptoFeedback = $("#depto-feedback");
   const check = $("#check");
   const boton = $("#btn-register");
+  const formRegister = $("#form-register");
+  const toastRegister = $("#toast-register");
 
   // Validar Rut //
   rut.on("focusout", function () {
@@ -463,8 +465,16 @@ $(document).ready(function () {
     let checkbox = $(this);
     validaciones.check = checkbox.is(":checked");
     validarDatos(validaciones, boton);
-    
-    console.log(validaciones)
+  });
+
+  // Toast Register
+  boton.on("click", function () {
+      const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastRegister)
+      toastBootstrap.show()
+
+      setTimeout(function () {
+        formRegister.submit()
+      }, 2000);
   });
 });
 
@@ -573,7 +583,7 @@ function validarCalle(calleValor) {
 function validarPassword(password) {
   let hasMayuscula = /[A-Z]/.test(password);
   let hasNumero = /[0-9]/.test(password);
-  let hasSimbolo = /[!@#\$%\^&\*]/.test(password);
+  let hasSimbolo = /[!@#-_\$%\^&\*]/.test(password);
 
   const lista = [];
 
