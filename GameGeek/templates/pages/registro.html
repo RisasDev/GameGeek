@@ -153,23 +153,24 @@
                         class="form-control"
                         id="dest"
                         placeholder="Ejemplo: Marco"
+                        name="destinatario"
                       />
                     </div>
                     <div id="dest-feedback"></div>
                     <div class="form-group mt-2">
                       <label for="region">Region</label>
                       <select
-                        name="region"
                         id="region"
                         class="form-control mx-auto"
+                        name="region"
                       ></select>
                     </div>
                     <div class="form-group mt-2">
                       <label for="comuna">Comuna</label>
                       <select
-                        name="comuna"
                         id="comuna"
                         class="form-control mx-auto"
+                        name="comuna"
                       ></select>
                     </div>
                     <div class="form-group mt-2">
@@ -179,6 +180,7 @@
                         class="form-control"
                         id="direccion"
                         placeholder="Ingresa tu dirección"
+                        name="direccion"
                       />
                     </div>
                     <div id="direccion-feedback"></div>
@@ -189,6 +191,7 @@
                         class="form-control"
                         id="nro"
                         placeholder="Ingresa el número de tu dirección"
+                        name="numero"
                       />
                     </div>
                     <div id="nro-feedback"></div>
@@ -201,6 +204,7 @@
                         class="form-control"
                         id="depto"
                         placeholder="Descripción de la dirección"
+                        name="depto"
                       />
                     </div>
                     <div id="depto-feedback"></div>
@@ -217,20 +221,11 @@
                     </p>
                   </div>
 
-                  <div class="toast-container position-fixed bottom-0 end-0 p-3">
-                    <div id="toast-register" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-                      <div class="toast-header">
-                        <strong class="me-auto">Registro</strong>
-                        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-                      </div>
-                      <div class="toast-body">
-                        Te has registrado exitosamente!
-                      </div>
-                    </div>
-                  </div>
+                  {% include 'base/toast-registro.html' %}
+                  {% include 'base/toast-no-registro.html' %}
                   
                   <div class="mt-4 gap-2">
-                    <button id="btn-register" type="button" class="btn btn-dark btn-orange">
+                    <button id="btn-register" type="button" class="btn btn-dark btn-orange" disabled>
                       Registrarme
                     </button>
                   </div>

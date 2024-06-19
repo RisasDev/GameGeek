@@ -104,30 +104,36 @@
           </div>
 
           <ul class="navbar-nav mb-2 mb-lg-0 d-flex align-items-center gap-3">
-            <!-- Carro -->
-            {% include 'base/modal-carrito.html' %}
-
-            <li class="nav-item">
-              <a
-                class="cursor-pointer"
-                data-bs-toggle="modal"
-                data-bs-target="#modal-carro"
-              >
-                <i class="bi bi-basket icon-size text-transition"></i>
-              </a>
-            </li>
-
             <!-- Usuario -->
             {% include 'base/modal-login.html' %}
 
             <li class="nav-item">
-              <a
+              <div>
+                <a
                 class="cursor-pointer"
                 data-bs-toggle="modal"
                 data-bs-target="#modal-login"
-              >
-                <i class="bi bi-person-circle icon-size text-transition"></i>
-              </a>
+                >
+                  <i class="bi bi-person-circle nav-icon"></i>
+                  <span class="text-transition">Mi cuenta</span>
+                </a>
+              </div>
+            </li>
+
+            <!-- Carro -->
+            {% include 'base/modal-carrito.html' %}
+
+            <li class="nav-item">
+              <div>
+                <a
+                class="cursor-pointer"
+                data-bs-toggle="modal"
+                data-bs-target="#modal-carro"
+                >
+                  <i class="bi bi-basket navbar-icon"></i>
+                  <span class="text-transition">Mi carro</span>
+                </a>
+              </div>
             </li>
           </ul>
         </div>

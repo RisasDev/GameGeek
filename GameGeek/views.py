@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Usuario
+from .models import Usuario, Direccion
 
 # Create your views here.
 
@@ -11,17 +11,47 @@ def despacho(request):
 
 def registro(request):
     if request.method == "POST":
-        objUser = Usuario.objects.create(
-            rut=request.POST["rut"],
-            nombre=request.POST["nombre"],
-            apellido=request.POST["apellido"],
-            telefono=request.POST["telefono"],
-            email=request.POST["email"],
-            password=request.POST["password"],
-            activo=True,
-        )
-
-        objUser.save()
+        rut = request.POST["rut"]
+        objUserExists = Usuario.objects.filter(rut=rut).exists()
+        
+        if not objUserExists:
+            objUser = Usuario.objects.create(
+                rut=rut,
+                nombre=request.POST["nombre"],
+                apellido=request.POST["apellido"],
+                telefono=request.POST["telefono"],
+                email=request.POST["email"],
+                password=request.POST["password"]
+            )
+            objUser.save()
+            
+            direccionDestinatario = request.POST["destinatario"]
+            print(direccionDestinatario)
+            direccionRegion = request.POST.get("region", "")
+            print(direccionRegion)
+            direccionComuna = request.POST.get("comuna", "")
+            print(direccionComuna)
+            direccionDireccion = request.POST["direccion"]
+            print(direccionDireccion)
+            direccionNumero = request.POST["numero"]
+            print(direccionNumero)
+            
+            hasDireccion = direccionDestinatario != "" and direccionRegion != "" and direccionComuna != "" and direccionDireccion != "" and direccionNumero != ""
+            print(f"HAS COMUNA: {hasDireccion}")
+            
+            if hasDireccion:
+                objDireccion = Direccion.objects.create(
+                    usuario=objUser,
+                    recibe=direccionDestinatario,
+                    region=direccionRegion,
+                    comuna=direccionComuna,
+                    direccion=direccionDireccion,
+                    numero=direccionNumero,
+                    depto=request.POST["depto"],
+                    predeterminada=True
+                )
+                objDireccion.save()
+        return render(request, 'pages/registro.html', {"failed": objUserExists})
     return render(request, 'pages/registro.html')
 
 def peluches(request):

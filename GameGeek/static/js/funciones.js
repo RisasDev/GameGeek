@@ -39,6 +39,7 @@ $(document).ready(function () {
   const boton = $("#btn-register");
   const formRegister = $("#form-register");
   const toastRegister = $("#toast-register");
+  const toastNoRegister = $("#toast-no-register");
 
   // Validar Rut //
   rut.on("focusout", function () {
@@ -467,14 +468,22 @@ $(document).ready(function () {
     validarDatos(validaciones, boton);
   });
 
-  // Toast Register
+  // Register Button
   boton.on("click", function () {
-      const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastRegister)
-      toastBootstrap.show()
+      if (!validarDatos(validaciones, boton)) {
+        const toastNoRegisterIntance = bootstrap.Toast.getOrCreateInstance(toastNoRegister)
+        toastNoRegisterIntance.show()
+      }
+      else {
+        const toastRegisterIntance = bootstrap.Toast.getOrCreateInstance(toastRegister)
+        toastRegisterIntance.show()
 
-      setTimeout(function () {
-        formRegister.submit()
-      }, 2000);
+        boton.attr("disabled", "disabled");
+  
+        setTimeout(function () {
+          formRegister.submit()
+        }, 2000);
+      }
   });
 });
 
@@ -493,6 +502,7 @@ $.ajax({
 });
 $("#region").change(function () {
   let comuna = $("#region").val();
+
   $.ajax({
     type: "GET",
     url: "https://apis.digital.gob.cl/dpa/regiones/" + comuna + "/comunas",
@@ -608,6 +618,8 @@ function validarDatos(validaciones, boton) {
   else {
     boton.attr("disabled", "disabled");
   }
+
+  return validado;
 }
 
 const PASSWORD_ERROR = {

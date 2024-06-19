@@ -224,6 +224,11 @@ div.desc {
   color: #1d1d1b;
 }
 
+.navbar-icon {
+  font-size: 25px;
+  color: #1d1d1b;
+}
+
 .text-transition:hover {
   color: #ffffff;
   transition-property: color, background-color, border-color,
