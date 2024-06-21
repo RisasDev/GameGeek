@@ -40,6 +40,7 @@ $(document).ready(function () {
   const formRegister = $("#form-register");
   const toastRegister = $("#toast-register");
   const toastNoRegister = $("#toast-no-register");
+  let regions = [];
 
   // Validar Rut //
   rut.on("focusout", function () {
@@ -493,19 +494,21 @@ $.ajax({
   data: "data",
   dataType: "JSONP",
   success: function (data) {
+    regions = data;
+
     $.each(data, function (i, tmp) {
       $("#region").append(
-        "" + "<option value='" + tmp.codigo + "'>" + tmp.nombre + "</option>"
+        "" + "<option value='" + tmp.nombre + "'>" + tmp.nombre + "</option>"
       );
     });
   },
 });
 $("#region").change(function () {
-  let comuna = $("#region").val();
+  let region = regions.find((region) => region.nombre === $("#region").val()).codigo;
 
   $.ajax({
     type: "GET",
-    url: "https://apis.digital.gob.cl/dpa/regiones/" + comuna + "/comunas",
+    url: "https://apis.digital.gob.cl/dpa/regiones/" + region + "/comunas",
     data: "data",
     dataType: "JSONP",
     success: function (data) {
