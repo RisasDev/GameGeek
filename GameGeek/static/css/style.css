@@ -1,5 +1,6 @@
 a {
   color: #1d1d1b;
+  text-decoration: none;
 }
 
 th, h1, h2, h3, h4, h5, h6 {
@@ -35,10 +36,6 @@ footer {
   padding: 20px 0px;
   text-align: center;
   bottom: 0;
-}
-
-a {
-  text-decoration: none;
 }
 
 .form-alert {

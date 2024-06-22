@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  const validaciones = {
+  const validacionesTitular = {
     rut: false,
     nombre: false,
     apellido: false,
@@ -40,7 +40,39 @@ $(document).ready(function () {
   const formRegister = $("#form-register");
   const toastRegister = $("#toast-register");
   const toastNoRegister = $("#toast-no-register");
+  const buttonTogglePassword = $("#toggle-password");
+  const buttonToggleConfirmPassword = $("#toggle-confirm-password");
   let regions = [];
+
+  // Toggle Password //
+  buttonTogglePassword.on("click", function () {
+    const passwordType = password.attr("type");
+    const icon = buttonTogglePassword.find("i");
+
+    if (passwordType === "password") {
+      password.attr("type", "text");
+      icon.removeClass("bi bi-eye").addClass("bi bi-eye-slash");
+    } 
+    else {
+      password.attr("type", "password");
+      icon.removeClass("bi bi-eye-slash").addClass("bi bi-eye");
+    }
+  });
+
+  // Toggle Confirm Password //
+  buttonToggleConfirmPassword.on("click", function () {
+    const confirmPasswordType = confirmPassword.attr("type");
+    const icon = buttonToggleConfirmPassword.find("i");
+
+    if (confirmPasswordType === "password") {
+      confirmPassword.attr("type", "text");
+      icon.removeClass("bi bi-eye").addClass("bi bi-eye-slash");
+    } 
+    else {
+      confirmPassword.attr("type", "password");
+      icon.removeClass("bi bi-eye-slash").addClass("bi bi-eye");
+    }
+  });
 
   // Validar Rut //
   rut.on("focusout", function () {
@@ -60,8 +92,8 @@ $(document).ready(function () {
     let rutval = $(this).val();
     let valido = validarRut(rutval);
 
-    validaciones.rut = valido;
-    validarDatos(validaciones, boton);
+    validacionesTitular.rut = valido;
+    validarDatos(validacionesTitular, boton);
 
     if (valido) {
       rut
@@ -97,8 +129,8 @@ $(document).ready(function () {
     let nombreVal = $(this).val();
     let valido = validarNombre(nombreVal);
 
-    validaciones.nombre = valido;
-    validarDatos(validaciones, boton);
+    validacionesTitular.nombre = valido;
+    validarDatos(validacionesTitular, boton);
 
     if (valido) {
       nombre
@@ -134,8 +166,8 @@ $(document).ready(function () {
     let apellidoVal = $(this).val();
     let valid = validarApellido(apellidoVal);
 
-    validaciones.apellido = valid;
-    validarDatos(validaciones, boton);
+    validacionesTitular.apellido = valid;
+    validarDatos(validacionesTitular, boton);
 
     if (valid) {
       apellido
@@ -171,8 +203,8 @@ $(document).ready(function () {
     let telefonoVal = $(this).val();
     let valido = validarTelefono(telefonoVal);
 
-    validaciones.telefono = valido;
-    validarDatos(validaciones, boton);
+    validacionesTitular.telefono = valido;
+    validarDatos(validacionesTitular, boton);
 
     if (valido) {
       telefono
@@ -208,8 +240,8 @@ $(document).ready(function () {
     let emailVal = $(this).val();
     let valido = validarEmail(emailVal);
 
-    validaciones.email = valido;
-    validarDatos(validaciones, boton);
+    validacionesTitular.email = valido;
+    validarDatos(validacionesTitular, boton);
 
     if (valido) {
       email
@@ -260,8 +292,8 @@ $(document).ready(function () {
       confirmPassword.val()
     );
 
-    validaciones.password = lista.length === 0;
-    validarDatos(validaciones, boton);
+    validacionesTitular.password = lista.length === 0;
+    validarDatos(validacionesTitular, boton);
 
     if (validoConfirmPassword) {
       confirmPassword
@@ -355,8 +387,8 @@ $(document).ready(function () {
     let confirmPasswordVal = $(this).val();
     let valido = validarConfirmarPassword(password.val(), confirmPasswordVal);
 
-    validaciones.confirmPassword = valido;
-    validarDatos(validaciones, boton);
+    validacionesTitular.confirmPassword = valido;
+    validarDatos(validacionesTitular, boton);
 
     if (valido) {
       confirmPassword
@@ -387,7 +419,8 @@ $(document).ready(function () {
         .addClass("is-valid text-success");
       destFeedback.removeClass("d-block text-danger");
       destFeedback.html("Nombre válido").addClass("d-block text-success");
-    } else {
+    } 
+    else {
       dest
         .removeClass("is-valid text-success")
         .addClass("is-invalid text-danger");
@@ -410,7 +443,8 @@ $(document).ready(function () {
       calleFeedback
         .html("Nombre de calle válido")
         .addClass("d-block text-success");
-    } else {
+    } 
+    else {
       calle
         .removeClass("is-valid text-success")
         .addClass("is-invalid text-danger");
@@ -465,13 +499,13 @@ $(document).ready(function () {
   // Validar CheckBox //
   check.on("click", function () {
     let checkbox = $(this);
-    validaciones.check = checkbox.is(":checked");
-    validarDatos(validaciones, boton);
+    validacionesTitular.check = checkbox.is(":checked");
+    validarDatos(validacionesTitular, boton);
   });
 
   // Register Button
   boton.on("click", function () {
-      if (!validarDatos(validaciones, boton)) {
+      if (!validarDatos(validacionesTitular, boton)) {
         const toastNoRegisterIntance = bootstrap.Toast.getOrCreateInstance(toastNoRegister)
         toastNoRegisterIntance.show()
       }
@@ -612,8 +646,8 @@ function validarConfirmarPassword(password, confirmPassword) {
   return confirmPassword !== "" && password === confirmPassword;
 }
 
-function validarDatos(validaciones, boton) {
-  const validado = Object.values(validaciones).every((value) => value);
+function validarDatos(validacionesTitular, boton) {
+  const validado = Object.values(validacionesTitular).every((value) => value);
 
   if (validado) {
     boton.removeAttr("disabled");

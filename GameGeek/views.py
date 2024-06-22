@@ -20,25 +20,19 @@ def registro(request):
                 nombre=request.POST["nombre"],
                 apellido=request.POST["apellido"],
                 telefono=request.POST["telefono"],
-                email=request.POST["email"],
-                password=request.POST["password"]
+                email=request.POST["email"]
             )
+            objUser.set_password(request.POST["password"])
             objUser.save()
             
-            direccionDestinatario = request.POST["destinatario"]
-            print(direccionDestinatario)
+            direccionDestinatario = request.POST.get("destinatario", "")
             direccionRegion = request.POST.get("region", "")
-            print(direccionRegion)
             direccionComuna = request.POST.get("comuna", "")
-            print(direccionComuna)
-            direccionDireccion = request.POST["direccion"]
-            print(direccionDireccion)
-            direccionNumero = request.POST["numero"]
-            print(direccionNumero)
+            direccionDireccion = request.POST.get("direccion", "")
+            direccionNumero = request.POST.get("numero", "")
             
             hasDireccion = direccionDestinatario != "" and direccionRegion != "" and direccionComuna != "" and direccionDireccion != "" and direccionNumero != ""
-            print(f"HAS COMUNA: {hasDireccion}")
-            
+  
             if hasDireccion:
                 objDireccion = Direccion.objects.create(
                     usuario=objUser,
@@ -47,12 +41,13 @@ def registro(request):
                     comuna=direccionComuna,
                     direccion=direccionDireccion,
                     numero=direccionNumero,
-                    depto=request.POST["depto"],
+                    depto=request.POST.get("depto", ""),
                     predeterminada=True
                 )
                 objDireccion.save()
         return render(request, 'pages/registro.html', {"failed": objUserExists})
-    return render(request, 'pages/registro.html')
+    else:
+        return render(request, 'pages/registro.html')
 
 def peluches(request):
     return render(request, 'pages/peluches.html')
