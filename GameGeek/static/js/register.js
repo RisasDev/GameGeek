@@ -42,7 +42,13 @@ $(document).ready(function () {
   const toastNoRegister = $("#toast-no-register");
   const buttonTogglePassword = $("#toggle-password");
   const buttonToggleConfirmPassword = $("#toggle-confirm-password");
+  const buttonLoginModal = $("#button-login-modal");
   let regions = [];
+
+  // Login Modal //
+  buttonLoginModal.on("click", function () {
+    console.log("Login Modal");
+  });
 
   // Toggle Password //
   buttonTogglePassword.on("click", function () {

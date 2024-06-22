@@ -1,128 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>GameGeek | Despacho</title>
 
-    {% load static %}
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GameGeek | Despacho</title>
 
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
-    />
-    <link rel="stylesheet" href="{% static 'css/style.css' %} " />
-  </head>
-  <body>
+  {% load static %}
 
-    {% include 'base/navbar.html' %}
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <link rel="stylesheet" href="{% static 'css/style.css' %} " />
+</head>
 
-    <main>
-      <!-- Inicio sección despachos -->
-      <section class="section-space">
-        <div class="container-fluid">
-          <div
-            class="row justify-content-center align-items-center text-center text-md-left"
-          >
-            <div class="col-12 col-md-auto col-lg-8 bg-yellow border-circle">
-              <h3>Información de despachos</h3>
-            </div>
+<body>
+
+  {% include 'base/navbar.html' %}
+
+  <main>
+    <!-- Inicio sección despachos -->
+    <section class="section-space">
+      <div class="container-fluid">
+        <div class="row justify-content-center align-items-center text-center text-md-left">
+          <div class="col-12 col-md-auto col-lg-8 bg-yellow border-circle">
+            <h3>Información de despachos</h3>
           </div>
         </div>
-      </section>
-      <section>
-        <div class="better-div">
-          <p class="better-background">
-            El despacho de encomiendas se realiza mediante tres empresas de
-            distribución (Starken principalmente, Chilexpress y Bluexpress),
-            cuyas coberturas y valores dependen de la zona del país a dónde se
-            dirige la encomienda y será escogida a nuestra voluntad, siempre y
-            cuando, el comprador no haya establecido una empresa de preferencia
-            al momento de su compra. Los costos de envío se calculan
-            automáticamente en el carrito de compras. Todo envío debe ser pagado
-            antes del despacho y posterior al despacho se le enviará al cliente
-            el número de seguimiento o, en su defecto, información respecto a su
-            paquete.
-          </p>
-        </div>
-        <div class="better-div">
-          <table class="table table-light table-striped table-borderless">
-            <tr>
-              <th class="text-center">Empresa</th>
-              <th>Starken</th>
-              <th>Chilexpress</th>
-              <th>Bluexpress</th>
-            </tr>
-            <tr>
-              <td class="text-center">Cobertura</td>
-              <td>Todas las regiones</td>
-              <td>Todas las regiones</td>
-              <td>Comunas Santiago</td>
-            </tr>
-            <tr>
-              <td class="text-center">Días de despacho</td>
-              <td>Lunes a Viernes</td>
-              <td>Lunes a Viernes</td>
-              <td>Lunes a Viernes</td>
-            </tr>
-            <tr>
-              <td class="text-center">Tiempo de despacho</td>
-              <td>
-                RM: 1 a 2 días hábiles
-                <br />
-                Otras regiones: 1 a 7 días hábiles
-              </td>
-              <td>
-                RM: 1 a 2 días hábiles
-                <br />
-                Otras regiones: 1 a 7 días hábiles
-              </td>
-              <td>
-                RM: 1 a 2 días hábiles
-                <br />
-                Otras regiones: 1 a 7 días hábiles
-              </td>
-            </tr>
-            <tr>
-              <td class="text-center">Horario de entrega</td>
-              <td>Entre las 10:00 - 22:00 horas</td>
-              <td>Entre las 10:00 - 19:00 horas</td>
-              <td>Entre las 10:00 - 20:00 horas</td>
-            </tr>
-          </table>
-        </div>
-        <div class="better-div">
-          <p class="better-background">
-            Los tiempos de despacho son estimados y pueden variar dependiendo de
-            la empresa de distribución y la zona de destino. En caso de que el
-            producto no llegue en el tiempo estimado, por favor, contactar a
-            nuestro servicio al cliente para poder ayudarle con su problema.
-          </p>
-        </div>
-        <div class="text-center">
-          <img
-            src="{% static 'img/otros/despacho-camion.png' %}"
-            alt="GameGeek Despacho"
-            width="300px"
-            height="300px"
-          />
-        </div>
-      </section>
-      <!-- Fin sección despachos -->
-    </main>
-    
-    {% include 'base/footer.html' %}
+      </div>
+    </section>
+    <section>
+      <div class="better-div">
+        <p class="better-background">
+          El despacho de encomiendas se realiza mediante tres empresas de
+          distribución (Starken principalmente, Chilexpress y Bluexpress),
+          cuyas coberturas y valores dependen de la zona del país a dónde se
+          dirige la encomienda y será escogida a nuestra voluntad, siempre y
+          cuando, el comprador no haya establecido una empresa de preferencia
+          al momento de su compra. Los costos de envío se calculan
+          automáticamente en el carrito de compras. Todo envío debe ser pagado
+          antes del despacho y posterior al despacho se le enviará al cliente
+          el número de seguimiento o, en su defecto, información respecto a su
+          paquete.
+        </p>
+      </div>
+      <div class="better-div">
+        <table class="table table-light table-striped table-borderless">
+          <tr>
+            <th class="text-center">Empresa</th>
+            <th>Starken</th>
+            <th>Chilexpress</th>
+            <th>Bluexpress</th>
+          </tr>
+          <tr>
+            <td class="text-center">Cobertura</td>
+            <td>Todas las regiones</td>
+            <td>Todas las regiones</td>
+            <td>Comunas Santiago</td>
+          </tr>
+          <tr>
+            <td class="text-center">Días de despacho</td>
+            <td>Lunes a Viernes</td>
+            <td>Lunes a Viernes</td>
+            <td>Lunes a Viernes</td>
+          </tr>
+          <tr>
+            <td class="text-center">Tiempo de despacho</td>
+            <td>
+              RM: 1 a 2 días hábiles
+              <br />
+              Otras regiones: 1 a 7 días hábiles
+            </td>
+            <td>
+              RM: 1 a 2 días hábiles
+              <br />
+              Otras regiones: 1 a 7 días hábiles
+            </td>
+            <td>
+              RM: 1 a 2 días hábiles
+              <br />
+              Otras regiones: 1 a 7 días hábiles
+            </td>
+          </tr>
+          <tr>
+            <td class="text-center">Horario de entrega</td>
+            <td>Entre las 10:00 - 22:00 horas</td>
+            <td>Entre las 10:00 - 19:00 horas</td>
+            <td>Entre las 10:00 - 20:00 horas</td>
+          </tr>
+        </table>
+      </div>
+      <div class="better-div">
+        <p class="better-background">
+          Los tiempos de despacho son estimados y pueden variar dependiendo de
+          la empresa de distribución y la zona de destino. En caso de que el
+          producto no llegue en el tiempo estimado, por favor, contactar a
+          nuestro servicio al cliente para poder ayudarle con su problema.
+        </p>
+      </div>
+      <div class="text-center">
+        <img src="{% static 'img/otros/despacho-camion.png' %}" alt="GameGeek Despacho" width="300px" height="300px" />
+      </div>
+    </section>
+    <!-- Fin sección despachos -->
+  </main>
 
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-      crossorigin="anonymous"
-    ></script>
-  </body>
+  {% include 'base/footer.html' %}
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="{% static 'js/funciones.js' %}"></script>
+</body>
+
 </html>

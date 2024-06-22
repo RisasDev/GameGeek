@@ -9,7 +9,7 @@ def index(request):
 def despacho(request):
     return render(request, 'pages/despacho.html')
 
-def registro(request):
+def createAccount(request):
     if request.method == "POST":
         rut = request.POST["rut"]
         objUserExists = Usuario.objects.filter(rut=rut).exists()
@@ -20,9 +20,9 @@ def registro(request):
                 nombre=request.POST["nombre"],
                 apellido=request.POST["apellido"],
                 telefono=request.POST["telefono"],
-                email=request.POST["email"]
+                email=request.POST["email"],
+                password=request.POST["password"]
             )
-            objUser.set_password(request.POST["password"])
             objUser.save()
             
             direccionDestinatario = request.POST.get("destinatario", "")
@@ -45,9 +45,9 @@ def registro(request):
                     predeterminada=True
                 )
                 objDireccion.save()
-        return render(request, 'pages/registro.html', {"failed": objUserExists})
+        return render(request, 'pages/create-account.html', {"failed": objUserExists})
     else:
-        return render(request, 'pages/registro.html')
+        return render(request, 'pages/create-account.html')
 
 def peluches(request):
     return render(request, 'pages/peluches.html')
@@ -61,8 +61,8 @@ def figuras(request):
 def password_recovery(request):
     return render(request, 'pages/password-recovery.html')
 
-def tos(request):
-    return render(request, 'pages/tos.html')
+def terms(request):
+    return render(request, 'pages/terms.html')
 
-def privacidad(request):
-    return render(request, 'pages/privacidad.html')
+def privacy(request):
+    return render(request, 'pages/privacy.html')
