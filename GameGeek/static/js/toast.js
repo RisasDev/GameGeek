@@ -1,4 +1,4 @@
-function showToast(title, message, type) {
+function showToast(title, message, success) {
   const toast = document.getElementById("toast");
   const toastTitle = document.getElementById("toast-title");
   const toastBody = document.getElementById("toast-body");
@@ -6,7 +6,7 @@ function showToast(title, message, type) {
   toastTitle.innerHTML = title;
   toastBody.innerHTML = message;
 
-  if (type === "success") {
+  if (success === true) {
     toastTitle.classList.remove("text-danger");
     toastTitle.classList.add("text-success");
 
@@ -24,6 +24,11 @@ function showToast(title, message, type) {
   bootstrap.Toast.getOrCreateInstance(toast).show();
 }
 
-function showToastLogin(message, type) {
-  showToast("Inicio de sesión", message, type);
+function showToastLogin(message, success) {
+  showToast("Inicio de sesión", message, success);
+}
+
+function showToastRegister(message, success) {
+  showToast("Registro", message, success);
+  console.log("toast");
 }

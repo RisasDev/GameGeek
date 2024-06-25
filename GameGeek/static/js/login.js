@@ -10,6 +10,22 @@ $(document).ready(function () {
   const passwordFeedback = $("#password-modal-feedback");
 
   const button = $("#button-modal-login");
+  const buttonTogglePassword = $("#modal-toggle-password");
+
+  // Toggle Password //
+  buttonTogglePassword.on("click", function () {
+    const passwordType = passwordField.attr("type");
+    const icon = buttonTogglePassword.find("i");
+
+    if (passwordType === "password") {
+      passwordField.attr("type", "text");
+      icon.removeClass("bi bi-eye").addClass("bi bi-eye-slash");
+    } 
+    else {
+      passwordField.attr("type", "password");
+      icon.removeClass("bi bi-eye-slash").addClass("bi bi-eye");
+    }
+  });
 
   // Validar Rut Login Modal //
   rutField.on("focusout", function () {
@@ -30,7 +46,7 @@ $(document).ready(function () {
     let valido = validarRut(val);
 
     validaciones.rut = valido;
-    validarDatos(validaciones);
+    validarLogin(validaciones);
 
     if (valido) {
       rutField
@@ -67,7 +83,7 @@ $(document).ready(function () {
     let valido = validarPassword(val);
 
     validaciones.password = valido;
-    validarDatos(validaciones);
+    validarLogin(validaciones);
 
     if (valido) {
       passwordField
@@ -87,7 +103,7 @@ $(document).ready(function () {
 
   // Botón Ingresar Login Modal //
   button.on("click", async function () {
-    if (validarDatos(validaciones)) {
+    if (validarLogin(validaciones)) {
       const response = await fetch("/api/login", {
         method: "POST",
         headers: {
@@ -107,9 +123,11 @@ $(document).ready(function () {
         return;
       }
 
-      showToastLogin("Inicio de sesión exitoso.", "success");
+      showToastLogin("Inicio de sesión exitoso.", true);
 
-      // Iniciar sesión
+      setTimeout(function () {
+        location.reload();
+      }, 2000);
     } 
     else {
       showToastLogin("Debes completar todos los campos para iniciar sesión.");
@@ -117,6 +135,6 @@ $(document).ready(function () {
   });
 });
 
-function validarDatos(validaciones) {
+function validarLogin(validaciones) {
   return Object.values(validaciones).every((value) => value);
 }

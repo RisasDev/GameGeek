@@ -1,92 +1,58 @@
 {% load static %}
 
+<script>
+  const CSRF_TOKEN = '{{ csrf_token }}'
+</script>
+
+{% include 'base/toast.html' %}
+
 <header>
   <!-- Inicio Navbar -->
   <nav class="navbar navbar-expand-lg bg-yellow">
     <!-- Div para el responsive -->
 
     <div class="container-fluid">
-      <a href="{% url 'index' %}"
-        ><img
-          src="{% static 'img/gamegeek/gg-n-normal.svg' %}"
-          width="200px"
-          height="45px"
-          alt="GameGeek"
-      /></a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
+      <a href="{% url 'index' %}"><img src="{% static 'img/gamegeek/gg-n-normal.svg' %}" width="200px" height="45px"
+          alt="GameGeek" /></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
 
       <!-- Div de los items del navbar -->
-      <div
-        class="collapse justify-content-between navbar-collapse"
-        id="navbarSupportedContent"
-      >
+      <div class="collapse justify-content-between navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mb-2 mb-lg-0 flex">
           <!-- Inicio Item -->
           <li class="nav-item">
-            <a
-              class="nav-link text-transition"
-              aria-current="page"
-              href="{% url 'index' %}"
-              >Inicio</a
-            >
+            <a class="nav-link text-transition" aria-current="page" href="{% url 'index' %}">Inicio</a>
           </li>
 
           <!-- Productos Item-->
           <li class="nav-item dropdown">
-            <a
-              class="nav-link dropdown-toggle text-transition"
-              role="button"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-              >Productos
+            <a class="nav-link dropdown-toggle text-transition" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">Productos
             </a>
             <ul class="dropdown-menu">
               <li>
-                <a
-                  class="dropdown-item navbar-dropdown-transition"
-                  href="{% url 'pines' %}"
-                  >Pines</a
-                >
+                <a class="dropdown-item navbar-dropdown-transition" href="{% url 'pines' %}">Pines</a>
               </li>
               <li>
-                <a
-                  class="dropdown-item navbar-dropdown-transition"
-                  href="{% url 'peluches' %}"
-                  >Peluches</a
-                >
+                <a class="dropdown-item navbar-dropdown-transition" href="{% url 'peluches' %}">Peluches</a>
               </li>
               <li>
-                <a
-                  class="dropdown-item navbar-dropdown-transition"
-                  href="{% url 'figuras' %}"
-                  >Figuras</a
-                >
+                <a class="dropdown-item navbar-dropdown-transition" href="{% url 'figuras' %}">Figuras</a>
               </li>
             </ul>
           </li>
 
           <!-- Despacho Item-->
           <li class="nav-item">
-            <a class="nav-link text-transition" href="{% url 'despacho' %}"
-              >Despacho</a
-            >
+            <a class="nav-link text-transition" href="{% url 'despacho' %}">Despacho</a>
           </li>
 
           <!-- Contacto Item-->
           <li class="nav-item">
-            <a class="nav-link text-transition" href="#footer-section"
-              >Contacto</a
-            >
+            <a class="nav-link text-transition" href="#footer-section">Contacto</a>
           </li>
         </ul>
 
@@ -94,12 +60,7 @@
           <!-- Buscar Item-->
           <div class="navbar-search-icon">
             <form class="form-inline my-2 my-lg-0">
-              <input
-                class="form-control mr-sm-2"
-                type="Buscar"
-                placeholder="Buscar"
-                aria-label="Buscar"
-              />
+              <input class="form-control mr-sm-2" type="Buscar" placeholder="Buscar" aria-label="Buscar" />
             </form>
           </div>
 
@@ -109,11 +70,7 @@
 
             <li class="nav-item">
               <div>
-                <a
-                class="cursor-pointer"
-                data-bs-toggle="modal"
-                data-bs-target="#modal-login"
-                >
+                <a class="cursor-pointer" data-bs-toggle="modal" data-bs-target="#modal-login">
                   <i class="bi bi-person-circle navbar-icon"></i>
                   <span class="text-transition">Mi cuenta</span>
                 </a>
@@ -125,11 +82,7 @@
 
             <li class="nav-item">
               <div>
-                <a
-                class="cursor-pointer"
-                data-bs-toggle="modal"
-                data-bs-target="#modal-carro"
-                >
+                <a class="cursor-pointer" data-bs-toggle="modal" data-bs-target="#modal-carro">
                   <i class="bi bi-basket navbar-icon"></i>
                   <span class="text-transition">Mi carro</span>
                 </a>

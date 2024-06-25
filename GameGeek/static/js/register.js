@@ -27,28 +27,18 @@ $(document).ready(function () {
   const passwordFeedback2 = $("#password-feedback-2");
   const passwordFeedback3 = $("#password-feedback-3");
   const passwordFeedback4 = $("#password-feedback-4");
+  const destinatario = $("#dest");
+  const region = $("#region");
+  const comuna = $("#comuna");
   const calle = $("#direccion");
-  const calleFeedback = $("#direccion-feedback");
-  const dest = $("#dest");
-  const destFeedback = $("#dest-feedback");
   const nro = $("#nro");
-  const nroFeedback = $("#nro-feedback");
   const depto = $("#depto");
-  const deptoFeedback = $("#depto-feedback");
   const check = $("#check");
-  const boton = $("#btn-register");
-  const formRegister = $("#form-register");
-  const toastRegister = $("#toast-register");
-  const toastNoRegister = $("#toast-no-register");
+  const buttonRegister = $("#btn-register");
   const buttonTogglePassword = $("#toggle-password");
   const buttonToggleConfirmPassword = $("#toggle-confirm-password");
-  const buttonLoginModal = $("#button-login-modal");
-  let regions = [];
 
-  // Login Modal //
-  buttonLoginModal.on("click", function () {
-    console.log("Login Modal");
-  });
+  let regions = [];
 
   // Toggle Password //
   buttonTogglePassword.on("click", function () {
@@ -58,8 +48,7 @@ $(document).ready(function () {
     if (passwordType === "password") {
       password.attr("type", "text");
       icon.removeClass("bi bi-eye").addClass("bi bi-eye-slash");
-    } 
-    else {
+    } else {
       password.attr("type", "password");
       icon.removeClass("bi bi-eye-slash").addClass("bi bi-eye");
     }
@@ -73,8 +62,7 @@ $(document).ready(function () {
     if (confirmPasswordType === "password") {
       confirmPassword.attr("type", "text");
       icon.removeClass("bi bi-eye").addClass("bi bi-eye-slash");
-    } 
-    else {
+    } else {
       confirmPassword.attr("type", "password");
       icon.removeClass("bi bi-eye-slash").addClass("bi bi-eye");
     }
@@ -99,7 +87,7 @@ $(document).ready(function () {
     let valido = validarRut(rutval);
 
     validacionesTitular.rut = valido;
-    validarDatos(validacionesTitular, boton);
+    validarRegistro(validacionesTitular, buttonRegister);
 
     if (valido) {
       rut
@@ -136,7 +124,7 @@ $(document).ready(function () {
     let valido = validarNombre(nombreVal);
 
     validacionesTitular.nombre = valido;
-    validarDatos(validacionesTitular, boton);
+    validarRegistro(validacionesTitular, buttonRegister);
 
     if (valido) {
       nombre
@@ -173,7 +161,7 @@ $(document).ready(function () {
     let valid = validarApellido(apellidoVal);
 
     validacionesTitular.apellido = valid;
-    validarDatos(validacionesTitular, boton);
+    validarRegistro(validacionesTitular, buttonRegister);
 
     if (valid) {
       apellido
@@ -210,7 +198,7 @@ $(document).ready(function () {
     let valido = validarTelefono(telefonoVal);
 
     validacionesTitular.telefono = valido;
-    validarDatos(validacionesTitular, boton);
+    validarRegistro(validacionesTitular, buttonRegister);
 
     if (valido) {
       telefono
@@ -247,7 +235,7 @@ $(document).ready(function () {
     let valido = validarEmail(emailVal);
 
     validacionesTitular.email = valido;
-    validarDatos(validacionesTitular, boton);
+    validarRegistro(validacionesTitular, buttonRegister);
 
     if (valido) {
       email
@@ -292,14 +280,14 @@ $(document).ready(function () {
 
   password.on("keyup", function () {
     let passwordVal = $(this).val();
-    let lista = validarPassword(passwordVal);
+    let lista = validarPasswordRegister(passwordVal);
     let validoConfirmPassword = validarConfirmarPassword(
       passwordVal,
       confirmPassword.val()
     );
 
     validacionesTitular.password = lista.length === 0;
-    validarDatos(validacionesTitular, boton);
+    validarRegistro(validacionesTitular, buttonRegister);
 
     if (validoConfirmPassword) {
       confirmPassword
@@ -394,7 +382,7 @@ $(document).ready(function () {
     let valido = validarConfirmarPassword(password.val(), confirmPasswordVal);
 
     validacionesTitular.confirmPassword = valido;
-    validarDatos(validacionesTitular, boton);
+    validarRegistro(validacionesTitular, buttonRegister);
 
     if (valido) {
       confirmPassword
@@ -415,90 +403,66 @@ $(document).ready(function () {
   });
 
   // Validar Destinatario //
-  dest.on("keyup", function () {
+  destinatario.on("keyup", function () {
     let destVal = $(this).val();
-    let valido = validardest(destVal);
+    let valido = validarDestinatario(destVal);
 
     if (valido) {
-      dest
+      destinatario
         .removeClass("is-invalid text-danger")
         .addClass("is-valid text-success");
-      destFeedback.removeClass("d-block text-danger");
-      destFeedback.html("Nombre válido").addClass("d-block text-success");
-    } 
-    else {
-      dest
+    } else {
+      destinatario
         .removeClass("is-valid text-success")
         .addClass("is-invalid text-danger");
-      destFeedback
-        .html("El destinatario no debe estar vacio")
-        .addClass("d-block text-danger");
     }
   });
 
   // Validar Direccion //
   calle.on("keyup", function () {
     let calleValor = $(this).val();
-    let valido = validarCalle(calleValor);
+    let valido = validarNumeroCalle(calleValor);
 
     if (valido) {
       calle
         .removeClass("is-invalid text-danger")
         .addClass("is-valid text-success");
-      calleFeedback.removeClass("d-block text-danger");
-      calleFeedback
-        .html("Nombre de calle válido")
-        .addClass("d-block text-success");
-    } 
-    else {
+    } else {
       calle
         .removeClass("is-valid text-success")
         .addClass("is-invalid text-danger");
-      calleFeedback
-        .html("El nombre de calle no puede estar vacio")
-        .addClass("d-block text-danger");
     }
   });
 
   // Validar N° de Casa //
   nro.on("keyup", function () {
     let nroVal = $(this).val();
-    let valido = validarnro(nroVal);
+    let valido = validarNumeroCalle(nroVal);
 
     if (valido) {
       nro
         .removeClass("is-invalid text-danger")
         .addClass("is-valid text-success");
-      nroFeedback.removeClass("d-block text-danger");
-      nroFeedback.html("Número válido").addClass("d-block text-success");
     } else {
       nro
         .removeClass("is-valid text-success")
         .addClass("is-invalid text-danger");
-      nroFeedback
-        .html("El número no debe estar vacio")
-        .addClass("d-block text-danger");
     }
   });
 
   // Validar N° Depto //
   depto.on("keyup", function () {
     let deptoVal = $(this).val();
-    let valido = validardepto(deptoVal);
+    let valido = validarDepto(deptoVal);
 
     if (valido) {
       depto
         .removeClass("is-invalid text-danger")
         .addClass("is-valid text-success");
-      deptoFeedback.removeClass("d-block text-danger");
-      deptoFeedback.html("Número válido").addClass("d-block text-success");
     } else {
       depto
         .removeClass("is-valid text-success")
         .addClass("is-invalid text-danger");
-      deptoFeedback
-        .html("El número de departamento no debe estar vacio")
-        .addClass("d-block text-danger");
     }
   });
 
@@ -506,25 +470,57 @@ $(document).ready(function () {
   check.on("click", function () {
     let checkbox = $(this);
     validacionesTitular.check = checkbox.is(":checked");
-    validarDatos(validacionesTitular, boton);
+    validarRegistro(validacionesTitular, buttonRegister);
   });
 
   // Register Button
-  boton.on("click", function () {
-      if (!validarDatos(validacionesTitular, boton)) {
-        const toastNoRegisterIntance = bootstrap.Toast.getOrCreateInstance(toastNoRegister)
-        toastNoRegisterIntance.show()
-      }
-      else {
-        const toastRegisterIntance = bootstrap.Toast.getOrCreateInstance(toastRegister)
-        toastRegisterIntance.show()
+  buttonRegister.on("click", async function () {
+    if (!validarRegistro(validacionesTitular, buttonRegister)) {
+      showToastRegister("Complete todos los campos");
+    } else {
+      const response = await fetch("/api/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          csrf_token: CSRF_TOKEN,
+          rut: rut.val(),
+          nombre: nombre.val(),
+          apellido: apellido.val(),
+          telefono: telefono.val(),
+          email: email.val(),
+          password: password.val(),
+          destinatario: destinatario.val(),
+          region: region.val(),
+          comuna: comuna.val(),
+          calle: calle.val(),
+          numero: nro.val(),
+          depto: depto.val(),
+        }),
+      });
 
-        boton.attr("disabled", "disabled");
-  
+      const data = await response.json();
+
+      if (data.userExist) {
+        showToastRegister("El rut ya se encuentra registrado.");
+        return;
+      }
+
+      if (data.emailExist) {
+        showToastRegister("El correo ya se encuentra registrado.");
+        return;
+      }
+
+      if (data.success) {
+        showToastRegister("Registro exitoso.", true);
+        buttonRegister.attr("disabled", "disabled");
+
         setTimeout(function () {
-          formRegister.submit()
+          window.location.href = "/pages/post-register.html";
         }, 2000);
       }
+    }
   });
 });
 
@@ -544,7 +540,9 @@ $.ajax({
   },
 });
 $("#region").change(function () {
-  let region = regions.find((region) => region.nombre === $("#region").val()).codigo;
+  let region = regions.find(
+    (region) => region.nombre === $("#region").val()
+  ).codigo;
 
   $.ajax({
     type: "GET",
@@ -560,80 +558,19 @@ $("#region").change(function () {
   });
 });
 
-function validarNombre(nombre) {
-  return nombre.length <= 40 && nombre.length != "";
-}
+function validarRegistro(validacionesTitular, button) {
+  const validado = Object.values(validacionesTitular).every((value) => value);
 
-function validarApellido(apellido) {
-  return apellido.length <= 40 && apellido.length != "";
-}
-
-function validarTelefono(telefono) {
-  return telefono.length === 9;
-}
-
-function validarEmail(email) {
-  let partes = email.split("@");
-  if (partes.length !== 2) return false;
-
-  let usuario = partes[0];
-  const usuarioRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+/;
-  if (!usuarioRegex.test(usuario)) return false;
-
-  let dominioSplit = partes[1].split(".");
-
-  let dominio = dominioSplit[0];
-  let dominioEnd = dominioSplit[1];
-
-  return dominioEnd != null && dominio.length !== 0 && dominioEnd.length !== 0;
-}
-
-function validarRut(rutCompleto) {
-  let rut = rutCompleto.split("-")[0];
-  let dv = rutCompleto.split("-")[1];
-  let rutString = String(rut);
-  let suma = 0;
-  let multiplo = 2;
-  let dvCalculado = 0;
-
-  for (let i = rutString.length - 1; i >= 0; i--) {
-    suma += parseInt(rutString[i]) * multiplo;
-    multiplo++;
-    if (multiplo > 7) {
-      multiplo = 2;
-    }
+  if (validado) {
+    button.removeAttr("disabled");
+  } else {
+    button.attr("disabled", "disabled");
   }
 
-  dvCalculado = 11 - (suma % 11);
-
-  if (dvCalculado == 11) {
-    dvCalculado = 0;
-  } else if (dvCalculado == 10) {
-    dvCalculado = "K";
-  }
-  return dv == dvCalculado;
+  return validado;
 }
 
-function validardest(dest) {
-  return dest.length <= 40 && dest.length != "";
-}
-
-function validarnro(nro) {
-  return nro.length <= 4 && nro.length != "";
-}
-
-function validardepto(depto) {
-  return depto.length <= 40 && depto.length != "";
-}
-
-function validarCalle(calleValor) {
-  if (calleValor === "") return false;
-
-  const regex = /[^A-Za-z0-9-\s]/g;
-  return !regex.test(calleValor);
-}
-
-function validarPassword(password) {
+function validarPasswordRegister(password) {
   let hasMayuscula = /[A-Z]/.test(password);
   let hasNumero = /[0-9]/.test(password);
   let hasSimbolo = /[!@#-_\$%\^&\*]/.test(password);
@@ -646,23 +583,6 @@ function validarPassword(password) {
   if (!hasSimbolo) lista.push(PASSWORD_ERROR.CARACTER_ESPECIAL);
 
   return lista;
-}
-
-function validarConfirmarPassword(password, confirmPassword) {
-  return confirmPassword !== "" && password === confirmPassword;
-}
-
-function validarDatos(validacionesTitular, boton) {
-  const validado = Object.values(validacionesTitular).every((value) => value);
-
-  if (validado) {
-    boton.removeAttr("disabled");
-  } 
-  else {
-    boton.attr("disabled", "disabled");
-  }
-
-  return validado;
 }
 
 const PASSWORD_ERROR = {

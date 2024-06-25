@@ -9,45 +9,11 @@ def index(request):
 def despacho(request):
     return render(request, 'pages/despacho.html')
 
-def createAccount(request):
-    if request.method == "POST":
-        rut = request.POST["rut"]
-        objUserExists = Usuario.objects.filter(rut=rut).exists()
-        
-        if not objUserExists:
-            objUser = Usuario.objects.create(
-                rut=rut,
-                nombre=request.POST["nombre"],
-                apellido=request.POST["apellido"],
-                telefono=request.POST["telefono"],
-                email=request.POST["email"],
-                password=request.POST["password"]
-            )
-            objUser.save()
-            
-            direccionDestinatario = request.POST.get("destinatario", "")
-            direccionRegion = request.POST.get("region", "")
-            direccionComuna = request.POST.get("comuna", "")
-            direccionDireccion = request.POST.get("direccion", "")
-            direccionNumero = request.POST.get("numero", "")
-            
-            hasDireccion = direccionDestinatario != "" and direccionRegion != "" and direccionComuna != "" and direccionDireccion != "" and direccionNumero != ""
-  
-            if hasDireccion:
-                objDireccion = Direccion.objects.create(
-                    usuario=objUser,
-                    recibe=direccionDestinatario,
-                    region=direccionRegion,
-                    comuna=direccionComuna,
-                    direccion=direccionDireccion,
-                    numero=direccionNumero,
-                    depto=request.POST.get("depto", ""),
-                    predeterminada=True
-                )
-                objDireccion.save()
-        return render(request, 'pages/create-account.html', {"failed": objUserExists})
-    else:
-        return render(request, 'pages/create-account.html')
+def register(request):
+    return render(request, 'pages/register.html')
+
+def post_register(request):
+    return render(request, 'pages/post-register.html')
 
 def peluches(request):
     return render(request, 'pages/peluches.html')
