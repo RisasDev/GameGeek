@@ -1,8 +1,13 @@
 # GameGeek
 
-# TODO [x]
-- [ ] Example
-- [x] Example 2
+# TODO
+- [x] Hacer el sistema de registro
+- [x] Hacer el sistema de login
+- [ ] Hacer el sistema de carrito
+- [ ] Hacer el la dashboard de las vistas
+- [ ] Hacer el modelo de los productos
+- [ ] Implementar el backend de los productos
+- [ ] Hacer el sistema de correos para el pre-registro
 
 # Colores
 - Amarillo (FFB600)
