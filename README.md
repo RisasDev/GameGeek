@@ -1,5 +1,9 @@
 # GameGeek
 
+# TODO [x]
+- [] Example
+- [x] Example 2
+
 # Colores
 - Amarillo (FFB600)
 - Negro (1D1D1B)
