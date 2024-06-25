@@ -1,7 +1,7 @@
 # GameGeek
 
 # TODO [x]
-- [] Example
+- [ ] Example
 - [x] Example 2
 
 # Colores
