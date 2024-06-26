@@ -9,6 +9,7 @@
 - [ ] Implementar el backend de los productos
 - [ ] Hacer el sistema de correos para el pre-registro
 - [ ] Hacer el sistema de recuperación de contraseña
+- [ ] Hacer el modo oscuro
 
 # Colores
 - Amarillo (FFB600)
