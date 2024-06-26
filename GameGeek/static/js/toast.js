@@ -1,3 +1,6 @@
+const successSound = new Audio("/static/sounds/success.wav");
+const errorSound = new Audio("/static/sounds/error.wav");
+
 function showToast(title, message, success) {
   const toast = document.getElementById("toast");
   const toastTitle = document.getElementById("toast-title");
@@ -12,6 +15,8 @@ function showToast(title, message, success) {
 
     toastBody.classList.remove("text-danger");
     toastBody.classList.add("text-success");
+
+    successSound.play();
   } 
   else {
     toastTitle.classList.remove("text-success");
@@ -19,6 +24,8 @@ function showToast(title, message, success) {
 
     toastBody.classList.remove("text-success");
     toastBody.classList.add("text-danger");
+
+    errorSound.play();
   }
 
   bootstrap.Toast.getOrCreateInstance(toast).show();

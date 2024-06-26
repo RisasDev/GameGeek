@@ -38,6 +38,26 @@ footer {
   bottom: 0;
 }
 
+.hidden{
+  display: none;
+}
+
+.cart-preview-item-img {
+  width: 120px;
+  height: 120px;
+}
+
+.cart-preview__product_item {
+  display: flex;
+  align-items: stretch;
+  padding: .5rem;
+  gap: 20px;
+}
+
+.cart-preview__product_item_delete {
+  cursor: pointer;
+}
+
 .form-alert {
   color: rgb(245, 44, 44);
 }
@@ -201,7 +221,6 @@ div.desc {
 
 .modal-carro > .modal-content {
   height: 100vh;
-  padding: 0 40px 0 40px;
 }
 
 .navbar-dropdown-transition:hover {
@@ -253,7 +272,7 @@ div.desc {
   color: black;
 }
 
-.button {
+.btn-add-cart {
   background-color: #ffb600;
   border: none;
   border-radius: 7%;
