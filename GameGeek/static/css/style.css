@@ -97,7 +97,7 @@ footer {
 }
 
 .btn-orange {
-  background-color: #ffb600;
+  background-color: #ffb600!important;
   color: #1d1d1b;
   border: none;
   padding: 10px 20px;
@@ -110,7 +110,7 @@ footer {
 }
 
 .btn-orange:hover {
-  background-color: #ffd058;
+  background-color: #ffd058!important;
   color: #1d1d1b;
   border: none;
   padding: 10px 20px;
