@@ -33,15 +33,12 @@
               aria-expanded="false">Productos
             </a>
             <ul class="dropdown-menu">
+              {% for categoria in categorias %}
               <li>
-                <a class="dropdown-item navbar-dropdown-transition" href="{% url 'pines' %}">Pines</a>
+                <a class="dropdown-item navbar-dropdown-transition"
+                  href="{% url 'productos' categoria=categoria.nombre %}">{{ categoria.nombre_capitalize }}</a>
               </li>
-              <li>
-                <a class="dropdown-item navbar-dropdown-transition" href="{% url 'peluches' %}">Peluches</a>
-              </li>
-              <li>
-                <a class="dropdown-item navbar-dropdown-transition" href="{% url 'figuras' %}">Figuras</a>
-              </li>
+              {% endfor %}
             </ul>
           </li>
 

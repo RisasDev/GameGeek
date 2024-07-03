@@ -4,9 +4,9 @@
 - [x] Hacer el sistema de registro
 - [x] Hacer el sistema de login
 - [x] Hacer el sistema de carrito
-- [ ] Hacer el la dashboard de las vistas
-- [ ] Hacer el modelo de los productos
-- [ ] Implementar el backend de los productos
+- [ ] Hacer la dashboard de las vistas
+- [x] Hacer el modelo de los productos
+- [x] Implementar el backend de los productos
 - [ ] Hacer el sistema de correos para el pre-registro
 - [ ] Hacer el sistema de recuperación de contraseña
 - [ ] Hacer el modo oscuro

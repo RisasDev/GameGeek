@@ -32,21 +32,13 @@
     </section>
     <section class="section-space">
       <div class="items justify-content-center">
+        {% for categoria in categorias %}
         <div class="card card-animation">
-          <a href="{% url 'pines' %}">
-            <img src="{% static 'img/otros/pines-categoria.png' %}" alt="pines" class="card-categoria" />
+          <a href="{% url 'productos' categoria=categoria.nombre %}">
+            <img src="{{ categoria.imagen }}" alt="{{ categoria.nombre }}" class="card-categoria" />
           </a>
         </div>
-        <div class="card card-animation">
-          <a href="{% url 'peluches' %}">
-            <img src="{% static 'img/otros/peluches-categoria.png' %}" alt="peluches" class="card-categoria" />
-          </a>
-        </div>
-        <div class="card card-animation">
-          <a href="{% url 'figuras' %}">
-            <img src="{% static 'img/otros/figuras-categoria.png' %}" alt="figuras" class="card-categoria" />
-          </a>
-        </div>
+        {% endfor %}
       </div>
     </section>
     <!-- Fin Categorias -->
@@ -62,448 +54,56 @@
       </div>
       <div class="container mb-4" id="container-products">
         <div class="items justify-content-center">
+          {% for producto in productos %}
           <div class="card shadow-sm">
-            <img src="{% static 'img/productos/pines-oferta.jpg' %}" alt="producto" class="card-producto"/>
+            <img src="{{ producto.imagen }}" alt="{{ producto.nombre }}" class="card-image"/>
             <div class="card-body">
-              <h6 class="card-title">Pack x6 Pines Demon Slyer</h6>
-              <div>
-                <span class="discount-badge"> -15% DCTO </span>
+              <div class="container-card-title">
+                <h6 class="card-title text-center">{{ producto.nombre }}</h6>
+              </div>
+
+              {% if producto.descuento == 0 %}
+
+              <div class="container-card-price">
+                <h6 class="mt-2">Precio: <span class="card-price">${{ producto.precio }}</span></h6>
+              </div>
+
+              {% else %}
+
+              <div class="container-card-discount">
+                <span class="discount-badge"> {{ producto.descuento}}% DCTO </span>
                 <span>
-                  <del>$95.990</del>
+                  <del>${{ producto.precio }}</del>
                 </span>
               </div>
-              <div>
-                <h6 class="mt-2">Ahora 
-                  <span class="card-price">$80.990</span>
-                </h6>
+              <div class="container-card-price">
+                <h6 class="mt-2">Ahora <span class="card-price">${{ producto.precio_con_descuento }}</span></h6>
               </div>
+
+              {% endif %}
+
+              {% if producto.stock > 0 %}
+              <div class="container-card-stock">
+                <h6 class="mt-2">Stock: <span class="card-stock">{{ producto.stock }}</span></h6>
+              </div>
+              {% else %}
+              <div class="container-card-stock">
+                <h6 class="mt-2">Stock: <span class="card-stock">Agotado</span></h6>
+              </div>
+              {% endif %}
+
+              {% if producto.stock > 0 %}
               <button type="button" class="btn-add-cart text-transition">
                 Comprar
               </button>
-            </div>
-          </div>
-          <div class="card shadow-sm">
-            <img src="{% static 'img/productos/pines-oferta.jpg' %}" alt="producto" class="card-producto"/>
-            <div class="card-body">
-              <h6 class="card-title">Pack x6 Pines Demon Slay</h6>
-              <div>
-                <span class="discount-badge"> -15% DCTO </span>
-                <span>
-                  <del>$95.990</del>
-                </span>
-              </div>
-              <div>
-                <h6 class="mt-2">Ahora 
-                  <span class="card-price">$80.990</span>
-                </h6>
-              </div>
-              <button type="button" class="btn-add-cart text-transition">
-                Comprar
+              {% else %}
+              <button type="button" class="btn-add-cart" disabled>
+                Sin Stock
               </button>
+              {% endif %}
             </div>
           </div>
-          <div class="card shadow-sm">
-            <img src="{% static 'img/productos/pines-oferta.jpg' %}" alt="producto" class="card-producto"/>
-            <div class="card-body">
-              <h6 class="card-title">Pack x6 Pines Demon Slaye</h6>
-              <div>
-                <span class="discount-badge"> -15% DCTO </span>
-                <span>
-                  <del>$95.990</del>
-                </span>
-              </div>
-              <div>
-                <h6 class="mt-2">Ahora 
-                  <span class="card-price">$80.990</span>
-                </h6>
-              </div>
-              <button type="button" class="btn-add-cart text-transition">
-                Comprar
-              </button>
-            </div>
-          </div>
-          <div class="card shadow-sm">
-            <img src="{% static 'img/productos/pines-oferta.jpg' %}" alt="producto" class="card-producto"/>
-            <div class="card-body">
-              <h6 class="card-title">Pack x6 Pines</h6>
-              <div>
-                <span class="discount-badge"> -15% DCTO </span>
-                <span>
-                  <del>$95.990</del>
-                </span>
-              </div>
-              <div>
-                <h6 class="mt-2">Ahora 
-                  <span class="card-price">$80.990</span>
-                </h6>
-              </div>
-              <button type="button" class="btn-add-cart text-transition">
-                Comprar
-              </button>
-            </div>
-          </div>
-          <div class="card shadow-sm">
-            <img src="{% static 'img/productos/pines-oferta.jpg' %}" alt="producto" class="card-producto"/>
-            <div class="card-body">
-              <h6 class="card-title">Pack x6 Pines Demon</h6>
-              <div>
-                <span class="discount-badge"> -15% DCTO </span>
-                <span>
-                  <del>$95.990</del>
-                </span>
-              </div>
-              <div>
-                <h6 class="mt-2">Ahora 
-                  <span class="card-price">$80.990</span>
-                </h6>
-              </div>
-              <button type="button" class="btn-add-cart text-transition">
-                Comprar
-              </button>
-            </div>
-          </div>
-          <div class="card shadow-sm">
-            <img src="{% static 'img/productos/pines-oferta.jpg' %}" alt="producto" class="card-producto" />
-            <div class="card-body">
-              <h6 class="card-title">Pack x6 Pines Demon Slayer</h6>
-              <div>
-                <span class="discount-badge"> -15% DCTO </span>
-                <span>
-                  <del>$95.990</del>
-                </span>
-              </div>
-              <div>
-                <h6 class="mt-2">Ahora $80.990</h6>
-              </div>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="button text-transition">
-                    Comprar
-                  </button>
-                </div>
-                <a href="#" class="button-add"><i class="bi bi-cart-plus icon-add-size text-transition"></i></a>
-              </div>
-            </div>
-          </div>
-          <div class="card shadow-sm">
-            <img src="{% static 'img/productos/pines-oferta.jpg' %}" alt="producto" class="card-producto" />
-            <div class="card-body">
-              <h6 class="card-title">Pack x6 Pines Demon Slayer</h6>
-              <div>
-                <span class="discount-badge"> -15% DCTO </span>
-                <span>
-                  <del>$95.990</del>
-                </span>
-              </div>
-              <div>
-                <h6 class="mt-2">Ahora $80.990</h6>
-              </div>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="button text-transition">
-                    Comprar
-                  </button>
-                </div>
-                <a href="#" class="button-add"><i class="bi bi-cart-plus icon-add-size text-transition"></i></a>
-              </div>
-            </div>
-          </div>
-          <div class="card shadow-sm">
-            <img src="{% static 'img/productos/pines-oferta.jpg' %}" alt="producto" class="card-producto" />
-            <div class="card-body">
-              <h6 class="card-title">Pack x6 Pines Demon Slayer</h6>
-              <div>
-                <span class="discount-badge"> -15% DCTO </span>
-                <span>
-                  <del>$95.990</del>
-                </span>
-              </div>
-              <div>
-                <h6 class="mt-2">Ahora $80.990</h6>
-              </div>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="button text-transition">
-                    Comprar
-                  </button>
-                </div>
-                <a href="#" class="button-add"><i class="bi bi-cart-plus icon-add-size text-transition"></i></a>
-              </div>
-            </div>
-          </div>
-          <div class="card shadow-sm">
-            <img src="{% static 'img/productos/pines-oferta.jpg' %}" alt="producto" class="card-producto" />
-            <div class="card-body">
-              <h6 class="card-title">Pack x6 Pines Demon Slayer</h6>
-              <div>
-                <span class="discount-badge"> -15% DCTO </span>
-                <span>
-                  <del>$95.990</del>
-                </span>
-              </div>
-              <div>
-                <h6 class="mt-2">Ahora $80.990</h6>
-              </div>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="button text-transition">
-                    Comprar
-                  </button>
-                </div>
-                <a href="#" class="button-add"><i class="bi bi-cart-plus icon-add-size text-transition"></i></a>
-              </div>
-            </div>
-          </div>
-          <div class="card shadow-sm">
-            <img src="{% static 'img/productos/peluche-oferta.jpeg' %}" alt="producto" class="card-producto"/>
-            <div class="card-body">
-              <h6 class="card-title">Peluche Chopper</h6>
-              <div>
-                <span class="discount-badge"> -15% DCTO </span>
-                <span>
-                  <del>$95.990</del>
-                </span>
-              </div>
-              <div>
-                <h6 class="mt-2">Ahora 
-                  <span class="card-price">$20.990</span>
-                </h6>
-              </div>
-              <button type="button" class="btn-add-cart text-transition">
-                Comprar
-              </button>
-            </div>
-          </div>
-          <!-- <div class="card shadow-sm">
-            <img src="{% static 'img/productos/peluche-oferta.jpeg' %}" alt="producto" class="card-producto" />
-            <div class="card-body">
-              <h6 class="card-title">Peluche Chopper</h6>
-              <div>
-                <span class="discount-badge"> -15% DCTO </span>
-                <span>
-                  <del>$95.990</del>
-                </span>
-              </div>
-              <div>
-                <h6 class="mt-2">Ahora $80.990</h6>
-              </div>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="button text-transition">
-                    Comprar
-                  </button>
-                </div>
-                <a href="#" class="button-add"><i class="bi bi-cart-plus icon-add-size text-transition"></i></a>
-              </div>
-            </div>
-          </div> -->
-          <div class="card shadow-sm">
-            <img src="{% static 'img/productos/peluche-oferta.jpeg' %}" alt="producto" class="card-producto" />
-            <div class="card-body">
-              <h6 class="card-title">Peluche Chopper</h6>
-              <div>
-                <span class="discount-badge"> -15% DCTO </span>
-                <span>
-                  <del>$95.990</del>
-                </span>
-              </div>
-              <div>
-                <h6 class="mt-2">Ahora $80.990</h6>
-              </div>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="button text-transition">
-                    Comprar
-                  </button>
-                </div>
-                <a href="#" class="button-add"><i class="bi bi-cart-plus icon-add-size text-transition"></i></a>
-              </div>
-            </div>
-          </div>
-          <div class="card shadow-sm">
-            <img src="{% static 'img/productos/peluche-oferta.jpeg' %}" alt="producto" class="card-producto" />
-            <div class="card-body">
-              <h6 class="card-title">Peluche Chopper</h6>
-              <div>
-                <span class="discount-badge"> -15% DCTO </span>
-                <span>
-                  <del>$95.990</del>
-                </span>
-              </div>
-              <div>
-                <h6 class="mt-2">Ahora $80.990</h6>
-              </div>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="button text-transition">
-                    Comprar
-                  </button>
-                </div>
-                <a href="#" class="button-add"><i class="bi bi-cart-plus icon-add-size text-transition"></i></a>
-              </div>
-            </div>
-          </div>
-          <div class="card shadow-sm">
-            <img src="{% static 'img/productos/peluche-oferta.jpeg' %}" alt="producto" class="card-producto" />
-            <div class="card-body">
-              <h6 class="card-title">Peluche Chopper</h6>
-              <div>
-                <span class="discount-badge"> -15% DCTO </span>
-                <span>
-                  <del>$95.990</del>
-                </span>
-              </div>
-              <div>
-                <h6 class="mt-2">Ahora $80.990</h6>
-              </div>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="button text-transition">
-                    Comprar
-                  </button>
-                </div>
-                <a href="#" class="button-add"><i class="bi bi-cart-plus icon-add-size text-transition"></i></a>
-              </div>
-            </div>
-          </div>
-          <div class="card shadow-sm">
-            <img src="{% static 'img/productos/peluche-oferta.jpeg' %}" alt="producto" class="card-producto" />
-            <div class="card-body">
-              <h6 class="card-title">Peluche Chopper</h6>
-              <div>
-                <span class="discount-badge"> -15% DCTO </span>
-                <span>
-                  <del>$95.990</del>
-                </span>
-              </div>
-              <div>
-                <h6 class="mt-2">Ahora $80.990</h6>
-              </div>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="button text-transition">
-                    Comprar
-                  </button>
-                </div>
-                <a href="#" class="button-add"><i class="bi bi-cart-plus icon-add-size text-transition"></i></a>
-              </div>
-            </div>
-          </div>
-          <div class="card shadow-sm">
-            <img src="{% static 'img/productos/figura-oferta.jpeg' %}" alt="producto" class="card-producto" />
-            <div class="card-body">
-              <h6 class="card-title">Three pack figuras de Demon Slayer</h6>
-              <div>
-                <span class="discount-badge"> -15% DCTO </span>
-                <span>
-                  <del>$95.990</del>
-                </span>
-              </div>
-              <div>
-                <h6 class="mt-2">Ahora $80.990</h6>
-              </div>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="button text-transition">
-                    Comprar
-                  </button>
-                </div>
-                <a href="#" class="button-add"><i class="bi bi-cart-plus icon-add-size text-transition"></i></a>
-              </div>
-            </div>
-          </div>
-          <div class="card shadow-sm">
-            <img src="{% static 'img/productos/figura-oferta.jpeg' %}" alt="producto" class="card-producto" />
-            <div class="card-body">
-              <h6 class="card-title">Three pack figuras de Demon Slayer</h6>
-              <div>
-                <span class="discount-badge"> -15% DCTO </span>
-                <span>
-                  <del>$95.990</del>
-                </span>
-              </div>
-              <div>
-                <h6 class="mt-2">Ahora $80.990</h6>
-              </div>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="button text-transition">
-                    Comprar
-                  </button>
-                </div>
-                <a href="#" class="button-add"><i class="bi bi-cart-plus icon-add-size text-transition"></i></a>
-              </div>
-            </div>
-          </div>
-          <div class="card shadow-sm">
-            <img src="{% static 'img/productos/figura-oferta.jpeg' %}" alt="producto" class="card-producto" />
-            <div class="card-body">
-              <h6 class="card-title">Three pack figuras de Demon Slayer</h6>
-              <div>
-                <span class="discount-badge"> -15% DCTO </span>
-                <span>
-                  <del>$95.990</del>
-                </span>
-              </div>
-              <div>
-                <h6 class="mt-2">Ahora $80.990</h6>
-              </div>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="button text-transition">
-                    Comprar
-                  </button>
-                </div>
-                <a href="#" class="button-add"><i class="bi bi-cart-plus icon-add-size text-transition"></i></a>
-              </div>
-            </div>
-          </div>
-          <div class="card shadow-sm">
-            <img src="{% static 'img/productos/figura-oferta.jpeg' %}" alt="producto" class="card-producto" />
-            <div class="card-body">
-              <h6 class="card-title">Three pack figuras de Demon Slayer</h6>
-              <div>
-                <span class="discount-badge"> -15% DCTO </span>
-                <span>
-                  <del>$95.990</del>
-                </span>
-              </div>
-              <div>
-                <h6 class="mt-2">Ahora $80.990</h6>
-              </div>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="button text-transition">
-                    Comprar
-                  </button>
-                </div>
-                <a href="#" class="button-add"><i class="bi bi-cart-plus icon-add-size text-transition"></i></a>
-              </div>
-            </div>
-          </div>
-          <div class="card shadow-sm">
-            <img src="{% static 'img/productos/figura-oferta.jpeg' %}" alt="producto" class="card-producto" />
-            <div class="card-body">
-              <h6 class="card-title">Three pack figuras de Demon Slayer</h6>
-              <div>
-                <span class="discount-badge"> -15% DCTO </span>
-                <span>
-                  <del>$95.990</del>
-                </span>
-              </div>
-              <div>
-                <h6 class="mt-2">Ahora $80.990</h6>
-              </div>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="button text-transition">
-                    Comprar
-                  </button>
-                </div>
-                <a href="#" class="button-add"><i class="bi bi-cart-plus icon-add-size text-transition"></i></a>
-              </div>
-            </div>
-          </div>
+          {% endfor %}
         </div>
       </div>
     </section>

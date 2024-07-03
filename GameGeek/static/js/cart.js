@@ -21,7 +21,7 @@ $(document).ready(function () {
     const infoProduct = {
       title: product.querySelector(".card-title").textContent,
       price: product.querySelector(".card-price").textContent,
-      src: product.querySelector(".card-producto").src,
+      src: product.querySelector(".card-image").src,
       quantity: 1,
     };
 

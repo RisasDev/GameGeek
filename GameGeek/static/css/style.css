@@ -109,6 +109,19 @@ footer {
   cursor: pointer;    
 }
 
+.btn-orange:disabled {
+  background-color: #666666!important;
+  color: #1d1d1b;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: not-allowed;
+}
+
 .btn-orange:hover {
   background-color: #ffd058!important;
   color: #1d1d1b;
@@ -273,11 +286,15 @@ div.desc {
 }
 
 .btn-add-cart {
+  margin-top: 30px;
   background-color: #ffb600;
   border: none;
-  border-radius: 7%;
-  padding: 5px 15px;
+  border-radius: 5px;
+  padding: 10px 15px; /* Aumenta el padding para hacer el botón más grande */
   font-size: large;
+  width: 100%; /* Ocupa todo el ancho del contenedor */
+  max-width: 200px; /* Opcional: Limitar el ancho máximo */
+  text-align: center;
 }
 
 .button-add {
@@ -293,6 +310,13 @@ div.desc {
   width: 210px;
   border: none;
   padding: 10px;
+}
+
+.card-image {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  margin: 0 auto;
 }
 
 .card-categoria {
