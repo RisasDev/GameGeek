@@ -52,7 +52,7 @@ def productos(request, categoria):
             producto.precio_con_descuento = producto.precio - (producto.precio * producto.descuento / 100)
     
         context = {
-            'categoria': objCategoria,
+            'categoria_principal': objCategoria,
             'categoria_nombre_capitalize': objCategoria.nombre.capitalize(),
             'categorias': categorias,
             'productos': productos,
