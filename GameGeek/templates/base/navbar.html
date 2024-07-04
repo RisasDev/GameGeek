@@ -8,20 +8,18 @@
 
 <header>
   <!-- Inicio Navbar -->
-  <nav class="navbar navbar-expand-lg bg-yellow">
+  <nav class="navbar navbar-expand-lg bg-yellow shadow-lg">
     <!-- Div para el responsive -->
-
     <div class="container-fluid">
-      <a href="{% url 'index' %}"><img src="{% static 'img/gamegeek/gg-n-normal.svg' %}" width="200px" height="45px"
-          alt="GameGeek" /></a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+      <div>
+        <a href="{% url 'index' %}">
+          <img src="{% static 'img/gamegeek/gg-n-normal.svg' %}" width="55px" height="45px" alt="GameGeek"/>
+        </a>
+      </div>
 
       <!-- Div de los items del navbar -->
-      <div class="collapse justify-content-between navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mb-2 mb-lg-0 flex">
+      <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+        <ul class="navbar-nav mb-2 mb-lg-0 nav-space">
           <!-- Inicio Item -->
           <li class="nav-item">
             <a class="nav-link text-transition" aria-current="page" href="{% url 'index' %}">Inicio</a>
@@ -52,43 +50,79 @@
             <a class="nav-link text-transition" href="#footer-section">Contacto</a>
           </li>
         </ul>
+      </div>
+      <div class="justify-content-end align-items-center d-flex gap-3">
 
-        <div class="align-items-center d-flex gap-4">
-          <!-- Buscar Item-->
-          <div class="navbar-search-icon">
-            <form class="form-inline my-2 my-lg-0">
-              <input class="form-control mr-sm-2" type="Buscar" placeholder="Buscar" aria-label="Buscar" />
-            </form>
-          </div>
-
-          <ul class="navbar-nav mb-2 mb-lg-0 d-flex align-items-center gap-3">
-            <!-- Usuario -->
+        <!-- Inicio Sesion -->
+        <div>
+          <ul class="navbar-nav">
             {% include 'base/modal-login.html' %}
-
             <li class="nav-item">
               <div>
                 <a class="cursor-pointer" data-bs-toggle="modal" data-bs-target="#modal-login">
-                  <i class="bi bi-person-circle navbar-icon"></i>
-                  <span class="text-transition">Mi cuenta</span>
+                  <div class="d-flex align-items-center">
+                    <div>
+                      <i class="bi bi-person-circle navbar-icon"></i>
+                    </div>
+                    <div>
+                      <span class="text-transition card-title">Inicio Sesion</span>
+                    </div>
+                  </div>
                 </a>
               </div>
             </li>
-
-            <!-- Carro -->
+          </ul>
+        </div>
+  
+        <!-- Usuario -->
+          <div>
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <div>
+                  <a class="cursor-pointer" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasDarkNavbar">
+                    <div class="d-flex align-items-center">
+                      <div>
+                        <i class="bi bi-person-circle navbar-icon"></i>
+                      </div>
+                      <div>
+                        <span class="text-transition card-title">Usuario</span>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        
+        <!-- Carro -->
+        <div>
+          <ul class="navbar-nav">
             {% include 'base/modal-carrito.html' %}
-
             <li class="nav-item">
               <div>
                 <a class="cursor-pointer" data-bs-toggle="modal" data-bs-target="#modal-carro">
-                  <i class="bi bi-basket navbar-icon"></i>
-                  <span class="text-transition">Mi carro</span>
+                  <div class="d-flex align-items-center">
+                    <div>
+                      <i class="bi bi-basket navbar-icon"></i>
+                    </div>
+                    <div>
+                      <span class="text-transition card-title">Mi carro</span>
+                    </div>
+                  </div>
                 </a>
               </div>
             </li>
           </ul>
         </div>
       </div>
+  
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
     </div>
   </nav>
   <!-- Fin Navbar -->
+  {% include 'base/nav-profile.html' %}
 </header>

@@ -3,14 +3,24 @@ a {
   text-decoration: none;
 }
 
-th, h1, h2, h3, h4, h5, h6 {
+th,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-  "Lucida Sans Unicode", Verdana, sans-serif !important;
+    "Lucida Sans Unicode", Verdana, sans-serif !important;
 }
 
-td, li, p, button, span {
+td,
+li,
+p,
+button,
+span {
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-  "Lucida Sans Unicode", Geneva, Verdana, sans-serif !important;
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif !important;
 }
 
 button:disabled,
@@ -38,7 +48,7 @@ footer {
   bottom: 0;
 }
 
-.hidden{
+.hidden {
   display: none;
 }
 
@@ -50,7 +60,7 @@ footer {
 .cart-preview__product_item {
   display: flex;
   align-items: stretch;
-  padding: .5rem;
+  padding: 0.5rem;
   gap: 20px;
 }
 
@@ -97,7 +107,7 @@ footer {
 }
 
 .btn-orange {
-  background-color: #ffb600!important;
+  background-color: #ffb600 !important;
   color: #1d1d1b;
   border: none;
   padding: 10px 20px;
@@ -106,11 +116,11 @@ footer {
   display: inline-block;
   font-size: 16px;
   margin: 4px 2px;
-  cursor: pointer;    
+  cursor: pointer;
 }
 
 .btn-orange:disabled {
-  background-color: #666666!important;
+  background-color: #666666 !important;
   color: #1d1d1b;
   border: none;
   padding: 10px 20px;
@@ -123,8 +133,101 @@ footer {
 }
 
 .btn-orange:hover {
-  background-color: #ffd058!important;
+  background-color: #ffd058 !important;
   color: #1d1d1b;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.btn-cart {
+  background-color: #ffb600 !important;
+  color: #1d1d1b;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  width: 70%;
+}
+
+.btn-cart:disabled {
+  background-color: #666666 !important;
+  color: #1d1d1b;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: not-allowed;
+}
+
+.btn-cart:hover {
+  background-color: #ffd058 !important;
+  color: #1d1d1b;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.btn-stock {
+  background-color: white!important;
+  color: #ffb600;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.btn-stock:hover {
+  background-color: white!important;
+  color: #ffd058;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.btn-trash {
+  background-color: white!important;
+  color: black;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.btn-trash:hover {
+  background-color: white!important;
+  color: #999999;
   border: none;
   padding: 10px 20px;
   text-align: center;
@@ -163,13 +266,13 @@ div.desc {
 
 .space-form {
   display: flex;
-  grid-template-columns: 1fr minmax(100px , 1fr);
+  grid-template-columns: 1fr minmax(100px, 1fr);
   justify-content: center;
 }
 
 .space-priv {
   display: flex;
-  grid-template-columns: 1fr minmax(100px , 1fr);
+  grid-template-columns: 1fr minmax(100px, 1fr);
   justify-content: center;
   float: left !important;
 }
@@ -181,7 +284,6 @@ div.desc {
 
 .formulario {
   margin: 0 auto;
-  width: 450px;
   padding: 20px;
   border-radius: 5px;
   background-color: white;
@@ -193,7 +295,7 @@ div.desc {
 
 .carousel-item img {
   width: 350px;
-  height: 250px;
+  height: 300px;
   object-fit: cover;
 }
 
@@ -290,10 +392,9 @@ div.desc {
   background-color: #ffb600;
   border: none;
   border-radius: 5px;
-  padding: 10px 15px; /* Aumenta el padding para hacer el botón más grande */
+  padding: 10px 15px;
   font-size: large;
-  width: 100%; /* Ocupa todo el ancho del contenedor */
-  max-width: 200px; /* Opcional: Limitar el ancho máximo */
+  width: 100%;
   text-align: center;
 }
 
@@ -302,6 +403,10 @@ div.desc {
   border: none;
   border-radius: 7%;
   padding: 0px 5px;
+}
+
+.space-pay {
+  width: 100%!important;
 }
 
 .card {
@@ -313,14 +418,22 @@ div.desc {
 }
 
 .card-image {
-  width: 150px;
-  height: 150px;
-  object-fit: cover;
-  margin: 0 auto;
+  width: 180px;
+  height: 190px;
+  object-fit: fill;
+  border-radius: 5px;
 }
 
 .card-categoria {
-  width: 180px;
+  width: 190px;
+}
+
+.card-title {
+  margin-left: 5px;
+}
+
+.nav-space {
+  margin-right: 24%;
 }
 
 .txt-color-primary {
@@ -367,7 +480,11 @@ div.desc {
 .ul-left {
   text-align: left;
   list-style: none;
-  margin-left: 15px;
+}
+
+.img-footer {
+  width: 150px;
+  height: 90px;
 }
 
 .list-footer {
@@ -399,6 +516,94 @@ div.desc {
   text-decoration: none;
 }
 
-.icon-list{
+.account-info {
+  margin-left: 10px;
+}
+
+.icon-list {
   margin-left: 6%;
+}
+
+.space-cart {
+  width: 96%;
+}
+
+.total-pay {
+  display: flex;
+  justify-content: space-between;
+}
+
+.custom-checkbox {
+  width: 20px!important;
+  height: 20px!important;
+  border-radius: 50%!important;
+  background-color: #fff;
+  border: 2px solid #ccc;
+  appearance: none;
+  cursor: pointer;
+}
+
+.custom-checkbox:checked {
+  background-color: #ffb600;
+  border-color: #ffdb80;
+}
+
+.text-bg-orange {
+  background-color: #ffb600;
+  color: white;
+}
+
+.size-profile {
+  width: 250px !important;
+}
+
+.search-button {
+  background-color: #ffb600;
+  color: black;
+  transition: 0.3s;
+  border-radius: 0px 5px 5px 0px;
+}
+
+.form-control-search {
+  background-color: #e9ecef;
+  border-radius: 5px 0px 0px 5px;
+  border: none;
+}
+
+.search-button:hover {
+  background-color: #f8ca57;
+  color: black;
+  transition: 0.3s;
+}
+
+.content-end {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.space-order {
+  justify-content: space-between;
+}
+
+.more-content {
+  text-decoration: underline;
+  color: blue;
+  transition: 0.2s;
+}
+
+.more-content:hover {
+  color: rgb(112, 112, 247);
+  transition: 0.2s;
+}
+
+.user-files:hover {
+  transition: 0.3s;
+  background-color: #f8ca57;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.user-files {
+  transition: 0.3s;
+  color: black;
 }

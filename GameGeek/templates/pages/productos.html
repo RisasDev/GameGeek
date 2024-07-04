@@ -20,8 +20,8 @@
         <section class="section-space">
             <div class="container-fluid">
                 <div class="row justify-content-center align-items-center text-center text-md-left">
-                    <div class="col-12 col-md-auto col-lg-8 bg-yellow border-circle">
-                        <h3>{{ categoria_nombre_capitalize }}</h3>
+                    <div class="col-12 col-md-auto col-lg-10 bg-yellow border-circle">
+                        <h3 class="m-2">{{ categoria_nombre_capitalize }}</h3>
                     </div>
                 </div>
             </div>
@@ -43,57 +43,80 @@
                         {% endfor %}
                     </ul>
                 </div>
-                <div class="card-col-10 items mx-auto" id="container-products">
-                    {% for producto in productos %}
-                    <div class="card shadow-sm">
-                        <img src="{{ producto.imagen }}" alt="{{ producto.nombre }}" class="card-image" />
-                        <div class="card-body">
-                            <div class="container-card-title">
-                                <h6 class="card-title text-center">{{ producto.nombre }}</h6>
-                            </div>
-
+                <div class="card-col-10 d-flex mx-auto" id="container-products">
+                    <div class="items justify-content-center">
+                        {% for producto in productos %}
+                        <div class="card shadow-sm">
+                          <div class="text-center">
+                            <img
+                              src="{{ producto.imagen }}"
+                              alt="{{ producto.nombre }}"
+                              class="card-image"
+                            />
+                          </div>
+                          <div class="container-card-title mt-3">
+                            <h6 class="card-title">{{ producto.nombre }}</h6>
+                          </div>
+            
+                          <div class="card-body">
+            
                             {% if producto.descuento == 0 %}
-
+            
                             <div class="container-card-price">
-                                <h6 class="mt-2">Precio: <span class="card-price">${{ producto.precio }}</span></h6>
+                              <h6>
+                                Precio:
+                                <span class="card-price">${{ producto.precio }}</span>
+                              </h6>
                             </div>
-
+            
                             {% else %}
-
+            
                             <div class="container-card-discount">
-                                <span class="discount-badge"> {{ producto.descuento}}% DCTO </span>
-                                <span>
-                                    <del>${{ producto.precio }}</del>
-                                </span>
+                              <span class="discount-badge">
+                                {{ producto.descuento}}% DCTO
+                              </span>
+                              <span>
+                                <del>${{ producto.precio }}</del>
+                              </span>
                             </div>
                             <div class="container-card-price">
-                                <h6 class="mt-2">Ahora <span class="card-price">${{ producto.precio_con_descuento }}</span></h6>
+                              <h6 class="mt-2">
+                                Ahora
+                                <span class="card-price"
+                                  >${{ producto.precio_con_descuento }}</span
+                                >
+                              </h6>
                             </div>
-
-                            {% endif %}
-
-                            {% if producto.stock > 0 %}
+            
+                            {% endif %} {% if producto.stock > 0 %}
                             <div class="container-card-stock">
-                                <h6 class="mt-2">Stock: <span class="card-stock">{{ producto.stock }}</span></h6>
+                              <h6 class="mt-2">
+                                Stock: <span class="card-stock">{{ producto.stock }}</span>
+                              </h6>
                             </div>
                             {% else %}
                             <div class="container-card-stock">
-                                <h6 class="mt-2">Stock: <span class="card-stock">Agotado</span></h6>
+                              <h6 class="mt-2">
+                                Stock: <span class="card-stock">Agotado</span>
+                              </h6>
                             </div>
                             {% endif %}
-
+            
+                          </div>
+                          <div>
                             {% if producto.stock > 0 %}
                             <button type="button" class="btn-add-cart text-transition">
-                                Comprar
+                              Comprar
                             </button>
                             {% else %}
                             <button type="button" class="btn-add-cart" disabled>
-                                Sin Stock
+                              Sin Stock
                             </button>
                             {% endif %}
+                          </div>
                         </div>
+                        {% endfor %}
                     </div>
-                    {% endfor %}
                 </div>
             </div>
         </section>

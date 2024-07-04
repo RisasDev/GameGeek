@@ -70,3 +70,18 @@ def terms(request):
 
 def privacy(request):
     return render(request, 'pages/privacy.html')
+
+def gestion(request):
+    return render(request, 'dashboard/gestion.html')
+
+def profile(request):
+    return render(request, 'account/profile.html')
+
+def shop_cart(request):
+    return render(request, 'account/shop-cart.html')
+
+def orders(request):
+    return render(request, 'account/orders.html')
+
+def pays(request):
+    return render(request, 'account/pays.html')
