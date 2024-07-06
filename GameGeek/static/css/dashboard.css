@@ -7,6 +7,10 @@ body {
   overflow-x: hidden;
 }
 
+i {
+  color: white !important;
+}
+
 h1,
 h2,
 h3,
@@ -67,6 +71,11 @@ h5 {
   height: auto;
 }
 
+.img-product {
+  width: 100px;
+  height: auto;
+}
+
 .bg-yellow {
   background-color: #ffb600;
 }
@@ -106,4 +115,16 @@ h5 {
 
 .form-control {
   background-color: #e9ecef;
+}
+
+.icon-size {
+  font-size: 2em;
+}
+
+.gap {
+  margin-left: 15px;
+}
+
+.list-group-item {
+    border: none!important;
 }

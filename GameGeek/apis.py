@@ -1,4 +1,4 @@
-from .models import Usuario, Direccion
+from .models import Usuario, Direccion, Producto
 from django.http import HttpResponse
 from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import redirect
@@ -91,6 +91,22 @@ def guardarMisDatos(request):
             json_data["telefono"].strip(),
             email,
             json_data.get("new_password", None)
+        )
+        
+        return HttpResponse(json.dumps({"success": True}), content_type="application/json")
+    
+def dashboardAgregarProducto(request):
+    if request.method == "POST":
+        json_data = json.loads(request.body)
+        
+        Producto.objects.create_producto(
+            nombre=json_data["nombre"],
+            imagen=json_data["imagen"],
+            precio=json_data["precio"],
+            descuento=json_data["descuento"],
+            stock=json_data["stock"],
+            descripcion=json_data["descripcion"],
+            id_categoria_producto=json_data["categoria"]
         )
         
         return HttpResponse(json.dumps({"success": True}), content_type="application/json")

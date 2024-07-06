@@ -15,6 +15,7 @@ urlpatterns = [
     path('api/register', csrf_exempt(apis.registrarse), name='api/register'),
     path('api/logout', csrf_exempt(apis.cerrar_sesion), name='api/logout'),
     path('api/account/mis-datos', csrf_exempt(apis.guardarMisDatos), name='api/account/mis-datos'),
+    path('api/dashboard/productos/agregar', csrf_exempt(apis.dashboardAgregarProducto), name='api/dashboard/productos/agregar'),
     path('account/mis-datos', views.misDatos, name='account/mis-datos'),
     path('account/shop-cart', views.shop_cart, name='shop-cart'),
     path('account/orders', views.orders, name='orders'),

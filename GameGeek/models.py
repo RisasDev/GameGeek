@@ -114,8 +114,16 @@ class CategoriaProducto(models.Model):
         return (f'Categoría: {self.nombre}')
     
 class ProductoManager(models.Manager):
-    def create_producto(self, nombre, imagen, precio, descuento, stock, descripcion, categoria):
-        producto = self.model(nombre=nombre, imagen=imagen, precio=precio, descuento=descuento, stock=stock, descripcion=descripcion, categoria=categoria)
+    def create_producto(self, nombre, imagen, precio, descuento, stock, descripcion, id_categoria_producto):
+        producto = self.model(
+            nombre=nombre, 
+            imagen=imagen, 
+            precio=precio, 
+            descuento=descuento, 
+            stock=stock, 
+            descripcion=descripcion, 
+            id_categoria_producto=CategoriaProducto.objects.get(id=id_categoria_producto)
+        )
         producto.save(using=self._db)
         return producto
 
@@ -123,7 +131,7 @@ class ProductoManager(models.Manager):
         producto = self.get(nombre=nombre)
         producto.delete()
 
-    def update_producto(self, nombre, nuevo_nombre, imagen, precio, descuento, stock, descripcion, categoria):
+    def update_producto(self, nombre, nuevo_nombre, imagen, precio, descuento, stock, descripcion, id_categoria_producto):
         producto = self.get(nombre=nombre)
         producto.nombre = nuevo_nombre
         producto.imagen = imagen
@@ -131,24 +139,12 @@ class ProductoManager(models.Manager):
         producto.descuento = descuento
         producto.stock = stock
         producto.descripcion = descripcion
-        producto.categoria = categoria
+        producto.id_categoria_producto = CategoriaProducto.objects.get(id=id_categoria_producto)
         producto.save()
         return producto
     
     def get_productos_by_categoria(self, categoria):
         return self.filter(id_categoria_producto=categoria.id)
-    
-    def add_stock(self, nombre, cantidad):
-        producto = self.get(nombre=nombre)
-        producto.stock += cantidad
-        producto.save()
-        return producto
-    
-    def remove_stock(self, nombre, cantidad):
-        producto = self.get(nombre=nombre)
-        producto.stock -= cantidad
-        producto.save()
-        return producto
     
 class Producto(models.Model):
     id = models.AutoField(primary_key=True)

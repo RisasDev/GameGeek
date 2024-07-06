@@ -94,23 +94,34 @@ def misDatos(request):
     }
     return render(request, 'account/mis-datos.html', context)
 
+@login_required
 def shop_cart(request):
     return render(request, 'account/shop-cart.html')
 
+@login_required
 def orders(request):
     return render(request, 'account/orders.html')
 
+@login_required
 def pays(request):
     return render(request, 'account/pays.html')
 
+@login_required
 def dashboard(request):
     context = {
         'registrados': Usuario.objects.all().count(),
     }
     return render(request, 'dashboard/index.html', context)
 
+@login_required
 def dashboardProductos(request):
+    productos = Producto.objects.all()
+    
+    for producto in productos:
+        producto.categoria = producto.id_categoria_producto.nombre.capitalize()
+    
     context = {
-        'productos': Producto.objects.all()
+        'productos': productos,
+        'categorias': getCategorias()
     }
     return render(request, 'dashboard/productos.html', context)
