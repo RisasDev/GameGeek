@@ -1,16 +1,12 @@
 {% load static %}
 
-<footer class="shadow-lg" id="footer-section">
+<footer class="shadow-lg bg-yellow" id="footer-section">
   <div class="container justify-content-center">
     <div class="row text-center text-md-start">
       <div class="col-md-3 col-lg-3 col-xl-3 mx-auto">
         <div>
-          <img
-            src="{% static 'img/gamegeek/gg-n-junto.svg' %}"
-            alt="GameGeek"
-            class="img-footer"
-          />
-          <ul class="list-unstyled">
+          <img src="{% static 'img/gamegeek/gg-n-junto.svg' %}" alt="GameGeek" class="img-fluid" />
+          <ul class="list-unstyled text-center">
             <li>
               <a href="https://www.instagram.com/gamegeekcl" target="_blank">
                 <i class="bi bi-instagram icon-size text-transition"></i>
@@ -24,62 +20,40 @@
       </div>
       <div class="col-md-3 col-lg-3 col-xl-3 mx-auto">
         <div>
-          <h5>Información</h5>
+          <h5 class="text-title">Información</h5>
           <hr>
           <ul class="list-unstyled">
             <li class="mb-1">Nuestro Correo:</li>
             <li class="mb-2">
-              <a
-                href="mailto:contacto@gamegeek.cl"
-                target="_blank"
-                class="text-transition"
-                >contacto@gamegeek.cl</a
-              >
+              <a href="mailto:contacto@gamegeek.cl" target="_blank" class="text-transition">contacto@gamegeek.cl</a>
             </li>
             <li class="mb-1">Necesitas Ayuda:</li>
             <li class="mb-2">
-              <a
-                href="mailto:ayuda@gamegeek.cl"
-                target="_blank"
-                class="text-transition"
-                >ayuda@gamegeek.cl</a
-              >
+              <a href="mailto:ayuda@gamegeek.cl" target="_blank" class="text-transition">ayuda@gamegeek.cl</a>
             </li>
           </ul>
         </div>
       </div>
       <div class="col-md-3 col-lg-3 col-xl-3 mx-auto">
-        <h5>Condiciones</h5>
+        <h5 class="text-title">Condiciones</h5>
         <hr>
         <ul class="list-unstyled">
           <li class="mb-2">
-            <a href="{% url 'terms' %}" class="text-transition"
-              >Términos y Condiciones</a
-            >
+            <a href="{% url 'terms' %}" class="text-transition">Términos y Condiciones</a>
           </li>
           <li>
-            <a href="{% url 'privacy' %}" class="text-transition"
-              >Política de Privacidad</a
-            >
+            <a href="{% url 'privacy' %}" class="text-transition">Política de Privacidad</a>
           </li>
         </ul>
       </div>
       <div class="col-md-3 col-lg-3 col-xl-3 mx-auto">
-        <h5>Medios de Pago</h5>
+        <h5 class="text-title">Medios de Pago</h5>
         <hr>
         <ul class="list-unstyled">
           <li>
-            <img
-              src="{% static 'img/otros/wflow.png' %}"
-              alt="Medio de Pago"
-              width="200px"
-              height="100px"
-            />
+            <img class="img-fluid" src="{% static 'img/otros/wflow.png' %}" alt="Medio de Pago" />
           </li>
         </ul>
-      </div>
-      <div>
-        <hr />
       </div>
     </div>
   </div>

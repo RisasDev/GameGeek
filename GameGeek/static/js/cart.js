@@ -1,4 +1,13 @@
 $(document).ready(function () {
+  $("*")
+    .contents()
+    .filter(function () {
+      return this.nodeType === 3 && /\b\d+\.0\b/.test(this.nodeValue);
+    })
+    .each(function () {
+      this.nodeValue = this.nodeValue.replace(/\b(\d+)\.0\b/g, "$1");
+    });
+
   const containerProducts = $("#container-products");
   const rowProduct = document.querySelector(".cart-preview__products");
   const cartEmpty = document.querySelector(".cart-preview__empty");

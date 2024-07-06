@@ -517,7 +517,7 @@ $(document).ready(function () {
         buttonRegister.attr("disabled", "disabled");
 
         setTimeout(function () {
-          window.location.href = "/pages/post-register.html";
+          window.reload();
         }, 2000);
       }
     }

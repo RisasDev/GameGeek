@@ -1,39 +1,44 @@
 from django.shortcuts import render
-from .models import CategoriaProducto, Producto
+from django.contrib.auth.decorators import login_required
+from .models import Usuario, CategoriaProducto, Producto
 
 # Create your views here.
 
-def index(request):
+def getCategorias():
     categorias = CategoriaProducto.objects.all()
     
     for categoria in categorias:
         categoria.nombre_capitalize = categoria.nombre.capitalize()
     
+    return categorias
+
+def getProductos():
     productos = Producto.objects.all()
     
     for producto in productos:
         producto.precio_con_descuento = producto.precio - (producto.precio * producto.descuento / 100)
     
+    return productos
+
+def index(request):
     context = {
-        'categorias': categorias,
-        'productos': productos
+        'categorias': getCategorias(),
+        'productos': getProductos()
     }
     
     return render(request, 'pages/index.html', context)
 
 def despacho(request):
-    categorias = CategoriaProducto.objects.all()
-    
-    for categoria in categorias:
-        categoria.nombre_capitalize = categoria.nombre.capitalize()
-        
     context = {
-        'categorias': categorias
+        'categorias': getCategorias()
     }
     return render(request, 'pages/despacho.html', context)
 
 def register(request):
-    return render(request, 'pages/register.html')
+    context = {
+        'categorias': getCategorias()
+    }
+    return render(request, 'pages/register.html', context)
 
 def post_register(request):
     return render(request, 'pages/post-register.html')
@@ -66,16 +71,28 @@ def password_recovery(request):
     return render(request, 'pages/password-recovery.html')
 
 def terms(request):
-    return render(request, 'pages/terms.html')
+    context = {
+        'categorias': getCategorias()
+    }
+    return render(request, 'pages/terms.html', context)
 
 def privacy(request):
-    return render(request, 'pages/privacy.html')
+    context = {
+        'categorias': getCategorias()
+    }
+    return render(request, 'pages/privacy.html', context)
 
-def gestion(request):
-    return render(request, 'dashboard/gestion.html')
-
-def profile(request):
-    return render(request, 'account/profile.html')
+@login_required
+def misDatos(request):
+    context = {
+        'hidden': 'hidden',
+        'rut': request.user.rut,
+        'nombre': request.user.nombre,
+        'apellido': request.user.apellido,
+        'telefono': request.user.telefono,
+        'email': request.user.email,
+    }
+    return render(request, 'account/mis-datos.html', context)
 
 def shop_cart(request):
     return render(request, 'account/shop-cart.html')
@@ -85,3 +102,15 @@ def orders(request):
 
 def pays(request):
     return render(request, 'account/pays.html')
+
+def dashboard(request):
+    context = {
+        'registrados': Usuario.objects.all().count(),
+    }
+    return render(request, 'dashboard/index.html', context)
+
+def dashboardProductos(request):
+    context = {
+        'productos': Producto.objects.all()
+    }
+    return render(request, 'dashboard/productos.html', context)

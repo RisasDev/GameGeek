@@ -21,23 +21,17 @@ class UsuarioManager(BaseUserManager):
         usuario = self.get(rut=rut)
         usuario.delete()
         
-    def update_user_by_admin(self, rut, nombre, apellido, telefono, email, password):
+    def update_user(self, rut, nombre, apellido, telefono, email, password=None):
         usuario = self.get(rut=rut)
         usuario.nombre = nombre
         usuario.apellido = apellido
         usuario.telefono = telefono
         usuario.email = email
-        usuario.set_password(password)
-        usuario.save()
-        return usuario
-    
-    def update_user_by_user(self, rut, nombre, apellido, telefono, email):
-        usuario = self.get(rut=rut)
-        usuario.nombre = nombre
-        usuario.apellido = apellido
-        usuario.telefono = telefono
-        usuario.email = email
-        usuario.set_password(usuario.password)
+        
+        if password is not None and password != "":
+            print("Cambiando contraseña")
+            usuario.set_password(password)
+        
         usuario.save()
         return usuario
 

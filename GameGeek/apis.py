@@ -68,3 +68,29 @@ def registrarse(request):
             )
             
         return HttpResponse(json.dumps({"success": True}), content_type="application/json")
+    
+def guardarMisDatos(request):
+    if request.method == "POST":
+        json_data = json.loads(request.body)
+        
+        email = json_data["email"].strip()
+        emailExists = email != request.user.email and Usuario.objects.filter(email=email).exists()
+        
+        if emailExists:
+            return HttpResponse(json.dumps({"emailExist": True}), content_type="application/json")
+        
+        actualPassword = json_data["actual_password"].strip()
+        
+        if actualPassword != "" and not request.user.check_password(actualPassword):
+            return HttpResponse(json.dumps({"passwordIncorrect": True}), content_type="application/json")
+        
+        Usuario.objects.update_user(
+            request.user.rut,
+            json_data["nombre"],
+            json_data["apellido"],
+            json_data["telefono"].strip(),
+            email,
+            json_data.get("new_password", None)
+        )
+        
+        return HttpResponse(json.dumps({"success": True}), content_type="application/json")

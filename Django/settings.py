@@ -70,6 +70,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'Django.wsgi.application'
 
 AUTH_USER_MODEL = 'GameGeek.Usuario'
+LOGIN_URL = '/'
 
 
 # Database

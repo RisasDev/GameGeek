@@ -83,3 +83,25 @@ function validarPassword(password) {
 function validarConfirmarPassword(password, confirmPassword) {
   return confirmPassword !== "" && password === confirmPassword;
 }
+
+function validarPasswordLista(password) {
+  let hasMayuscula = /[A-Z]/.test(password);
+  let hasNumero = /[0-9]/.test(password);
+  let hasSimbolo = /[!@#-_\$%\^&\*]/.test(password);
+
+  const lista = [];
+
+  if (password.length < 12) lista.push(PASSWORD_ERROR.CARACTER_MINIMO);
+  if (!hasMayuscula) lista.push(PASSWORD_ERROR.MAYUSCULA);
+  if (!hasNumero) lista.push(PASSWORD_ERROR.NUMERO);
+  if (!hasSimbolo) lista.push(PASSWORD_ERROR.CARACTER_ESPECIAL);
+
+  return lista;
+}
+
+const PASSWORD_ERROR = {
+  CARACTER_MINIMO: "La contraseña debe tener minimo 12 caracteres",
+  CARACTER_ESPECIAL: "La contraseña debe tener al menos un caracter especial",
+  MAYUSCULA: "La contraseña debe tener al menos una mayúscula",
+  NUMERO: "La contraseña debe tener al menos un número",
+};

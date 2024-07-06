@@ -1,6 +1,11 @@
 a {
-  color: #1d1d1b;
+  color: #000000;
   text-decoration: none;
+}
+
+body {
+  font-family: 'Roboto', sans-serif!important;
+  letter-spacing: 2px;
 }
 
 th,
@@ -10,8 +15,22 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Verdana, sans-serif !important;
+  font-family: 'Roboto', sans-serif!important;
+  letter-spacing: 2px;
+}
+
+.text-title {
+  font-family: 'Roboto', sans-serif!important;
+  letter-spacing: 2px;
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.text-sub-title {
+  font-family: 'Roboto', sans-serif!important;
+  letter-spacing: 2px;
+  font-size: 1em;
+  font-weight: bold;
 }
 
 td,
@@ -19,8 +38,8 @@ li,
 p,
 button,
 span {
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif !important;
+  font-family: 'Roboto', sans-serif!important;
+  letter-spacing: 2px;
 }
 
 button:disabled,
@@ -28,6 +47,13 @@ button[disabled] {
   border: 1px solid #999999;
   background-color: #cccccc;
   color: #666666;
+  cursor: not-allowed;
+}
+
+input:disabled,
+input[disabled] {
+  color: rgba(141, 141, 141, 0.699);
+  cursor: not-allowed;
 }
 
 del {
@@ -42,7 +68,7 @@ main {
 
 footer {
   background-color: #ffb600;
-  color: #1d1d1b;
+  color: #000000;
   padding: 20px 0px;
   text-align: center;
   bottom: 0;
@@ -108,7 +134,7 @@ footer {
 
 .btn-orange {
   background-color: #ffb600 !important;
-  color: #1d1d1b;
+  color: #000000;
   border: none;
   padding: 10px 20px;
   text-align: center;
@@ -121,7 +147,7 @@ footer {
 
 .btn-orange:disabled {
   background-color: #666666 !important;
-  color: #1d1d1b;
+  color: #000000;
   border: none;
   padding: 10px 20px;
   text-align: center;
@@ -134,7 +160,7 @@ footer {
 
 .btn-orange:hover {
   background-color: #ffd058 !important;
-  color: #1d1d1b;
+  color: #000000;
   border: none;
   padding: 10px 20px;
   text-align: center;
@@ -147,7 +173,7 @@ footer {
 
 .btn-cart {
   background-color: #ffb600 !important;
-  color: #1d1d1b;
+  color: #000000;
   border: none;
   border-radius: 20px;
   padding: 10px 20px;
@@ -162,7 +188,7 @@ footer {
 
 .btn-cart:disabled {
   background-color: #666666 !important;
-  color: #1d1d1b;
+  color: #000000;
   border: none;
   padding: 10px 20px;
   text-align: center;
@@ -175,7 +201,7 @@ footer {
 
 .btn-cart:hover {
   background-color: #ffd058 !important;
-  color: #1d1d1b;
+  color: #000000;
   border: none;
   padding: 10px 20px;
   text-align: center;
@@ -277,6 +303,11 @@ div.desc {
   float: left !important;
 }
 
+.navbar-img {
+  width: auto;
+  height: 50px;
+}
+
 .term {
   display: flex;
   justify-content: center;
@@ -293,10 +324,13 @@ div.desc {
   background-color: #e9ecef;
 }
 
-.carousel-item img {
-  width: 350px;
-  height: 300px;
-  object-fit: cover;
+.w-100 {
+  width: 100%!important;
+}
+
+.img-fluid {
+  width: 100%;
+  height: auto;
 }
 
 .better-div {
@@ -341,7 +375,7 @@ div.desc {
 .navbar-dropdown-transition:hover {
   background-color: #ffb600;
   transition-property: color, background-color, border-color,
-    text-decoration-color, fill, stroke;
+  text-decoration-color, fill, stroke;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 200ms;
 }
@@ -351,13 +385,13 @@ div.desc {
 }
 
 .icon-size {
-  font-size: 35px;
-  color: #1d1d1b;
+  font-size: 50px;
+  color: #000000;
 }
 
 .navbar-icon {
   font-size: 25px;
-  color: #1d1d1b;
+  color: #000000;
 }
 
 .text-transition:hover {
@@ -384,7 +418,7 @@ div.desc {
 
 .icon-add-size {
   font-size: 25px;
-  color: black;
+  color: #000000;
 }
 
 .btn-add-cart {
@@ -433,7 +467,7 @@ div.desc {
 }
 
 .nav-space {
-  margin-right: 24%;
+  margin-right: 35%;
 }
 
 .txt-color-primary {
@@ -441,11 +475,12 @@ div.desc {
 }
 
 .txt-color-secondary {
-  color: #1d1d1b;
+  color: #000000;
 }
 
 .bg-yellow {
   background-color: #ffb600;
+  background: radial-gradient(circle, #ff9100 0%, #f7b733 100%);
 }
 
 .border-circle {
@@ -512,7 +547,7 @@ div.desc {
 }
 
 .footer-section ul li a {
-  color: #1d1d1b;
+  color: #000000;
   text-decoration: none;
 }
 
@@ -606,4 +641,8 @@ div.desc {
 .user-files {
   transition: 0.3s;
   color: black;
+}
+
+.offcanvas-custom-size {
+  width: 400px!important;
 }

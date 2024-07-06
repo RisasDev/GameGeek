@@ -5,7 +5,7 @@
   <div class="modal-dialog modal-right modal-dialog-scrollable modal-carro">
     <div class="modal-content">
       <div class="modal-header">
-        <h3 class="mx-auto">Carrito de compra</h3>
+        <h3 class="mx-auto text-title">Carrito de compra</h3>
       </div>
       <div class="modal-body">
         <div class="cart-preview__empty">
@@ -13,10 +13,10 @@
             <img src="/static/img/otros/compra.png" alt="GameGeek" width="300px" />
           </div>
 
-          <h6 class="text-center">¡Tu carrito está vacío!</h6>
+          <h6 class="text-center text-sub-title">¡Tu carrito está vacío!</h6>
 
           <div class="mt-3 text-center d-grid gap-2">
-            <a href="" class="btn btn-orange">Comprar ahora</a>
+            <a href="{% url 'index' %}" class="btn btn-orange">Comprar ahora</a>
           </div>
         </div>
         <div class="cart-preview__not-empty hidden">
@@ -33,7 +33,7 @@
 
           <div class="cart-preview__button">
             <div class="mt-3 text-center d-grid gap-2">
-              <a href="https://gamegeek.cl/checkout" class="btn btn-orange">Ver productos del carrito</a>
+              <a href="{% url 'shop-cart' %}" class="btn btn-orange">Ver productos del carrito</a>
             </div>
           </div>
         </div>
