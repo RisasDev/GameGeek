@@ -64,8 +64,8 @@
             <div class="container-card-title mt-3">
               <h6 class="card-title text-center text-sub-title">{{ producto.nombre }}</h6>
             </div>
-
-            <div class="card-body text-md-start">
+            
+            <div class="text-md-start">
               {% if producto.descuento == 0 %}
 
               <div class="container-card-price">
@@ -77,9 +77,9 @@
 
               {% else %}
 
-              <div class="container-card-discount">
-                <span class="discount-badge">{{ producto.descuento }}% DCTO</span>
-                <span><del>${{ producto.precio }}</del></span>
+              <div class="container-card-discount d-flex">
+                <span class="discount-badge">{{ producto.descuento }}%DCTO</span>
+                  <span><del>${{ producto.precio }}</del></span>
               </div>
               <div class="container-card-price">
                 <h6 class="mt-2">

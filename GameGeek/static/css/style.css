@@ -467,7 +467,7 @@ div.desc {
 }
 
 .nav-space {
-  margin-right: 35%;
+  margin-right: 22%!important;
 }
 
 .txt-color-primary {
@@ -510,6 +510,11 @@ div.desc {
 
 .info {
   text-align: left;
+}
+
+.info-user {
+  display: flex;
+  justify-content: space-evenly;
 }
 
 .ul-left {
