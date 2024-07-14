@@ -11,14 +11,16 @@
   <nav class="navbar navbar-expand-lg shadow-lg bg-yellow">
     <!-- Div para el responsive -->
     <div class="container-fluid">
-      <div>
-        <a href="{% url 'index' %}">
-          <img class="navbar-img" src="{% static 'img/gamegeek/gg-n-junto.svg' %}" alt="GameGeek" />
-        </a>
-      </div>
 
       <!-- Div de los items del navbar -->
-      <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+
+      <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
+        <div>
+          <a href="{% url 'index' %}">
+            <img class="navbar-img" src="{% static 'img/gamegeek/gg-n-junto.svg' %}" alt="GameGeek" />
+          </a>
+        </div>
+
         <ul class="navbar-nav mb-2 mb-lg-0">
           <!-- Inicio Item -->
           <li class="nav-item {{ hidden }}">
@@ -52,75 +54,76 @@
             <a class="nav-link text-transition text-sub-title txt-color-secondary" href="#footer-section">Contacto</a>
           </li>
         </ul>
-      </div>
-      <div class="justify-content-end align-items-center d-flex gap-3">
 
-        {% if request.user.is_authenticated %}
+        <div class="justify-content-end align-items-center d-flex gap-3">
 
-        <!-- Profile -->
-        <div>
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <div>
-                <a class="cursor-pointer" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar">
-                  <div class="d-flex align-items-center">
-                    <div>
-                      <i class="bi bi-person-circle navbar-icon"></i>
+          {% if request.user.is_authenticated %}
+  
+          <!-- Profile -->
+          <div>
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <div>
+                  <a class="cursor-pointer" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar">
+                    <div class="d-flex align-items-center">
+                      <div>
+                        <i class="bi bi-person-circle navbar-icon"></i>
+                      </div>
+                      <div>
+                        <span class="text-transition card-title">Mi Perfil</span>
+                      </div>
                     </div>
-                    <div>
-                      <span class="text-transition card-title">Mi Perfil</span>
+                  </a>
+                </div>
+              </li>
+            </ul>
+          </div>
+  
+          {% else %}
+  
+          <!-- Inicio Sesion -->
+          <div>
+            <ul class="navbar-nav">
+              {% include 'base/login.html' %}
+              <li class="nav-item">
+                <div>
+                  <a class="cursor-pointer" data-bs-toggle="modal" data-bs-target="#modal-login">
+                    <div class="d-flex align-items-center">
+                      <div>
+                        <i class="bi bi-person-circle navbar-icon"></i>
+                      </div>
+                      <div>
+                        <span class="text-transition card-title">Iniciar Sesión</span>
+                      </div>
                     </div>
-                  </div>
-                </a>
-              </div>
-            </li>
-          </ul>
-        </div>
-
-        {% else %}
-
-        <!-- Inicio Sesion -->
-        <div>
-          <ul class="navbar-nav">
-            {% include 'base/login.html' %}
-            <li class="nav-item">
-              <div>
-                <a class="cursor-pointer" data-bs-toggle="modal" data-bs-target="#modal-login">
-                  <div class="d-flex align-items-center">
-                    <div>
-                      <i class="bi bi-person-circle navbar-icon"></i>
+                  </a>
+                </div>
+              </li>
+            </ul>
+          </div>
+  
+          {% endif %}
+  
+          <!-- Carro -->
+          <div>
+            <ul class="navbar-nav">
+              {% include 'base/carrito.html' %}
+              <li class="nav-item">
+                <div>
+                  <a class="cursor-pointer" data-bs-toggle="modal" data-bs-target="#modal-carro">
+                    <div class="d-flex align-items-center">
+                      <div>
+                        <i class="bi bi-basket navbar-icon"></i>
+                      </div>
+                      <div>
+                        <span class="text-transition card-title">Mi carro</span>
+                      </div>
                     </div>
-                    <div>
-                      <span class="text-transition card-title">Iniciar Sesión</span>
-                    </div>
-                  </div>
-                </a>
-              </div>
-            </li>
-          </ul>
-        </div>
-
-        {% endif %}
-
-        <!-- Carro -->
-        <div>
-          <ul class="navbar-nav">
-            {% include 'base/carrito.html' %}
-            <li class="nav-item">
-              <div>
-                <a class="cursor-pointer" data-bs-toggle="modal" data-bs-target="#modal-carro">
-                  <div class="d-flex align-items-center">
-                    <div>
-                      <i class="bi bi-basket navbar-icon"></i>
-                    </div>
-                    <div>
-                      <span class="text-transition card-title">Mi carro</span>
-                    </div>
-                  </div>
-                </a>
-              </div>
-            </li>
-          </ul>
+                  </a>
+                </div>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
 

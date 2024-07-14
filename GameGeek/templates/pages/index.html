@@ -57,58 +57,60 @@
       <div class="container mb-5 justify-content-center" id="container-products">
         <div class="items justify-content-center">
           {% for producto in productos %}
-          <div class="card shadow-sm">
-            <div class="text-center">
-              <img src="{{ producto.imagen }}" alt="{{ producto.nombre }}" class="card-image" />
-            </div>
-            <div class="container-card-title mt-3">
-              <h6 class="card-title text-center text-sub-title">{{ producto.nombre }}</h6>
-            </div>
-            
-            <div class="text-md-start">
-              {% if producto.descuento == 0 %}
-
-              <div class="container-card-price">
-                <h6>
-                  Precio:
-                  <span class="card-price">${{ producto.precio }}</span>
-                </h6>
+          <div class="card card-animation shadow-sm">
+            <a href="">
+              <div class="text-center mb-2">
+                <img src="{{ producto.imagen }}" alt="{{ producto.nombre }}" class="card-image" />
               </div>
-
-              {% else %}
-
-              <div class="container-card-discount d-flex">
-                <span class="discount-badge">{{ producto.descuento }}%DCTO</span>
-                  <span><del>${{ producto.precio }}</del></span>
+              <div class="container-card-title mb-2">
+                <h6 class="card-title text-center text-sub-title">{{ producto.nombre }}</h6>
               </div>
-              <div class="container-card-price">
-                <h6 class="mt-2">
-                  Ahora
-                  <span class="card-price">${{ producto.precio_con_descuento }}</span>
-                </h6>
+              
+              <div class="card-body text-md-start">
+                {% if producto.descuento == 0 %}
+  
+                <div class="container-card-price">
+                  <h6>
+                    Precio:
+                    <span class="card-price">${{ producto.precio }}</span>
+                  </h6>
+                </div>
+  
+                {% else %}
+  
+                <div class="container-card-discount d-flex mb-2">
+                  <span class="discount-badge">{{ producto.descuento }}%DCTO</span>
+                    <span><del>${{ producto.precio }}</del></span>
+                </div>
+                <div class="container-card-price">
+                  <h6>
+                    Ahora
+                    <span class="card-price">${{ producto.precio_con_descuento }}</span>
+                  </h6>
+                </div>
+  
+                {% endif %}
+  
+                {% if producto.stock > 0 %}
+  
+                <div class="container-card-stock">
+                  <h6>
+                    Stock: <span class="card-stock">{{ producto.stock }}</span>
+                  </h6>
+                </div>
+  
+                {% else %}
+  
+                <div class="container-card-stock">
+                  <h6>
+                    Stock: <span class="card-stock">Agotado</span>
+                  </h6>
+                </div>
+  
+                {% endif %}
+  
               </div>
-
-              {% endif %}
-
-              {% if producto.stock > 0 %}
-
-              <div class="container-card-stock">
-                <h6 class="mt-2">
-                  Stock: <span class="card-stock">{{ producto.stock }}</span>
-                </h6>
-              </div>
-
-              {% else %}
-
-              <div class="container-card-stock">
-                <h6 class="mt-2">
-                  Stock: <span class="card-stock">Agotado</span>
-                </h6>
-              </div>
-
-              {% endif %}
-
-            </div>
+            </a>
             <div>
 
               {% if producto.stock > 0 %}
