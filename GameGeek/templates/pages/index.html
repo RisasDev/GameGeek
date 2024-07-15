@@ -37,7 +37,7 @@
         {% for categoria in categorias %}
         <div class="card card-animation">
           <a href="{% url 'productos' categoria=categoria.nombre %}">
-            <img src="{{ categoria.imagen }}" alt="{{ categoria.nombre }}" class="card-categoria" />
+            <img src="{% static 'img/categorias/' %}{{ categoria.imagen }}" alt="{{ categoria.nombre }}" class="card-categoria" />
           </a>
         </div>
         {% endfor %}
@@ -60,7 +60,7 @@
           <div class="card card-animation shadow-sm">
             <a href="">
               <div class="text-center mb-2">
-                <img src="{{ producto.imagen }}" alt="{{ producto.nombre }}" class="card-image" />
+                <img src="{% static 'img/productos/' %}{{ producto.imagen }}" alt="{{ producto.nombre }}" class="card-image" />
               </div>
               <div class="container-card-title mb-2">
                 <h6 class="card-title text-center text-sub-title">{{ producto.nombre }}</h6>

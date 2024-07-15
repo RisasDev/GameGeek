@@ -125,3 +125,10 @@ def dashboardProductos(request):
         'categorias': getCategorias()
     }
     return render(request, 'dashboard/productos.html', context)
+
+@login_required
+def dashboardCategorias(request):
+    context = {
+        'categorias': CategoriaProducto.objects.all()
+    }
+    return render(request, 'dashboard/categorias.html', context)

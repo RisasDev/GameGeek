@@ -1,8 +1,9 @@
-from .models import Usuario, Direccion, Producto
+from .models import Usuario, Direccion, CategoriaProducto, Producto
 from django.http import HttpResponse
 from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import redirect
 import json
+import os
 
 def iniciar_sesion(request):
     if request.method == "POST":
@@ -95,18 +96,119 @@ def guardarMisDatos(request):
         
         return HttpResponse(json.dumps({"success": True}), content_type="application/json")
     
+def dashboardAgregarCategoria(request):
+    if request.method == "POST":
+        json_data = json.loads(request.body)
+        
+        try:
+            nombre = json_data["nombre"]
+            nombre_imagen = nombre.replace(" ", "_") + "." + json_data["imagen"].split(".")[-1]
+            
+            ruta = "GameGeek/static/img/categorias/" + nombre_imagen
+            
+            with open(ruta, "wb") as file:
+                file.write(bytes(json_data["imagen_data"]))
+            
+            CategoriaProducto.objects.create_categoria_producto(nombre, nombre_imagen)
+            return HttpResponse(json.dumps({"success": True}), content_type="application/json")
+        except:
+            return HttpResponse(json.dumps({"success": False}), content_type="application/json")
+    
+def dashboardObtenerProducto(request):
+    if request.method == "POST":
+        json_data = json.loads(request.body)
+        id_producto = json_data.get("id_producto", "")
+        
+        if id_producto == "":
+            return HttpResponse(json.dumps({}), content_type="application/json")
+        
+        producto = Producto.objects.get(id=id_producto)
+        
+        if producto is None:
+            return HttpResponse(json.dumps({}), content_type="application/json")
+        
+        return HttpResponse(json.dumps({
+            "id": producto.id,
+            "nombre": producto.nombre,
+            "precio": producto.precio,
+            "descuento": producto.descuento,
+            "stock": producto.stock,
+            "descripcion": producto.descripcion,
+            "imagen": producto.imagen
+        }), content_type="application/json")
+    
 def dashboardAgregarProducto(request):
     if request.method == "POST":
         json_data = json.loads(request.body)
         
-        Producto.objects.create_producto(
-            nombre=json_data["nombre"],
-            imagen=json_data["imagen"],
-            precio=json_data["precio"],
-            descuento=json_data["descuento"],
-            stock=json_data["stock"],
-            descripcion=json_data["descripcion"],
-            id_categoria_producto=json_data["categoria"]
-        )
+        try:
+            nombre_imagen = json_data["nombre"].replace(" ", "_") + "." + json_data["imagen"].split(".")[-1]
+            
+            Producto.objects.create_producto(
+                nombre=json_data["nombre"],
+                imagen=nombre_imagen,
+                precio=json_data["precio"],
+                descuento=json_data["descuento"],
+                stock=json_data["stock"],
+                descripcion=json_data["descripcion"],
+                id_categoria_producto=json_data["categoria"]
+            )
+            
+            ruta = "GameGeek/static/img/productos/" + nombre_imagen
+            
+            with open(ruta, "wb") as file:
+                file.write(bytes(json_data["imagen_data"]))
+            
+            return HttpResponse(json.dumps({"success": True}), content_type="application/json")
+        except Exception as e:
+            print(e)
+            return HttpResponse(json.dumps({"success": False}), content_type="application/json")
+    
+def dashboardEliminarProducto(request):
+    if request.method == "POST":
+        json_data = json.loads(request.body)
         
-        return HttpResponse(json.dumps({"success": True}), content_type="application/json")
+        try:
+            producto = Producto.objects.get(id=json_data["id_producto"])
+            old_ruta = "GameGeek/static/img/productos/" + producto.imagen
+            
+            if os.path.exists(old_ruta):
+                os.remove(old_ruta)
+            
+            Producto.objects.delete_producto(producto.id)
+            return HttpResponse(json.dumps({"success": True}), content_type="application/json")
+        except:
+            return HttpResponse(json.dumps({"success": False}), content_type="application/json")
+        
+def dashboardModificarProducto(request):
+    if request.method == "POST":
+        json_data = json.loads(request.body)
+        
+        try:
+            old_ruta = "GameGeek/static/img/productos/" + json_data["old_imagen"]
+            
+            # Eliminar imagen antigua
+            if os.path.exists(old_ruta):
+                os.remove(old_ruta)
+                
+            nombre_imagen = json_data["nombre"].replace(" ", "_") + "." + json_data["imagen"].split(".")[-1]
+            
+            Producto.objects.update_producto(
+                json_data["id"],
+                json_data["nombre"],
+                nombre_imagen,
+                json_data["precio"],
+                json_data["descuento"],
+                json_data["stock"],
+                json_data["descripcion"],
+                json_data["categoria"]
+            )
+            
+            ruta = "GameGeek/static/img/productos/" + nombre_imagen
+            
+            with open(ruta, "wb") as file:
+                file.write(bytes(json_data["imagen_data"]))
+            
+            return HttpResponse(json.dumps({"success": True}), content_type="application/json")
+        except:
+            return HttpResponse(json.dumps({"success": False}), content_type="application/json")

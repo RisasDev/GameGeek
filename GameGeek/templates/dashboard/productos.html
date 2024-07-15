@@ -26,15 +26,13 @@
           <button class="btn btn-orange" id="menu-toggle">Menu</button>
         </nav>
 
-        <!-- Inicio contenedor de productos -->
-
         <div class="dashboard-container shadow-lg m-5">
           <div>
             <h3 class="mb-3">Productos</h3>
           </div>
           <div>
             <div class="table-responsive">
-              <table class="table table-light table-striped table-borderless text-center">
+              <table class="table table-light table-striped table-borderless">
                 <tr>
                   <th></th>
                   <th>N° de articulo</th>
@@ -50,7 +48,7 @@
 
                 <tr>
                   <td>
-                    <img src="{{ producto.imagen }}" class="img-product">
+                    <img src="{% static 'img/productos/' %}{{ producto.imagen }}" class="img-product">
                   </td>
                   <td>
                     <p class="mt-2">{{ producto.id }}</p>
@@ -72,10 +70,14 @@
                   </td>
                   <td>
                     <div class="d-flex justify-content-evenly">
-                      <button id="btn-add" type="button" class="btn btn-warning">
+                      {% include 'base/dashboard/product-edit.html' %}
+
+                      <button type="button" class="btn btn-warning btn-modal-product" data-bs-toggle="modal"
+                        data-bs-target="#modal-product-edit" data-id-producto="{{ producto.id }}">
                         <i class="bi bi-pencil-square"></i>
                       </button>
-                      <button id="btn-quit" type="button" class="btn btn-danger gap">
+                      <button type="button" class="btn btn-danger btn-delete-product gap"
+                        data-id-producto="{{ producto.id }}">
                         <i class="bi bi-trash3"></i>
                       </button>
                     </div>
@@ -95,8 +97,6 @@
         <div class="dashboard-container shadow-lg m-5">
           <h3 class="mb-3">Agregar Producto</h3>
           <form method="POST">
-            {% csrf_token %}
-
             <div>
               <div class="mb-3">
                 <label for="nombre-producto" class="form-label">Nombre</label>
@@ -105,7 +105,7 @@
               </div>
               <div class="mb-3">
                 <label for="imagen-producto" class="form-label">Imagen</label>
-                <input type="text" class="form-control" id="imagen-producto" placeholder="URL" required />
+                <input type="file" accept="image/*" class="form-control" id="imagen-producto" required />
               </div>
               <div class="mb-3">
                 <label for="precio-producto" class="form-label">Precio</label>

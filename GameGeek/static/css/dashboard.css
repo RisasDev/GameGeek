@@ -113,6 +113,10 @@ h5 {
   background-color: white;
 }
 
+.dashboard-container label {
+  text-align: start!important;
+}
+
 .form-control {
   background-color: #e9ecef;
 }

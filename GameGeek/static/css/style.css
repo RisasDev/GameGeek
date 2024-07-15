@@ -454,7 +454,6 @@ div.desc {
 
 .card {
   width: 300px; /* Fija el ancho de las tarjetas */
-  height: 100%; /* Fija la altura de las tarjetas */
   display: flex;
   flex-direction: column;
   justify-content: space-between; /* Asegura que los elementos se distribuyan equitativamente */

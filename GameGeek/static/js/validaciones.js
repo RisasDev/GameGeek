@@ -91,15 +91,15 @@ function validarPasswordLista(password) {
 
   const lista = [];
 
-  if (password.length < 12) lista.push(PASSWORD_ERROR.CARACTER_MINIMO);
-  if (!hasMayuscula) lista.push(PASSWORD_ERROR.MAYUSCULA);
-  if (!hasNumero) lista.push(PASSWORD_ERROR.NUMERO);
-  if (!hasSimbolo) lista.push(PASSWORD_ERROR.CARACTER_ESPECIAL);
+  if (password.length < 12) lista.push(PASSWORD_ERROR_VALIDACIONES.CARACTER_MINIMO);
+  if (!hasMayuscula) lista.push(PASSWORD_ERROR_VALIDACIONES.MAYUSCULA);
+  if (!hasNumero) lista.push(PASSWORD_ERROR_VALIDACIONES.NUMERO);
+  if (!hasSimbolo) lista.push(PASSWORD_ERROR_VALIDACIONES.CARACTER_ESPECIAL);
 
   return lista;
 }
 
-const PASSWORD_ERROR = {
+const PASSWORD_ERROR_VALIDACIONES = {
   CARACTER_MINIMO: "La contraseña debe tener minimo 12 caracteres",
   CARACTER_ESPECIAL: "La contraseña debe tener al menos un caracter especial",
   MAYUSCULA: "La contraseña debe tener al menos una mayúscula",

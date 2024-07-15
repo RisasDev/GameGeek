@@ -1,0 +1,53 @@
+{% load static %}
+
+<div class="modal fade" id="modal-product-edit" tabindex="-1" aria-labelledby="modal-product-edit" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title fs-5" id="modal-product-edit">Modificar Producto</h3>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="mb-3">
+                    <label for="nombre-producto-modal" class="form-label text-md-left">Nombre</label>
+                    <input type="text" class="form-control" id="nombre-producto-modal" placeholder="Nombre del producto"
+                        required />
+                </div>
+                <div class="mb-3">
+                    <label for="imagen-producto-modal" class="form-label">Imagen</label>
+                    <input type="file" accept="image/*" class="form-control" id="imagen-producto-modal" required />
+                </div>
+                <div class="mb-3">
+                    <label for="precio-producto-modal" class="form-label">Precio</label>
+                    <input type="number" class="form-control" id="precio-producto-modal" placeholder="CLP: 0" required />
+                </div>
+                <div class="mb-3">
+                    <label for="descuento-producto-modal" class="form-label">Descuento</label>
+                    <input type="number" class="form-control" id="descuento-producto-modal" placeholder="0" required />
+                </div>
+                <div class="mb-3">
+                    <label for="stock-producto-modal" class="form-label">Stock</label>
+                    <input type="number" class="form-control" id="stock-producto-modal" placeholder="0" required />
+                </div>
+                <div class="mb-3">
+                    <label for="descripcion-producto-modal" class="form-label">Descripción</label>
+                    <textarea class="form-control" id="descripcion-producto-modal" placeholder="Descripción del producto"
+                        required></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="categoria-producto-modal" class="form-label">Categoria</label>
+                    <select id="categoria-producto-modal" class="form-control">
+                        {% for categoria in categorias %}
+                        <option value="{{ categoria.id }}">{{ categoria.nombre_capitalize }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="btn-modify-product" type="button" class="btn btn-orange mx-auto">
+                    Modificar
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

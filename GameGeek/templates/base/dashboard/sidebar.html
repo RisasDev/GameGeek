@@ -4,7 +4,7 @@
     <img class="sidebar-heading img-fluid" src="{% static 'img/gamegeek/gg-n-junto.svg' %}" alt="GameGeek">
     <div class="list-group list-group-flush">
         <a href="{% url 'dashboard' %}" class="list-group-item list-group-item-action bg-yellow text-black">Estadisticas</a>
-        <a href="" class="list-group-item list-group-item-action bg-yellow text-black">Categorias</a>
+        <a href="{% url 'dashboard/categorias' %}" class="list-group-item list-group-item-action bg-yellow text-black">Categorias</a>
         <a href="{% url 'dashboard/productos' %}" class="list-group-item list-group-item-action bg-yellow text-black">Productos</a>
         <a href="{% url 'index' %}" class="list-group-item list-group-item-action bg-yellow text-black">Salir</a>
     </div>

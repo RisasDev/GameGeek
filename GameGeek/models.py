@@ -88,8 +88,9 @@ class Direccion(models.Model):
         return (f'Dirección: {self.direccion} {self.numero}, {self.comuna}, {self.region}')
     
 class CategoriaProductoManager(models.Manager):
-    def create_categoria_producto(self, nombre):
+    def create_categoria_producto(self, nombre, imagen=None):
         categoria_producto = self.model(nombre=nombre)
+        categoria_producto.imagen = imagen
         categoria_producto.save(using=self._db)
         return categoria_producto
 
@@ -127,12 +128,12 @@ class ProductoManager(models.Manager):
         producto.save(using=self._db)
         return producto
 
-    def delete_producto(self, nombre):
-        producto = self.get(nombre=nombre)
+    def delete_producto(self, id):
+        producto = self.get(id=id)
         producto.delete()
 
-    def update_producto(self, nombre, nuevo_nombre, imagen, precio, descuento, stock, descripcion, id_categoria_producto):
-        producto = self.get(nombre=nombre)
+    def update_producto(self, id, nuevo_nombre, imagen, precio, descuento, stock, descripcion, id_categoria_producto):
+        producto = self.get(id=id)
         producto.nombre = nuevo_nombre
         producto.imagen = imagen
         producto.precio = precio

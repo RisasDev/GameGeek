@@ -526,7 +526,7 @@ $(document).ready(function () {
 
 $.ajax({
   type: "GET",
-  url: "https://apis.digital.gob.cl/dpa/regiones",
+  url: "https://apis.digital.gob.cl/dpa/regiones/",
   data: "data",
   dataType: "JSONP",
   success: function (data) {
